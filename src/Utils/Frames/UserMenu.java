@@ -1,13 +1,16 @@
-package Components;
+package Utils.Frames;
 
 import javax.swing.JFrame;
 // import java.awt.event.ActionEvent;
 // import java.awt.event.ActionListener;
 // import Buttons.*;
 
+import Components.Account;
+import Components.User;
+
 public class UserMenu extends JFrame {
 
-    public UserMenu(Account user) {
+    public UserMenu(User user) {
 
     }
 

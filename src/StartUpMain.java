@@ -1,6 +1,6 @@
 import Components.Account;
-import Components.LogInFrame;
-import Components.SignUpFrame;
+import Utils.Frames.LogInFrame;
+import Utils.Frames.SignUpFrame;
 
 /**
  * Milan TODO:

@@ -1,20 +1,22 @@
-package Components;
+package Utils.Frames;
 
 import javax.swing.JFrame;
 
+import Components.Account;
 import Utils.Buttons.*;
-import Utils.TextBoxs.TypeITextBox;
+import Utils.TextBoxs.*;
 
+@SuppressWarnings("unused") // this notation is self explained already.
 public class SignUpFrame extends JFrame {
 
-    private Account user;
+    private Account account;
 
     private TypeIButton confirm;
     private TypeIButton toLogIn;
 
     private TypeITextBox fullName;
     private TypeITextBox dateOfBirth;
-    private TypeITextBox gender;
+    // private TypeITextBox gender;
     private TypeITextBox username;
     private TypeITextBox password;
     private TypeITextBox passwordConfirm;
@@ -43,21 +45,24 @@ public class SignUpFrame extends JFrame {
         this.setResizable(false);
         this.setLayout(null);
         this.setBounds(100, 200, 1000, 800);
-        // texbox init
 
         // button init
         confirm = new TypeIButton(250, 650, "Confirm");
         toLogIn = new TypeIButton(550, 650, "Log In");
         // input field should be 500in width, since KIM AI failed missurably
         // try to visualizing the layout, like a fking amateur.
-        confirm.addActionListener(e -> toMenu());
+        confirm.addActionListener(e -> createAccount());
         toLogIn.addActionListener(e -> toLogIn());
         // and then, just like that I got risk off the
         // event.* imports and interfaces.
 
+        // TODO textfield init
+
         // Frame combine
         this.add(confirm);
         this.add(toLogIn);
+        // this.pack(); Only when you have a layout manager that will
+        // size your frame, with null pack() will pack the frame to 0x0
         this.setVisible(false);
     }
 
@@ -66,15 +71,33 @@ public class SignUpFrame extends JFrame {
         this.logIn = logIn;
     }
 
+    public void createAccount() {
+        // get textfield content for account
+        account = new Account(username.getText(), password.getText());
+        if (account.getValidate()) {
+            account.getCurrentUser().setFullName(fullName.getText());
+            account.getCurrentUser().setDateOfBirth(dateOfBirth.getText());
+            account.save();// TODO
+            account.getCurrentUser().save();// TODO
+            toMenu();
+        } else {
+            account = null;
+            // popInvalid();
+        }
+    }
+
     private void toMenu() {
-        if (!user.isValid()) {
+        if (!account.getValidate()) {
             // user isvalid mean exist, on sign in, unexist is the criterion for confirm.
             // criteria is plural of criterion btw. noted that.
-            UserMenu menu = new UserMenu(user);
-            // (user.is_admin()) ? new UserMenu().setVisible(true) : new
+            UserMenu menu = new UserMenu(account.getCurrentUser());
+            // (userAccount.is_admin()) ? new UserMenu().setVisible(true) : new
             // UserMenu(user).setVisible(true);(too hard to read, but legit)
             menu.setVisible(true);
             this.dispose();
+        } else {
+            // TODO window pop up account invalid
+            // popInvalid();
         }
     }
 
