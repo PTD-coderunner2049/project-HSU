@@ -14,14 +14,19 @@ public class SignUpFrame extends JFrame {
     private TypeIButton confirm;
     private TypeIButton toLogIn;
 
-    private TypeITextBox fullName;
-    private TypeITextBox dateOfBirth;
+    private TypeITextBox fullNameText;
+    private TypeITextBox dateOfBirthText;
     // private TypeITextBox gender;
-    private TypeITextBox username;
-    private TypeITextBox password;
-    private TypeITextBox passwordConfirm;
+    private TypeITextBox usernameText;
+    private TypeITextBox passwordText;
+    private TypeITextBox passwordConfirmText;
 
     private LogInFrame logIn;
+
+    private int marginX = 220;
+    private int marginY = 10;
+    private int textMargin = 10; // 10 and 10 pixel from top left corner
+    private int pace = 5;
 
     /*
      * 2 input box, 2 botton OK & SignUp...
@@ -44,23 +49,33 @@ public class SignUpFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLayout(null);
-        this.setBounds(100, 200, 1000, 800);
+        this.setBounds(800, 300, 400, 250);
 
         // button init
-        confirm = new TypeIButton(250, 650, "Confirm");
-        toLogIn = new TypeIButton(550, 650, "Log In");
-        // input field should be 500in width, since KIM AI failed missurably
+        confirm = new TypeIButton(marginX, marginY + (TypeIButton.height + pace) * 0, "Confirm");
+        toLogIn = new TypeIButton(marginX, marginY + (TypeIButton.height + pace) * 1, "Log In?");
+        // input field should be 200 in width, since KIM AI failed missurably
         // try to visualizing the layout, like a fking amateur.
         confirm.addActionListener(e -> createAccount());
         toLogIn.addActionListener(e -> toLogIn());
         // and then, just like that I got risk off the
         // event.* imports and interfaces.
 
-        // TODO textfield init
-
+        // textfield init
+        usernameText = new TypeITextBox(textMargin, textMargin + (TypeITextBox.height + pace) * 0, "Username");
+        fullNameText = new TypeITextBox(textMargin, textMargin + (TypeITextBox.height + pace) * 1, "Full Name");
+        dateOfBirthText = new TypeITextBox(textMargin, textMargin + (TypeITextBox.height + pace) * 2, "Date of Birth");
+        passwordText = new TypeITextBox(textMargin, textMargin + (TypeITextBox.height + pace) * 3, "Password");
+        passwordConfirmText = new TypeITextBox(textMargin, textMargin + (TypeITextBox.height + pace) * 4,
+                "Password Confirm");
         // Frame combine
         this.add(confirm);
         this.add(toLogIn);
+        this.add(usernameText);
+        this.add(fullNameText);
+        this.add(dateOfBirthText);
+        this.add(passwordText);
+        this.add(passwordConfirmText);
         // this.pack(); Only when you have a layout manager that will
         // size your frame, with null pack() will pack the frame to 0x0
         this.setVisible(false);
@@ -71,19 +86,32 @@ public class SignUpFrame extends JFrame {
         this.logIn = logIn;
     }
 
-    public void createAccount() {
+    public void textInit() {
+    }
+
+    public boolean passwordMisMatch() {
+        return passwordText.getText() != passwordConfirmText.getText();
+    }
+
+    public boolean createAccount() {
         // get textfield content for account
-        account = new Account(username.getText(), password.getText());
-        if (account.getValidate()) {
-            account.getCurrentUser().setFullName(fullName.getText());
-            account.getCurrentUser().setDateOfBirth(dateOfBirth.getText());
-            account.save();// TODO
-            account.getCurrentUser().save();// TODO
-            toMenu();
-        } else {
-            account = null;
-            // popInvalid();
+        if (passwordMisMatch()) {
+            // TODO pop up window when password confirm doesn't match.
+            return false;
         }
+        account = new Account(usernameText.getText(), passwordText.getText());
+        if (!account.getValidate()) {
+            // TODO popInvalid();
+            account = null;
+            return false;
+        }
+        account.getCurrentUser().setFullName(fullNameText.getText());
+        account.getCurrentUser().setDateOfBirth(dateOfBirthText.getText());
+        // TODO account.save();
+        // TODO account.getCurrentUser().save();
+        toMenu();
+        return true;
+
     }
 
     private void toMenu() {
@@ -103,6 +131,7 @@ public class SignUpFrame extends JFrame {
 
     private void toLogIn() {
         this.setVisible(false);
+        logIn.setLocation(800, 300);
         logIn.setVisible(true);
         // reset this textfield too!!
     }

@@ -74,6 +74,7 @@ public class Account {
 
     public void save() {
         // TODO save to database
+        // account's ID is used as User ID, save username, password and ID only.
     }
 
 }
