@@ -1,4 +1,4 @@
-package mainStream.Source.models;
+package mainStream.Source.Models;
 
 import java.util.*;
 

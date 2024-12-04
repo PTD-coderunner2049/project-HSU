@@ -1,4 +1,4 @@
-package mainStream.Source.functions;
+package mainStream.Source.Functions;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;

@@ -10,4 +10,11 @@
         <maven.compiler.release>23</maven.compiler.release>
         <exec.mainClass>mainStream.ProjectHSUFinal</exec.mainClass>
     </properties>
+    <dependencies> 
+        <dependency> <!-- This is a dependancy, GSON by Google to do JSON's related tasks -->
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.11.0</version> <!-- update this when needed -->
+    </dependency>
+</dependencies>
 </project>
