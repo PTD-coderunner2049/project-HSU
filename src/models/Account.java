@@ -1,4 +1,4 @@
-package Components;
+package models;
 
 @SuppressWarnings("unused")
 public class Account {

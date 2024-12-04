@@ -1,4 +1,4 @@
-package Components;
+package models;
 
 public class Report {
     
