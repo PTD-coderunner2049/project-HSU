@@ -67,6 +67,12 @@ public class User {
      * + toDisplayRequest(list<Request>) : void
      * + toDisplayReport(list<Report>) : void
      */
+
     public void save() {
+        // TODO save user from JSON
+    }
+
+    public void reConstruct() {
+        // TODO reconstruct user from JSON
     }
 }

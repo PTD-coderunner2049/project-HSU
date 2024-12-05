@@ -90,4 +90,12 @@ public class Account {
         // TÓDO ID generator.
         return (this.id != null) ? true : false;
     }
+
+    public boolean recoverId() {
+        // for existed account to recover ID
+        if (isExist) {
+            // TODO recover ID from JSON by calling entire object.
+        }
+        return (this.id != null) ? true : false;
+    }
 }

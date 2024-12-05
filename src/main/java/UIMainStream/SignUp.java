@@ -262,10 +262,11 @@ public class SignUp extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane,
                         "Backend: ID earning failure!!!\n Dude! you forgot to build the ID generator.");
             } else {
-                account.initUser(this.fullName.getText(), this.dateOfBirth.getText())
-                
+                account.initUser(this.fullName.getText(), this.dateOfBirth.getText());
+
                 account.save();
                 account.getBondedUser().save();
+                account.setValidate(true);
 
                 JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
                 this.setVisible(false);
@@ -360,7 +361,7 @@ public class SignUp extends javax.swing.JFrame {
             }
 
             // Phương thức xác nhận mật khẩu
-            private void checkPassword() {// TODO disable button
+            private void checkPassword() {
                 char[] pass = password.getPassword();
                 char[] confirmP = confirmPassword.getPassword();
                 String passwordStr = new String(pass);
