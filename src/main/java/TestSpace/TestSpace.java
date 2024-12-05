@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
  * @author huynhkimai
  * @author ilovemilord
  */
+@SuppressWarnings("unused")
 public class TestSpace {
     public static void main(String[] args) {
 
