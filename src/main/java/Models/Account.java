@@ -1,15 +1,14 @@
 package Models;
 
+import java.io.IOException;
+
 @SuppressWarnings("unused")
 public class Account {
 
     private String username;
     private String password;
-    private User bondedUser;
-    private String id = null;// TODO static ID generator
-
+    private String id = null;
     private boolean isExist = false;
-    private boolean isAdmin = false;
 
     public Account() {
     }
@@ -26,16 +25,9 @@ public class Account {
     // public boolean getAdminRight() {
     // return isAdmin;
     // }
-    public User getBondedUser() {
-        return bondedUser;
-    }
 
     public void setValidate(boolean isValid) {
         this.isExist = isValid;
-    }
-
-    public void setAdminRight(boolean isAdmin) {
-        this.isAdmin = isAdmin;
     }
 
     public String getPassword() {
@@ -58,9 +50,12 @@ public class Account {
         return id;
     }
 
-    public boolean isExist() {
-        // TODO search for the match of already existed account on database
-        // ngl, amma just makeit auto valid rn;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public boolean isExist() throws IOException {
+        DataBase.accountValidate(this);
         if (true) {
             return this.isExist = true;
         } else {
@@ -76,26 +71,26 @@ public class Account {
     // }
     // }
 
-    public void save() {
-        // TODO save to database
-        // account's ID is used as User ID, save username, password and ID only.
+    public void save() throws IOException {
+        DataBase.eat(this);
     }
 
-    public boolean initUser(String fullName, String dateOfBirth) {
-        bondedUser = new User(this.id, fullName, dateOfBirth);
-        return (bondedUser.getId() != null) ? true : false;
+    public boolean initUser(String fullName, String dateOfBirth) throws IOException {
+        User user = new User(this.id, fullName, dateOfBirth);
+        user.save();
+        return (user.getId() != null) ? true : false;
     }
 
-    public boolean earnId() {
-        // TÓDO ID generator.
-        return (this.id != null) ? true : false;
-    }
+    // WARNING: LEGACY CODE replaced by database.vormit()
+    // public boolean earnId() {
+    //
+    // return (this.id != null) ? true : false;
+    // }
 
-    public boolean recoverId() {
-        // for existed account to recover ID
-        if (isExist) {
-            // TODO recover ID from JSON by calling entire object.
-        }
-        return (this.id != null) ? true : false;
-    }
+    // public boolean recoverId() {
+    // // for existed account to recover ID
+    // if (isExist) {
+    // }
+    // return (this.id != null) ? true : false;
+    // }
 }

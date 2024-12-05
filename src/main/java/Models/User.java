@@ -1,8 +1,10 @@
 package Models;
 
+import java.io.IOException;
 import java.util.*;// for the list<> structure
 
 public class User {
+    private boolean isAdmin = false;
     private String fullName;
     private String id = null;
     private String dateOfBirth;
@@ -16,6 +18,7 @@ public class User {
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
 
+        // Warning: LEGACY CODE - replaced by database.vormit()
         // load user with ID.
         // pullFullName();
         // pullRequests();
@@ -29,6 +32,14 @@ public class User {
 
     public String getId() {
         return id;
+    }
+
+    public void setAdminRight(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    public boolean getAdminRight() {
+        return isAdmin;
     }
 
     public String getFullName() {
@@ -59,20 +70,34 @@ public class User {
         return vehicles;// TODO update list<Vehicles> from database with ID
     }
 
+    public void setReports(List<Report> reports) {
+        this.reports = reports;
+    }
+
+    public void setRequests(List<Request> requests) {
+        this.requests = requests;
+    }
+
+    public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
+
     /**
-     * TODO feature choices
+     * TODO feature choices. to have User exist within Dashboard, and these funtions
+     * run as button command.
      * + toUserProfile(User) : boolean
      * + toVehicleList(List<Vehiclde>) : boolean
      * + toRequestFromt(String, String, &list<Vehicle>)
      * + toDisplayRequest(list<Request>) : void
      * + toDisplayReport(list<Report>) : void
+     * 
+     * @throws IOException
      */
 
-    public void save() {
-        // TODO save user from JSON
+    public void save() throws IOException {
+        DataBase.eat(this);
     }
-
-    public void reConstruct() {
-        // TODO reconstruct user from JSON
-    }
+    // WARNING: LEGACY CODE, replaced by database.vormit()
+    // public void reConstruct() {
+    // }
 }

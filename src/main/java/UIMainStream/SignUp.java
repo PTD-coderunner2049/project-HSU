@@ -5,6 +5,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import Models.Account;
+import Models.DataBase;
 
 public class SignUp extends javax.swing.JFrame {
     Login loginFrame;
@@ -256,17 +257,15 @@ public class SignUp extends javax.swing.JFrame {
 
         // String dateOfBirth = ;
 
-        if (!account.isExist()) {
-            account.earnId();
+        if (!account.isExist()) {// on signUp unexisting account is good to go.
+            DataBase.IdDistributor(account);
             if (account.getId() == null) {
                 JOptionPane.showMessageDialog(rootPane,
                         "Backend: ID earning failure!!!\n Dude! you forgot to build the ID generator.");
             } else {
-                account.initUser(this.fullName.getText(), this.dateOfBirth.getText());
-
-                account.save();
-                account.getBondedUser().save();
+                account.initUser(this.fullName.getText(), this.dateOfBirth.getText());// included save() for user;
                 account.setValidate(true);
+                account.save();
 
                 JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
                 this.setVisible(false);

@@ -1,6 +1,9 @@
 package UIMainStream;
 
+import java.io.IOException;
+
 import Models.Account;
+import Models.DataBase;
 
 public class Login extends javax.swing.JFrame {
         SignUp signupFrame;
@@ -236,15 +239,16 @@ public class Login extends javax.swing.JFrame {
         }
 
         // Button's behaviorous
-        private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
+        private void confirmActionPerformed(java.awt.event.ActionEvent evt) throws IOException {// GEN-FIRST:event_confirmActionPerformed
 
                 // Read info from textfield as String and passwordfield as a Stringified char[]
                 account.setUsername(this.userName.getText());
                 account.setPassword(new String(this.password.getPassword()));
 
                 if (account.isExist()) {// IF account exist, go to dashboard
+                        DataBase.vormit(account);
                         DashBoard dashBoard = new DashBoard(account.getId());
-                        // TODO Dashboard, nhận account ID vào.
+                        // TODO Dashboard, nhận account ID vào, gọi database.vormit()
                         dashBoard.setVisible(true);
                         dashBoard.pack();
                         dashBoard.setLocationRelativeTo(null);
