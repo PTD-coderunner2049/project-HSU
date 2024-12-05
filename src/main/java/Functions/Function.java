@@ -3,11 +3,6 @@ package Functions;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
-/**
- *
- * @author DELL
- */
 public class Function {
 
     public static ImageIcon scaleImage(JLabel label, ImageIcon icon) {
