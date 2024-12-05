@@ -239,7 +239,7 @@ public class SignUp extends javax.swing.JFrame {
 
         String passwordStr = new String(password);
 
-        createAccount(userName, dateOfBirth, passwordStr);
+        // createAccount(userName, dateOfBirth, passwordStr);
         JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
         this.setVisible(false);
         loginFrame.setVisible(true);
