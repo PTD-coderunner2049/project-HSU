@@ -13,9 +13,8 @@ public class Account {
     public Account(String username, String password) {
         this.username = username;
         this.password = password;
-        if (isValid()) {
+        if (isValid())
             currentUser = new User(id);
-        }
     }
 
     public boolean getValidate() {
@@ -64,13 +63,13 @@ public class Account {
         }
     }
 
-    public boolean isAdmin() {
-        if (true) {
-            return isAdmin = true;
-        } else {
-            return isAdmin = false;
-        }
-    }
+    // public boolean isAdmin() {
+    // if (true) {
+    // return isAdmin = true;
+    // } else {
+    // return isAdmin = false;
+    // }
+    // }
 
     public void save() {
         // TODO save to database
