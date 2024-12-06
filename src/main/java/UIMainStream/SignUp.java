@@ -89,19 +89,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel3.setText("Username");
 
-        userName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Date of birth");
-
-        dateOfBirth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateOfBirthActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Password");
 
@@ -268,7 +256,6 @@ public class SignUp extends javax.swing.JFrame {
         }
         return false;
     }
-
     // Button's behaviorous
     private void toLogInActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_toLogInActionPerformed
         this.setVisible(false);
@@ -300,13 +287,6 @@ public class SignUp extends javax.swing.JFrame {
         }
 
     }
-
-    private void dateOfBirthActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_dateOfBirthActionPerformed
-    }// GEN-LAST:event_dateOfBirthActionPerformed
-
-    private void userNameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_userNameActionPerformed
-    }// GEN-LAST:event_userNameActionPerformed
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
