@@ -55,12 +55,7 @@ public class Account {
     }
 
     public boolean isExist() throws IOException {
-        DataBase.accountValidate(this);
-        if (true) {
-            return this.isExist = true;
-        } else {
-            return this.isExist = false;
-        }
+        return this.isExist = DataBase.accountValidate(this);
     }
 
     // public boolean isAdmin() {
@@ -73,12 +68,6 @@ public class Account {
 
     public void save() throws IOException {
         DataBase.eat(this);
-    }
-
-    public boolean initUser(String fullName, String dateOfBirth) throws IOException {
-        User user = new User(this.id, fullName, dateOfBirth);
-        user.save();
-        return (user.getId() != null) ? true : false;
     }
 
     // WARNING: LEGACY CODE replaced by database.vormit()

@@ -13,6 +13,9 @@ public class User {
     private List<Report> reports;
     private List<Vehicle> vehicles;
 
+    public User() {
+    }
+
     public User(String id, String fullName, String dateOfBirth) {
         this.id = id;
         this.fullName = fullName;
@@ -93,6 +96,10 @@ public class User {
      * 
      * @throws IOException
      */
+
+    public static boolean initUser(String id, String fullName, String dateOfBirth) throws IOException {
+        return (id != null) ? DataBase.eat(new User(id, fullName, dateOfBirth)) : false;
+    }
 
     public void save() throws IOException {
         DataBase.eat(this);

@@ -9,6 +9,7 @@ import javax.swing.event.DocumentListener;
 
 import Models.Account;
 import Models.DataBase;
+import Models.User;
 
 public class SignUp extends javax.swing.JFrame {
 
@@ -283,24 +284,23 @@ public class SignUp extends javax.swing.JFrame {
         // Read info from textfield as String and passwordfield as a Stringified char[]
         account.setUsername(this.userName.getText());
         account.setPassword(new String(this.password.getPassword()));
-        account.save();
-        // if (!account.isExist()) {// on signUp unexisting account is good to go.
-        // DataBase.IdDistributor(account);
-        // if (account.getId() == null) {
-        // JOptionPane.showMessageDialog(rootPane,
-        // "Backend: ID earning failure!!!\n Dude! you forgot to build the ID
-        // generator.");
-        // } else {
-        // account.initUser(this.fullName.getText(), this.dateOfBirth.getText());
-        // // included save() for user;
-        // account.setValidate(true);
-        // account.save();
 
-        // JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
-        // this.setVisible(false);
-        // loginFrame.setVisible(true);
-        // }
-        // }
+        if (!account.isExist()) {// on signUp unexisting account is good to go.
+            DataBase.IdDistributor(account);
+        }
+        if (account.getId() == null) {
+            JOptionPane.showMessageDialog(rootPane,
+                    "ID earning failure! The problem can be of following reasons: \n  > Account existed.\n  > Data Fetching failure.");
+        } else {
+            User.initUser(account.getId(), this.fullName.getText(), this.dateOfBirth.getText());// include saved()
+            account.setValidate(true);
+            account.save();
+
+            JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
+            this.setVisible(false);
+            loginFrame.setVisible(true);
+        }
+
     }
 
     private void dateOfBirthActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_dateOfBirthActionPerformed

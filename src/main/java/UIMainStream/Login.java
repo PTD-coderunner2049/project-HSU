@@ -246,7 +246,6 @@ public class LogIn extends javax.swing.JFrame {
                 // Read info from textfield as String and passwordfield as a Stringified char[]
                 account.setUsername(this.userName.getText());
                 account.setPassword(new String(this.password.getPassword()));
-
                 try {
                         if (account.isExist()) {// IF account exist, go to dashboard
                                 DataBase.vormit(account);

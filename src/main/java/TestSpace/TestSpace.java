@@ -23,8 +23,8 @@ public class TestSpace {
     public static void main(String[] args) {
         // File myFile = new File(
         // "\"D:\\Obsidian-lord\\M'lord Source
-        // Codes\\ProjectHSUFinal\\src\\main\\java\\resources\\JSONs\\AccountsBank.JSON\"");
-        File myFile = new File("src/main/java/resources/JSONs/UsersBank.JSON");
+        // Codes\\ProjectHSUFinal\\src\\main\\resources\\JSONs\\AccountsBank.JSON\"");
+        File myFile = new File("src/main/resources/JSONs/UsersBank.JSON");
         System.out.println("Found: " + myFile.getAbsolutePath());
 
         GsonBuilder builder = new GsonBuilder();

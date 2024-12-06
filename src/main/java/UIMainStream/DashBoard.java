@@ -10,7 +10,7 @@ import Models.DataBase;
 import Models.User;
 
 public class DashBoard extends javax.swing.JFrame {
-    User user;
+    User user = new User();
 
     public DashBoard() {
         initComponents();

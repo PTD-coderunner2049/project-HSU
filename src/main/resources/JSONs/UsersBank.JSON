@@ -1,3 +1,14 @@
-{
-  "isExist": false
-}
+[
+  {
+    "isAdmin": false,
+    "fullName": "123",
+    "id": "0",
+    "dateOfBirth": "123"
+  },
+  {
+    "isAdmin": false,
+    "fullName": "123",
+    "id": "1",
+    "dateOfBirth": "123"
+  }
+]
