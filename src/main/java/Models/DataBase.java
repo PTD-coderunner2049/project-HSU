@@ -110,7 +110,7 @@ public abstract class DataBase {
         if (!account.isExist()) {
             return false;
         }
-        Gson gson = builder.create();
+        // Gson gson = builder.create();
         List<? extends Account> accountsList = fetchDataBase(Account.class);
         // WARNING LEGACY CODE: incase the multi-class-database-fetch came to ruin.
         // List<Account> accountsList;
@@ -139,7 +139,6 @@ public abstract class DataBase {
         if (user.getId() == null) {
             return false;
         }
-        Gson gson = builder.create();
         List<? extends User> usersList = fetchDataBase(User.class);
 
         // pull user info

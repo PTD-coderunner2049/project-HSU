@@ -2,6 +2,8 @@ package UIMainStream;
 
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import Models.Account;
 import Models.DataBase;
 
@@ -239,25 +241,31 @@ public class Login extends javax.swing.JFrame {
         }
 
         // Button's behaviorous
-        private void confirmActionPerformed(java.awt.event.ActionEvent evt) throws IOException {// GEN-FIRST:event_confirmActionPerformed
+        private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
 
                 // Read info from textfield as String and passwordfield as a Stringified char[]
                 account.setUsername(this.userName.getText());
                 account.setPassword(new String(this.password.getPassword()));
 
-                if (account.isExist()) {// IF account exist, go to dashboard
-                        DataBase.vormit(account);
-                        DashBoard dashBoard = new DashBoard(account.getId());
-                        // TODO Dashboard, nhận account ID vào, gọi database.vormit()
-                        dashBoard.setVisible(true);
-                        dashBoard.pack();
-                        dashBoard.setLocationRelativeTo(null);
-                        // dispose both pages
-                        signupFrame.dispose();
-                        this.dispose();
-                } else {
-                        message.setText("INVALID");
-                        message.setVisible(true);
+                try {
+                        if (account.isExist()) {// IF account exist, go to dashboard
+                                DataBase.vormit(account);
+                                DashBoard dashBoard = new DashBoard(account.getId());
+                                // TODO Dashboard, nhận account ID vào, gọi database.vormit()
+                                dashBoard.setVisible(true);
+                                dashBoard.pack();
+                                dashBoard.setLocationRelativeTo(null);
+                                // dispose both pages
+                                signupFrame.dispose();
+                                this.dispose();
+                        } else {
+                                message.setText("INVALID");
+                                message.setVisible(true);
+                        }
+                } catch (IOException e) {
+                        JOptionPane.showMessageDialog(rootPane,
+                                        "Backend: DashBoard load up failure!");
+
                 }
         }
 
