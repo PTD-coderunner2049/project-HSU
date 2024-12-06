@@ -2,7 +2,7 @@ package UIMainStream;
 
 public class MainEntry {
     public static void main(String[] args) {
-        Login logInFrame = new Login();
+        LogIn logInFrame = new LogIn();
         SignUp signUpFrame = new SignUp();
         logInFrame.pack();
         signUpFrame.pack();

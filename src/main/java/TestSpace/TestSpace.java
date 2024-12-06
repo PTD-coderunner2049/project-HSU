@@ -1,7 +1,18 @@
 package TestSpace;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import Models.Account;
 
 /**
  * @author huynhkimai
@@ -10,11 +21,21 @@ import com.google.gson.GsonBuilder;
 @SuppressWarnings("unused")
 public class TestSpace {
     public static void main(String[] args) {
+        // File myFile = new File(
+        // "\"D:\\Obsidian-lord\\M'lord Source
+        // Codes\\ProjectHSUFinal\\src\\main\\java\\resources\\JSONs\\AccountsBank.JSON\"");
+        File myFile = new File("src/main/java/resources/JSONs/UsersBank.JSON");
+        System.out.println("Found: " + myFile.getAbsolutePath());
 
         GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        GOP gop = new GOP();
-        System.out.println(builder.setPrettyPrinting().create().toJson(gop));
 
+        Account account = new Account();
+
+        try (FileWriter writer = new FileWriter(myFile)) {
+            writer.write(builder.setPrettyPrinting().create().toJson(account));
+            // writer.write("0");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

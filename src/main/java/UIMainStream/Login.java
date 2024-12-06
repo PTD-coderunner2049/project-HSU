@@ -7,12 +7,12 @@ import javax.swing.JOptionPane;
 import Models.Account;
 import Models.DataBase;
 
-public class Login extends javax.swing.JFrame {
+public class LogIn extends javax.swing.JFrame {
         SignUp signupFrame;
         Account account;
 
         // Login Frame's Constructor
-        public Login() {
+        public LogIn() {
                 initComponents();
                 this.setVisible(false);
                 account = new Account();
@@ -295,17 +295,21 @@ public class Login extends javax.swing.JFrame {
                                 }
                         }
                 } catch (ClassNotFoundException ex) {
-                        java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE,
-                                        null, ex);
+                        java.util.logging.Logger.getLogger(
+                                        LogIn.class.getName()).log(java.util.logging.Level.SEVERE,
+                                                        null, ex);
                 } catch (InstantiationException ex) {
-                        java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE,
-                                        null, ex);
+                        java.util.logging.Logger.getLogger(
+                                        LogIn.class.getName()).log(java.util.logging.Level.SEVERE,
+                                                        null, ex);
                 } catch (IllegalAccessException ex) {
-                        java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE,
-                                        null, ex);
+                        java.util.logging.Logger.getLogger(
+                                        LogIn.class.getName()).log(java.util.logging.Level.SEVERE,
+                                                        null, ex);
                 } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                        java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE,
-                                        null, ex);
+                        java.util.logging.Logger.getLogger(
+                                        LogIn.class.getName()).log(java.util.logging.Level.SEVERE,
+                                                        null, ex);
                 }
                 /* Create and display the form */
                 // java.awt.EventQueue.invokeLater(new Runnable() {

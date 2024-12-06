@@ -12,7 +12,7 @@ import Models.DataBase;
 
 public class SignUp extends javax.swing.JFrame {
 
-    Login loginFrame;
+    LogIn loginFrame;
     Account account;
 
     // SignUp frame's Constructor
@@ -109,7 +109,15 @@ public class SignUp extends javax.swing.JFrame {
         confirm.setText("Sign Up");
         confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmActionPerformed(evt);
+                try {
+                    confirmActionPerformed(evt);
+                } catch (HeadlessException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -254,7 +262,7 @@ public class SignUp extends javax.swing.JFrame {
 
     // ---------------------------------------------------------------
     // Bonding
-    public boolean bond(Login loginFrame) {
+    public boolean bond(LogIn loginFrame) {
         if (loginFrame != null) {
             this.loginFrame = loginFrame;
             return true;
@@ -270,37 +278,30 @@ public class SignUp extends javax.swing.JFrame {
         loginFrame.setLocationRelativeTo(null);
     }// GEN-LAST:event_toLogInActionPerformed
 
-    private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
+    private void confirmActionPerformed(java.awt.event.ActionEvent evt) throws HeadlessException, IOException {// GEN-FIRST:event_confirmActionPerformed
 
         // Read info from textfield as String and passwordfield as a Stringified char[]
         account.setUsername(this.userName.getText());
         account.setPassword(new String(this.password.getPassword()));
+        account.save();
+        // if (!account.isExist()) {// on signUp unexisting account is good to go.
+        // DataBase.IdDistributor(account);
+        // if (account.getId() == null) {
+        // JOptionPane.showMessageDialog(rootPane,
+        // "Backend: ID earning failure!!!\n Dude! you forgot to build the ID
+        // generator.");
+        // } else {
+        // account.initUser(this.fullName.getText(), this.dateOfBirth.getText());
+        // // included save() for user;
+        // account.setValidate(true);
+        // account.save();
 
-        // String dateOfBirth = ;
-        try {
-            if (!account.isExist()) {// on signUp unexisting account is good to go.
-                DataBase.IdDistributor(account);
-                if (account.getId() == null) {
-                    JOptionPane.showMessageDialog(rootPane,
-                            "Backend: ID earning failure!!!\n Dude! you forgot to build the ID generator.");
-                } else {
-                    account.initUser(this.fullName.getText(), this.dateOfBirth.getText());// included save() for user;
-                    account.setValidate(true);
-                    account.save();
-
-                    JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
-                    this.setVisible(false);
-                    loginFrame.setVisible(true);
-                }
-            }
-        } catch (HeadlessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }// GEN-LAST:event_confirmActionPerformed
+        // JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
+        // this.setVisible(false);
+        // loginFrame.setVisible(true);
+        // }
+        // }
+    }
 
     private void dateOfBirthActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_dateOfBirthActionPerformed
     }// GEN-LAST:event_dateOfBirthActionPerformed
