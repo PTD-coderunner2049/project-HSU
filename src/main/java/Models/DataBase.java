@@ -150,6 +150,7 @@ public abstract class DataBase {
     }
     // TODO vormit veh, req, rep.
 
+    // Power tools
     public static boolean IdDistributor(Account account) throws IOException {
         // send out available ID base on database account list's size()
         // pull account list
@@ -169,6 +170,25 @@ public abstract class DataBase {
         return false;
     }
 
+    // BEHOLE PEASANT, THIS IS MY INVENTION. Generic class
+
+    private static <T> List<T> fetchDataBase(File dir, Class<T> targetClass) {// capable of fetching any class to list.
+
+        // pull object list
+        try (FileReader jsonDataSheet = new FileReader(dir)) {
+            List<T> objectList;
+            Gson gson = builder.create();
+            objectList = gson.fromJson(jsonDataSheet, TypeToken.getParameterized(List.class, targetClass).getType());
+            return (objectList == null) ? new LinkedList<T>() : objectList;
+        } catch (IOException e) {
+            System.out.println("JSON DataBank fetching failure!");
+            return new LinkedList<>();
+        }
+    }
+
+    // @SuppressWarnings("unused")
+    // WARNING: LEGACY CODE, USELESS NOW
+
     // private static List<Account> fetchAccounts() throws IOException {
     // try (FileReader reader = new FileReader(accountsBank)) {
     // Gson gson = builder.create();
@@ -182,23 +202,6 @@ public abstract class DataBase {
     // }
     // }
 
-    // BEHOLE PEASANT, THIS IS MY INVENTION. Generic class capable of pulling any
-    // JSON class in a list.
-    private static <T> List<T> fetchDataBase(File dir, Class<T> targetClass) {
-        // pull object list
-
-        try (FileReader jsonDataSheet = new FileReader(dir)) {
-            List<T> objectList;
-            Gson gson = builder.create();
-            objectList = gson.fromJson(jsonDataSheet, TypeToken.getParameterized(List.class, targetClass).getType());
-            return (objectList == null) ? new LinkedList<T>() : objectList;
-        } catch (IOException e) {
-            System.out.println("JSON DataBank fetching failure!");
-            return new LinkedList<>();
-        }
-    }
-
-    // @SuppressWarnings("unused") // LEGACY CODE, USELESS NOW
     // private boolean patch(File dir) {// pack the JSON into an array if there are
     // only one object since GSON avoid
     // // doing this. and overwrite the original data.
