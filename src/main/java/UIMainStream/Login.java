@@ -273,7 +273,6 @@ public class Login extends javax.swing.JFrame {
                 this.setVisible(false);
 
                 signupFrame.setVisible(true);
-                signupFrame.pack();
                 signupFrame.setLocationRelativeTo(null);
         }
 
