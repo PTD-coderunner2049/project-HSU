@@ -113,10 +113,8 @@ public class SignUp extends javax.swing.JFrame {
                 try {
                     confirmActionPerformed(evt);
                 } catch (HeadlessException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }

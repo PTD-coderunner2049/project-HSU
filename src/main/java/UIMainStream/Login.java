@@ -250,7 +250,7 @@ public class LogIn extends javax.swing.JFrame {
                         if (account.isExist()) {// IF account exist, go to dashboard
                                 DataBase.vormit(account);
                                 DashBoard dashBoard = new DashBoard(account.getId());
-                                // TODO Dashboard, nhận account ID vào, gọi database.vormit()
+                                // Dashboard, nhận account ID vào, gọi database.vormit(User)
                                 dashBoard.setVisible(true);
                                 dashBoard.pack();
                                 dashBoard.setLocationRelativeTo(null);

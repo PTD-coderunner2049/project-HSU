@@ -1,7 +1,6 @@
 package Models;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,9 +10,9 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+// import com.google.gson.JsonArray;
+// import com.google.gson.JsonObject;
 
 // ----------------------------------------------------------------------------
 public abstract class DataBase {
@@ -117,7 +116,6 @@ public abstract class DataBase {
         List<User> usersList = fetchDataBase(usersBank, User.class);
         if (usersList == null)
             return false;// data empty
-
         for (User u : usersList) {// pull user info
             if (u.getId().equals(user.getId())) {
                 user.setAdminRight(u.getAdminRight());
@@ -200,21 +198,24 @@ public abstract class DataBase {
         }
     }
 
-    private boolean patch(File dir) {// pack the JSON into an array if there are only one object since GSON avoid
-                                     // doing this. and overwrite the original data.
-        try (FileReader reader = new FileReader(dir); FileWriter writer = new FileWriter(dir + ".patched")) {
-            Gson gson = builder.create();
-            JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
-            // Check if the JSON is already an array
-            if (!jsonObject.isJsonArray()) {// Wrap
-                JsonArray jsonArray = new JsonArray();
-                jsonArray.add(jsonObject);
-                writer.write(builder.setPrettyPrinting().create().toJson(jsonArray));
-                return true;
-            }
-        } catch (IOException e) {
-            System.out.println("JSON DataBank fetching failure!");
-        }
-        return false;
-    }
+    // @SuppressWarnings("unused") // LEGACY CODE, USELESS NOW
+    // private boolean patch(File dir) {// pack the JSON into an array if there are
+    // only one object since GSON avoid
+    // // doing this. and overwrite the original data.
+    // try (FileReader reader = new FileReader(dir); FileWriter writer = new
+    // FileWriter(dir + ".patched")) {
+    // Gson gson = builder.create();
+    // JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
+    // // Check if the JSON is already an array
+    // if (!jsonObject.isJsonArray()) {// Wrap
+    // JsonArray jsonArray = new JsonArray();
+    // jsonArray.add(jsonObject);
+    // writer.write(builder.setPrettyPrinting().create().toJson(jsonArray));
+    // return true;
+    // }
+    // } catch (IOException e) {
+    // System.out.println("JSON DataBank fetching failure!");
+    // }
+    // return false;
+    // }
 }
