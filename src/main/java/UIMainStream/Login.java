@@ -9,7 +9,7 @@ import Models.DataBase;
 
 public class LogIn extends javax.swing.JFrame {
         SignUp signupFrame;
-        Account account;
+        Account account = new Account();
 
         // Login Frame's Constructor
         public LogIn() {

@@ -1,7 +1,6 @@
 package Dashboard_Component;
 
 import javax.swing.ImageIcon;
-
 import Functions.Function;
 
 public class Dashboard_Component extends javax.swing.JPanel {
