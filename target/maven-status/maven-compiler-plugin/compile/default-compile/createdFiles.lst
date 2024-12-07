@@ -14,6 +14,7 @@ TestSpace\TestSpace.class
 UIMainStream\LogIn.class
 UIMainStream\SignUp.class
 Models\Account.class
+UIMainStream\LogIn$4.class
 Models\DataBase.class
 Functions\Function.class
 UIMainStream\SignUp$2.class

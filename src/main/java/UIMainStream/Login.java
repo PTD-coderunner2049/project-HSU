@@ -38,7 +38,7 @@ public class LogIn extends javax.swing.JFrame {
         message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("login");
+        setTitle("LogIn");
         setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -77,6 +77,12 @@ public class LogIn extends javax.swing.JFrame {
         jLabel1.setText("LOGIN");
 
         jLabel2.setText("Username");
+
+        userName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Password");
 
@@ -186,6 +192,12 @@ public class LogIn extends javax.swing.JFrame {
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_userNameActionPerformed
 
     // ---------------------------------------------------------------
     // Bonding
