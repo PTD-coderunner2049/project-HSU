@@ -130,11 +130,11 @@
                           <Component id="password" pref="317" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="loginBtn" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="confirm" min="-2" pref="72" max="-2" attributes="0"/>
                                   <Component id="jLabel4" min="-2" pref="198" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="signUpBtn" min="-2" max="-2" attributes="0"/>
+                              <Component id="toSignUp" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           </Group>
                           <Component id="message" max="32767" attributes="0"/>
@@ -164,11 +164,11 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="password" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="loginBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="confirm" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="signUpBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="toSignUp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="186" max="32767" attributes="0"/>
                   </Group>
@@ -199,12 +199,15 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="loginBtn">
+            <Component class="javax.swing.JButton" name="confirm">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Login"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="login"/>
+              </AccessibilityProperties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -215,18 +218,21 @@
                 <Property name="text" type="java.lang.String" value="You don&apos;t have an account yet?"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="signUpBtn">
+            <Component class="javax.swing.JButton" name="toSignUp">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sign Up"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signUpBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toSignUpActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="password">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jPasswordField1"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="message">
               <Properties>
