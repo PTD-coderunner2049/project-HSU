@@ -1,8 +1,5 @@
 package UIMainStream;
 
-import java.awt.HeadlessException;
-import java.io.IOException;
-
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -28,6 +25,7 @@ public class SignUp extends javax.swing.JFrame {
         this.addEventListener();
     }
 
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
@@ -87,7 +85,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel2.setText("Sign Up");
+        jLabel2.setText("SIGN UP");
 
         username.setText("Username");
 
@@ -100,13 +98,7 @@ public class SignUp extends javax.swing.JFrame {
         confirm.setText("Sign Up");
         confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    confirmActionPerformed(evt);
-                } catch (HeadlessException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                confirmActionPerformed(evt);
             }
         });
 
@@ -134,10 +126,6 @@ public class SignUp extends javax.swing.JFrame {
                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGap(145, 145, 145)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGap(162, 162, 162)
                                                 .addComponent(confirm))
@@ -184,13 +172,18 @@ public class SignUp extends javax.swing.JFrame {
                                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                         Short.MAX_VALUE)
                                                                 .addComponent(fullName)))))
-                                .addContainerGap(58, Short.MAX_VALUE)));
+                                .addContainerGap(58, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(152, 152, 152)));
         jPanel3Layout.setVerticalGroup(
                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
+                                .addGap(54, 54, 54)
                                 .addComponent(jLabel2)
-                                .addGap(14, 14, 14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(message)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(username)
@@ -225,6 +218,8 @@ public class SignUp extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addComponent(toLogIn))
                                 .addGap(52, 52, 52)));
+
+        jLabel2.getAccessibleContext().setAccessibleName("SIGN UP");
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(410, 0, 400, 500);
@@ -265,7 +260,7 @@ public class SignUp extends javax.swing.JFrame {
         loginFrame.setLocationRelativeTo(null);
     }// GEN-LAST:event_toLogInActionPerformed
 
-    private void confirmActionPerformed(java.awt.event.ActionEvent evt) throws HeadlessException, IOException {// GEN-FIRST:event_confirmActionPerformed
+    private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
 
         // Read info from textfield as String and passwordfield as a Stringified char[]
         account.setUsername(this.userName.getText());

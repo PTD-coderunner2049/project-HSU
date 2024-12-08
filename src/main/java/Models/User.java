@@ -1,6 +1,5 @@
 package Models;
 
-import java.io.IOException;
 import java.util.List;
 
 public class User extends Model {
@@ -34,7 +33,7 @@ public class User extends Model {
         return (instance == null) ? instance = new User() : instance;
     }
 
-    public boolean initUser(String id, String fullName, String dateOfBirth) throws IOException {
+    public boolean initUser(String id, String fullName, String dateOfBirth) {
         if (id != null) {
             this.id = id;
             this.fullName = fullName;
