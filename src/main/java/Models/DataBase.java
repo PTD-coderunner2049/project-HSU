@@ -136,11 +136,11 @@ public abstract class DataBase {
     // read from the core database.
     private static <T extends Model> File findBank(Class<T> objectClass) {
         if (objectClass == User.class) {
-            DataStream.setId(1);
+            DataStream.setBankId(1);
             return usersBank;
         }
         if (objectClass == Account.class) {
-            DataStream.setId(2);
+            DataStream.setBankId(2);
             return accountsBank;
         }
         if (objectClass == Request.class) {
@@ -166,7 +166,7 @@ public abstract class DataBase {
 
         if (objectsList == null)
             return false;// none to vormit]
-        int i = DataStream.getId();
+        int i = DataStream.getBankId();
 
         if (i == 1) {
             User user = User.getInstance(); // When know it was user, call the static instance of user
