@@ -4,21 +4,17 @@
  */
 package UIMainStream;
 
-import java.io.IOException;
-
-import Models.DataBase;
+import Models.Account;
 import Models.User;
 
 public class DashBoard extends javax.swing.JFrame {
-    User user = new User();
+    User user = User.getInstance();
+    Account account;
 
     public DashBoard() {
-        initComponents();
-    }
-
-    public DashBoard(String id) throws IOException {
-        user.setId(id);
-        DataBase.vormit(user);
+        account = Account.getInstance();
+        user.setId(account.getId());
+        user.reconstuct();
         initComponents();
     }
 

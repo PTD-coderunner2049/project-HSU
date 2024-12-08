@@ -1,5 +1,5 @@
 package Models;
 
-public class Vehicle {
-    
+public class Vehicle extends Model {
+
 }

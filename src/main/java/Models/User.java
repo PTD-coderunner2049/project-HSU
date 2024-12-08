@@ -1,26 +1,26 @@
 package Models;
 
 import java.io.IOException;
-import java.util.*;// for the list<> structure
+import java.util.List;
 
-public class User {
+public class User extends Model {
+    private static User instance;
+
     private boolean isAdmin = false;
     private String fullName;
     private String id = null;
     private String dateOfBirth;
-    // https://www.geeksforgeeks.org/list-interface-java-examples/
     private List<Request> requests;
     private List<Report> reports;
     private List<Vehicle> vehicles;
 
-    public User() {
-    }
+    private User() {
+    };
 
-    public User(String id, String fullName, String dateOfBirth) {
+    private User(String id, String fullName, String dateOfBirth) {
         this.id = id;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
-
         // Warning: LEGACY CODE - replaced by database.vormit()
         // load user with ID.
         // pullFullName();
@@ -29,6 +29,22 @@ public class User {
         // pullVehicles();
     }
 
+    // only one User the entire time
+    public static User getInstance() {
+        return (instance == null) ? instance = new User() : instance;
+    }
+
+    public boolean initUser(String id, String fullName, String dateOfBirth) throws IOException {
+        if (id != null) {
+            this.id = id;
+            this.fullName = fullName;
+            this.dateOfBirth = dateOfBirth;
+        }
+        save();
+        return false;
+    }
+
+    // getter setter-----------------------------------
     public void setId(String id) {
         this.id = id;
     }
@@ -93,18 +109,5 @@ public class User {
      * + toRequestFromt(String, String, &list<Vehicle>)
      * + toDisplayRequest(list<Request>) : void
      * + toDisplayReport(list<Report>) : void
-     * 
-     * @throws IOException
      */
-
-    public static boolean initUser(String id, String fullName, String dateOfBirth) throws IOException {
-        return (id != null) ? DataBase.eat(new User(id, fullName, dateOfBirth)) : false;
-    }
-
-    public void save() throws IOException {
-        DataBase.eat(this);
-    }
-    // WARNING: LEGACY CODE, replaced by database.vormit()
-    // public void reConstruct() {
-    // }
 }

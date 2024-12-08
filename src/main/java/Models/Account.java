@@ -1,33 +1,19 @@
 package Models;
 
-import java.io.IOException;
-
 // @SuppressWarnings("unused")
-public class Account {
+public class Account extends Model {
+    private static Account instance;
 
     private String username;
     private String password;
     private String id = null;
-    private boolean isExist = false;
 
-    public Account() {
+    private Account() {
     }
 
-    public Account(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public boolean getValidate() {
-        return isExist;
-    }
-
-    // public boolean getAdminRight() {
-    // return isAdmin;
-    // }
-
-    public void setValidate(boolean isValid) {
-        this.isExist = isValid;
+    // only one Account the entire time
+    public static Account getInstance() {
+        return (instance == null) ? instance = new Account() : instance;
     }
 
     public String getPassword() {
@@ -54,9 +40,9 @@ public class Account {
         this.id = id;
     }
 
-    public boolean isExist() throws IOException {
-        return this.isExist = DataBase.accountValidate(this);
-    }
+    // public boolean isExist() {
+    // return DataBase.accountValidate(this);
+    // }
 
     // public boolean isAdmin() {
     // if (true) {
@@ -65,10 +51,6 @@ public class Account {
     // return isAdmin = false;
     // }
     // }
-
-    public void save() throws IOException {
-        DataBase.eat(this);
-    }
 
     // WARNING: LEGACY CODE replaced by database.vormit()
     // public boolean earnId() {

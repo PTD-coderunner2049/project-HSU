@@ -29,7 +29,7 @@ public class TestSpace {
 
         GsonBuilder builder = new GsonBuilder();
 
-        Account account = new Account();
+        Account account = Account.getInstance();
 
         try (FileWriter writer = new FileWriter(myFile)) {
             writer.write(builder.setPrettyPrinting().create().toJson(account));

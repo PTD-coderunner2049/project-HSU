@@ -1,5 +1,5 @@
 package Models;
 
-public class Report {
+public class Report extends Model{
     
 }

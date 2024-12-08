@@ -1,5 +1,5 @@
 package Models;
 
-public class Request {
+public class Request extends Model{
     
 }
