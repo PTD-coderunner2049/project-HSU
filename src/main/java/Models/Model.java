@@ -9,5 +9,4 @@ public abstract class Model {
     public void reconstuct() {
         DataBase.vormit(this);
     };
-    
 }

@@ -662,7 +662,7 @@ public class DashBoard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UsernameMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_UsernameMouseClicked
-        // TODO add your handling code here:
+        // 
         pageuser.setVisible(true);
         pagecreate.setVisible(false);
         pagereport.setVisible(false);
@@ -697,7 +697,7 @@ public class DashBoard extends javax.swing.JFrame {
     }// GEN-LAST:event_UsernameMouseClicked
 
     private void CreateRequestMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_CreateRequestMouseClicked
-        // TODO add your handling code here:
+  
         pagecreate.setVisible(true);
         pageuser.setVisible(false);
         pagereport.setVisible(false);
@@ -733,7 +733,7 @@ public class DashBoard extends javax.swing.JFrame {
     }// GEN-LAST:event_CreateRequestMouseClicked
 
     private void ReportMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_ReportMouseClicked
-        // TODO add your handling code here:
+
         pagereport.setVisible(true);
         pageuser.setVisible(false);
         pagecreate.setVisible(false);
@@ -743,7 +743,7 @@ public class DashBoard extends javax.swing.JFrame {
     }// GEN-LAST:event_ReportMouseClicked
 
     private void RequestMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_RequestMouseClicked
-        // TODO add your handling code here:
+ 
         pagerequest.setVisible(true);
         pageuser.setVisible(false);
         pagecreate.setVisible(false);
@@ -753,7 +753,7 @@ public class DashBoard extends javax.swing.JFrame {
     }// GEN-LAST:event_RequestMouseClicked
 
     private void xemphuongtienMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_xemphuongtienMouseClicked
-        // TODO add your handling code here:
+    
         pagevehicles.setVisible(true);
         pageuser.setVisible(false);
         pagecreate.setVisible(false);
@@ -763,12 +763,12 @@ public class DashBoard extends javax.swing.JFrame {
     }// GEN-LAST:event_xemphuongtienMouseClicked
 
     private void LogoutMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_LogoutMouseClicked
-        // TODO add your handling code here:
+     
         this.dispose();
     }// GEN-LAST:event_LogoutMouseClicked
 
     private void TaoyeucaunhapMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_TaoyeucaunhapMouseClicked
-        // TODO add your handling code here:
+      
         jLabel14.setVisible(true);
         jLabel15.setVisible(true);
         jLabel16.setVisible(true);
@@ -781,7 +781,7 @@ public class DashBoard extends javax.swing.JFrame {
     }// GEN-LAST:event_TaoyeucaunhapMouseClicked
 
     private void TaoyeucauxuatMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_TaoyeucauxuatMouseClicked
-        // TODO add your handling code here:
+    
         jLabel14.setVisible(true);
         jLabel15.setVisible(true);
         jLabel16.setVisible(true);

@@ -144,14 +144,15 @@ public abstract class DataBase {
             return accountsBank;
         }
         if (objectClass == Request.class) {
+            DataStream.setBankId(3);
             return requestsBank;
         }
         if (objectClass == Report.class) {
-
+            DataStream.setBankId(4);
             return reportsBank;
         }
         if (objectClass == Vehicle.class) {
-
+            DataStream.setBankId(5);
             return vehiclesBank;
         }
         return null;
@@ -183,7 +184,7 @@ public abstract class DataBase {
                     return true;
                 }
             }
-        } else if (i == 2) {
+        } else if (i == 2) {// pull user include the document.
             Account account = Account.getInstance();
             for (Account a : (List<Account>) objectsList) {
                 if (a.getUsername().equals(account.getUsername()) &&
@@ -192,8 +193,26 @@ public abstract class DataBase {
                     return true;
                 }
             }
-        }
-        // TODO case 3 4 5 req rep veh
+        } // TODO case 3 4 5 req rep veh
+          // else if (i == 3) {// WIP removethis, we load these up during user. no need to
+          // limit this func to
+          // // certain type, I can use this to load entire bank for other admintrative
+          // // feature.
+
+        // // take in one request, so objectlist will fetch that entire request list
+        // // loop for request that match user id and add.
+
+        // User user = User.getInstance(); // When know it was user, call the static
+        // instance of user
+        // int target = user.Reports().size();
+        // for (Request r : (List<Request>) objectsList) {
+        // if (r.getUserID().equals(user.getId())) {
+        // user.getRequests().add(r);
+        // }
+        // if (target == 0)
+        // return true;// return after found enough.
+        // }
+        // }
         else {
             System.out.println("Unknown object type: " + objectClass);
         }

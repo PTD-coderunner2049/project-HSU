@@ -1,0 +1,59 @@
+[
+  {
+    "isAccepted": false,
+    "docID": "3",
+    "userID": "4",
+    "vehicleID": "AWdAWS",
+    "requestedTime": {
+      "day": 123,
+      "month": 45,
+      "year": 6,
+      "hour": 4
+    },
+    "submittedTime": {
+      "day": 123,
+      "month": 45,
+      "year": 6,
+      "hour": 4
+    },
+    "type": false
+  },
+  {
+    "isAccepted": false,
+    "docID": "3",
+    "userID": "4",
+    "vehicleID": "AWdAWS",
+    "requestedTime": {
+      "day": 123,
+      "month": 45,
+      "year": 6,
+      "hour": 4
+    },
+    "submittedTime": {
+      "day": 123,
+      "month": 45,
+      "year": 6,
+      "hour": 4
+    },
+    "type": false
+  },
+  {
+    "isAccepted": false,
+    "docID": "3",
+    "userID": "4",
+    "vehicleID": "AWdAWS",
+    "requestedTime": {
+      "day": 123,
+      "month": 45,
+      "year": 6,
+      "hour": 4
+    },
+    "submittedTime": {
+      "day": 123,
+      "month": 45,
+      "year": 6,
+      "hour": 4
+    },
+    "type": false
+  }
+]
