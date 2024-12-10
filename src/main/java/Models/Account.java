@@ -6,7 +6,6 @@ public class Account extends Model {
 
     private String username;
     private String password;
-    private String id = null;
 
     private Account() {
     }
@@ -32,12 +31,10 @@ public class Account extends Model {
         this.username = username;
     }
 
+    @Override
     public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        // TODO Auto-generated method stub
+        return super.getId();
     }
 
     // public boolean isExist() {

@@ -1,5 +1,6 @@
 package Models;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class User extends Model {
@@ -7,26 +8,16 @@ public class User extends Model {
 
     private boolean isAdmin = false;
     private String fullName;
-    private String id = null;
     private String dateOfBirth;
-    private List<Request> requests;
-    private List<Report> reports;
-    private List<Vehicle> vehicles;
+    private List<Request> requests = new LinkedList<>();
+    private List<Report> reports = new LinkedList<>();
+    private List<Vehicle> vehicles = new LinkedList<>();
 
     private User() {
+        Account account = Account.getInstance();
+        setId(account.getId());//prebuilt user base on account
+        reconstuct();
     };
-
-    private User(String id, String fullName, String dateOfBirth) {
-        this.id = id;
-        this.fullName = fullName;
-        this.dateOfBirth = dateOfBirth;
-        // Warning: LEGACY CODE - replaced by database.vormit()
-        // load user with ID.
-        // pullFullName();
-        // pullRequests();
-        // pullReports();
-        // pullVehicles();
-    }
 
     // only one User the entire time
     public static User getInstance() {
@@ -35,7 +26,7 @@ public class User extends Model {
 
     public boolean initUser(String id, String fullName, String dateOfBirth) {
         if (id != null) {
-            this.id = id;
+            setId(id);
             this.fullName = fullName;
             this.dateOfBirth = dateOfBirth;
         }
@@ -44,13 +35,6 @@ public class User extends Model {
     }
 
     // getter setter-----------------------------------
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getId() {
-        return id;
-    }
 
     public void setAdminRight(boolean isAdmin) {
         this.isAdmin = isAdmin;
@@ -89,15 +73,15 @@ public class User extends Model {
     }
 
     public void setReports(List<Report> reports) {
-        this.reports = reports;
+        this.reports.addAll(reports);
     }
 
     public void setRequests(List<Request> requests) {
-        this.requests = requests;
+        this.requests.addAll(requests);
     }
 
     public void setVehicles(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
+        this.vehicles.addAll(vehicles);
     }
 
     /**

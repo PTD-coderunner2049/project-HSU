@@ -47,13 +47,21 @@ public abstract class DataBase {
 
     // Generic eat method.
     public static <T extends Model> boolean eat(T object) {
-        // Navigate object type.
+        // Navigate object type and pull appopriate list.
         @SuppressWarnings("unchecked") // I dont know how to check for it.
         Class<T> objectClass = (Class<T>) object.getClass();
         File desiredBank = findBank(objectClass);
-        // add
         List<T> objectsList = fetchDataBase(desiredBank, objectClass);
-        objectsList.add(object);
+
+        // look for existing to replace before add
+        int i = haveExistingID(objectsList, object.getId());
+        if (i == -1) {
+            objectsList.add(object);
+        } else {
+            objectsList.set(0, object);
+        }
+
+        // save updated data
         try (FileWriter writer = new FileWriter(desiredBank)) {
             writer.write(builder.setPrettyPrinting().create().toJson(objectsList));
             return true;
@@ -61,6 +69,15 @@ public abstract class DataBase {
             System.err.println("Data directory void, attempted to recreate directory. Retry? " + e.getMessage());
             return false;
         }
+    }
+
+    public static <T extends Model> int haveExistingID(List<T> objectsList, String id) {
+        for (int i = 0; i < objectsList.size(); i++) {
+            if (objectsList.get(i).getId().equals(id)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     // WARNING: LEGACY CODE - Overloaded eat method for difference classes.
@@ -163,6 +180,7 @@ public abstract class DataBase {
 
         Class<T> objectClass = (Class<T>) object.getClass();
         File desiredBank = findBank(objectClass);
+
         List<T> objectsList = fetchDataBase(desiredBank, objectClass);
 
         if (objectsList == null)
@@ -214,7 +232,7 @@ public abstract class DataBase {
         // }
         // }
         else {
-            System.out.println("Unknown object type: " + objectClass);
+            System.out.println("Unsupported object type: " + objectClass);
         }
         return false;// unknow Object
     }
@@ -262,13 +280,16 @@ public abstract class DataBase {
     // }
 
     // Power tools-----------------------------------------------------------------
-    public static boolean IdDistributor(Account account) {
-        // send out available ID base on database account list's size()
-        // pull account list
-        List<Account> accountsList = fetchDataBase(accountsBank, Account.class);
+    @SuppressWarnings("unchecked")
+    public static <T extends Model> boolean IdDistributor(T object) {
+        // send out available ID base on database list's size()
+        // pull object list
+        Class<T> objectClass = (Class<T>) object.getClass();
+        File desiredBank = findBank(objectClass);
+        List<T> objectsList = fetchDataBase(desiredBank, objectClass);
         // assigning ID
-        account.setId(Integer.toString(accountsList.size()));
-        return (account.getId() != null) ? true : false;
+        object.setId(Integer.toString(objectsList.size()));
+        return (object.getId() != null) ? true : false;
     }
 
     public static boolean accountValidate(Account account) {

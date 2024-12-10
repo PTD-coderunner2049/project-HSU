@@ -1,25 +1,28 @@
 package Models;
 
 public abstract class Document extends Model {
-    private String docID;
     private String userID;
     private String vehicleID;
     private Time requestedTime;
     private Time submittedTime;
-    private Boolean type;
+    private String type;
 
-    public Document(String docID, String userID, String vehicleID, Time requestedTime, Time submittedTime,
-            boolean type) {
-        setDocID(docID);
+    public Document(String userID, String vehicleID, Time requestedTime, Time submittedTime,
+            String type) {
+        DataBase.IdDistributor(this);
         setUserID(userID);
         setVehicleID(vehicleID);
         setRequestedTime(requestedTime);
         setSubmittedTime(submittedTime);
         setType(type);
-    }
 
-    public String getDocID() {
-        return docID;
+        User user = User.getInstance();
+        if (this.getClass() == Request.class) {
+            user.getRequests().add((Request) this);
+        } else if (this.getClass() == Report.class) {
+            user.getReports().add((Report) this);
+        }
+        save();
     }
 
     public Time getRequestedTime() {
@@ -30,10 +33,6 @@ public abstract class Document extends Model {
         return submittedTime;
     }
 
-    public Boolean getType() {
-        return type;
-    }
-
     public String getUserID() {
         return userID;
     }
@@ -42,8 +41,8 @@ public abstract class Document extends Model {
         return vehicleID;
     }
 
-    public void setDocID(String docID) {
-        this.docID = docID;
+    public String getType() {
+        return type;
     }
 
     public void setRequestedTime(Time requestedTime) {
@@ -54,7 +53,7 @@ public abstract class Document extends Model {
         this.submittedTime = submittedTime;
     }
 
-    public void setType(Boolean type) {
+    public void setType(String type) {
         this.type = type;
     }
 

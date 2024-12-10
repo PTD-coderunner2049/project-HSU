@@ -4,9 +4,9 @@ public class Report extends Document {
 
     private boolean isDone;
 
-    public Report(String docID, String userID, String vehicleID, Time requestedTime, Time submittedTime,
-            boolean type) {
-        super(docID, userID, vehicleID, requestedTime, submittedTime, type);
+    public Report(String userID, String vehicleID, Time requestedTime, Time submittedTime,
+            String type) {
+        super(userID, vehicleID, requestedTime, submittedTime, type);
         isDone = false;
     }
 

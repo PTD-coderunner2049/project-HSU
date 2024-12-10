@@ -4,10 +4,10 @@ public class Request extends Document {
 
     private boolean isAccepted;
 
-    public Request(String docID, String userID, String vehicleID, Time requestedTime, Time submittedTime,
-            boolean type) {
+    public Request(String userID, String vehicleID, Time requestedTime, Time submittedTime,
+            String type) {
 
-        super(docID, userID, vehicleID, requestedTime, submittedTime, type);
+        super(userID, vehicleID, requestedTime, submittedTime, type);
         isAccepted = false;
     }
 

@@ -14,6 +14,7 @@ import com.google.gson.reflect.TypeToken;
 import Models.Account;
 import Models.Request;
 import Models.Time;
+import Models.User;
 
 /**
  * @author huynhkimai
@@ -36,9 +37,12 @@ public class TestSpace {
         // e.printStackTrace();
         // }
 
-        Time currtime = new Time(123, 45, 6, 4);
-        Request a = new Request("3", "4", "AWdAWS", currtime, currtime, false);
+        Time currtime = new Time(7, 12, 2024, 17);
+        User user = User.getInstance();
+        user.setId("0");
+        user.reconstuct();
+        Request a = new Request(user.getId(), "AWdAWS", currtime, currtime, "IN");
         System.out.println(a);
-        a.save();
+
     }
 }
