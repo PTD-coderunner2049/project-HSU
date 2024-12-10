@@ -37,12 +37,12 @@ public class TestSpace {
         // e.printStackTrace();
         // }
 
-        Time currtime = new Time(7, 12, 2024, 17);
-        User user = User.getInstance();
-        user.setId("0");
-        user.reconstuct();
-        Request a = new Request(user.getId(), "AWdAWS", currtime, currtime, "IN");
-        System.out.println(a);
+        // Time currtime = new Time(7, 12, 2024, 17);
+        // User user = User.getInstance();
+        // user.setId("0");
+        // user.reconstuct();
+        // Request a = new Request(user.getId(), "AWdAWS", currtime, currtime, "IN");
+        // System.out.println(a);
 
     }
 }

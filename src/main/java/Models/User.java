@@ -15,21 +15,26 @@ public class User extends Model {
 
     private User() {
         Account account = Account.getInstance();
-        setId(account.getId());//prebuilt user base on account
-        reconstuct();
+        setId(account.getId());// prebuilt user base on account
+        // if we reconstruct right away here, at first time this is reaches, the
+        // instance need to wait for user to reconstuct so it never updated, and during
+        // reconstruct sequence it need to call instance result in a deep nest of nest
+        // of instances waiting to get a memory block asign result in stackoverflow
     };
 
     // only one User the entire time
     public static User getInstance() {
-        return (instance == null) ? instance = new User() : instance;
+        if (instance == null) {
+            instance = new User();
+            instance.reconstuct();
+        }
+        return instance;
+        // return (instance == null) ? instance = new User() : instance;
     }
 
-    public boolean initUser(String id, String fullName, String dateOfBirth) {
-        if (id != null) {
-            setId(id);
-            this.fullName = fullName;
-            this.dateOfBirth = dateOfBirth;
-        }
+    public boolean initUser(String fullName, String dateOfBirth) {
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
         save();
         return false;
     }

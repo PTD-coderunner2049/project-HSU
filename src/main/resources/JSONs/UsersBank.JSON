@@ -9,114 +9,19 @@
         "userID": "0",
         "vehicleID": "AWdAWS",
         "requestedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
+          "day": 7,
+          "month": 12,
+          "year": 2024,
+          "hour": 17
         },
         "submittedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
+          "day": 7,
+          "month": 12,
+          "year": 2024,
+          "hour": 17
         },
-        "type": false,
-        "id": "0"
-      },
-      {
-        "isAccepted": false,
-        "userID": "0",
-        "vehicleID": "AWdAWS",
-        "requestedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "submittedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "type": false,
+        "type": "IN",
         "id": "1"
-      },
-      {
-        "isAccepted": false,
-        "userID": "0",
-        "vehicleID": "OWO",
-        "requestedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "submittedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "type": false,
-        "id": "2"
-      },
-      {
-        "isAccepted": false,
-        "userID": "0",
-        "vehicleID": "AWdAWS",
-        "requestedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "submittedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "type": false,
-        "id": "3"
-      },
-      {
-        "isAccepted": false,
-        "userID": "0",
-        "vehicleID": "AWdAWS",
-        "requestedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "submittedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "type": false,
-        "id": "4"
-      },
-      {
-        "isAccepted": false,
-        "userID": "0",
-        "vehicleID": "OWO",
-        "requestedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "submittedTime": {
-          "day": 123,
-          "month": 45,
-          "year": 6,
-          "hour": 4
-        },
-        "type": false,
-        "id": "5"
       }
     ],
     "reports": [],

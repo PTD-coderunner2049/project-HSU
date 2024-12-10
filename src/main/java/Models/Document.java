@@ -23,6 +23,7 @@ public abstract class Document extends Model {
             user.getReports().add((Report) this);
         }
         save();
+        user.save();
     }
 
     public Time getRequestedTime() {

@@ -1,6 +1,7 @@
 package UIMainStream;
 
-import Models.Account;
+import Models.Request;
+import Models.Time;
 import Models.User;
 
 public class DashBoard extends javax.swing.JFrame {
@@ -9,10 +10,13 @@ public class DashBoard extends javax.swing.JFrame {
          * Creates new form DashBoard
          */
         public DashBoard() {
+                User user = User.getInstance();
+
+                Time currtime = new Time(7, 12, 2024, 17);
+                Request a = new Request(user.getId(), "AWdAWS", currtime, currtime, "IN");
+                // a is for testing only, it not happened now, til ui request created
                 initComponents();
 
-                Account account = Account.getInstance();
-                User user = User.getInstance();
                 // moved to user constructor
                 // user.setId(account.getId());
                 // user.reconstuct();
