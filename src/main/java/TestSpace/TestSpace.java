@@ -15,6 +15,7 @@ import Models.Account;
 import Models.Request;
 import Models.Time;
 import Models.User;
+import Models.Vehicle;
 
 /**
  * @author huynhkimai
@@ -44,5 +45,10 @@ public class TestSpace {
         // Request a = new Request(user.getId(), "AWdAWS", currtime, currtime, "IN");
         // System.out.println(a);
 
+    }
+
+    public boolean parkingPlotDistributor(Vehicle vehicle) {
+
+        return false;
     }
 }

@@ -48,10 +48,8 @@ public abstract class DataBase {
     // Generic eat method.
     public static <T extends Model> boolean eat(T object) {
         // Navigate object type and pull appopriate list.
-        @SuppressWarnings("unchecked") // I dont know how to check for it.
-        Class<T> objectClass = (Class<T>) object.getClass();
-        File desiredBank = findBank(objectClass);
-        List<T> objectsList = fetchDataBase(desiredBank, objectClass);
+        File desiredBank = findBank(object.getClass());
+        List<T> objectsList = fetchDataBase(object);
 
         // look for existing to replace before add
         int i = haveExistingID(objectsList, object.getId());
@@ -60,7 +58,6 @@ public abstract class DataBase {
         } else {
             objectsList.set(0, object);
         }
-
         // save updated data
         try (FileWriter writer = new FileWriter(desiredBank)) {
             writer.write(builder.setPrettyPrinting().create().toJson(objectsList));
@@ -175,13 +172,12 @@ public abstract class DataBase {
         return null;
     }
 
-    @SuppressWarnings("unchecked") // I dont know how to check for it.
+    @SuppressWarnings("unchecked")
     public static <T extends Model> boolean vormit(T object) {// reconstuct user from database
+        // Class<T> objectClass = (Class<T>) object.getClass();
+        // File desiredBank = findBank(objectClass);
 
-        Class<T> objectClass = (Class<T>) object.getClass();
-        File desiredBank = findBank(objectClass);
-
-        List<T> objectsList = fetchDataBase(desiredBank, objectClass);
+        List<T> objectsList = fetchDataBase(object);
 
         if (objectsList == null)
             return false;// none to vormit]
@@ -189,7 +185,7 @@ public abstract class DataBase {
 
         if (i == 1) {
             User user = User.getInstance(); // When know it was user, call the static instance of user
-                                            // that should have an ID during login stage(from account's ID)
+            // that should have an ID during login stage(from account's ID)
             for (User u : (List<User>) objectsList) {// pull user info
                 if (u.getId().equals(user.getId())) {
                     // object.setAdminRight(u.getAdminRight());
@@ -211,28 +207,11 @@ public abstract class DataBase {
                     return true;
                 }
             }
-        } // TODO case 3 4 5 req rep veh
-          // else if (i == 3) {// WIP removethis, we load these up during user. no need to
-          // limit this func to
-          // // certain type, I can use this to load entire bank for other admintrative
-          // // feature.
-
-        // // take in one request, so objectlist will fetch that entire request list
-        // // loop for request that match user id and add.
-
-        // User user = User.getInstance(); // When know it was user, call the static
-        // instance of user
-        // int target = user.Reports().size();
-        // for (Request r : (List<Request>) objectsList) {
-        // if (r.getUserID().equals(user.getId())) {
-        // user.getRequests().add(r);
-        // }
-        // if (target == 0)
-        // return true;// return after found enough.
-        // }
-        // }
+        } // other class is saved as object with its user, while also save on an isolated
+          // databank, make method that pull entire list of them for admin task later, if!
+          // created fetchDataBase().
         else {
-            System.out.println("Unsupported object type: " + objectClass);
+            System.out.println("Unsupported object type: " + object.getClass());
         }
         return false;// unknow Object
     }
@@ -280,16 +259,31 @@ public abstract class DataBase {
     // }
 
     // Power tools-----------------------------------------------------------------
-    @SuppressWarnings("unchecked")
     public static <T extends Model> boolean IdDistributor(T object) {
         // send out available ID base on database list's size()
         // pull object list
-        Class<T> objectClass = (Class<T>) object.getClass();
-        File desiredBank = findBank(objectClass);
-        List<T> objectsList = fetchDataBase(desiredBank, objectClass);
+
+        // Class<T> objectClass = (Class<T>) object.getClass();
+        // File desiredBank = findBank(objectClass);
+        // List<T> objectsList = fetchDataBase(desiredBank, objectClass);
+        List<T> objectsList = fetchDataBase(object);
         // assigning ID
         object.setId(Integer.toString(objectsList.size()));
         return (object.getId() != null) ? true : false;
+    }
+
+    public static boolean parkingPlotDistributor(Vehicle vehicle) {
+        // plot is devided to 2 part sea and land
+        // car and similar is M size from 1-100
+        // bike and similar is S size from 1-200
+        // truck and hauler of similar type is L from 1 - 50
+
+        // ship like boat and similar personal vessle is S size from 1-300
+        // ship like transporter are M size from 1-200
+        // large ship for industrial purposes is L size from 1-50
+        // notice that our app aim to provide logistic and industrial vessel parking
+        // service only and not tourism.
+        return false;
     }
 
     public static boolean accountValidate(Account account) {
@@ -317,6 +311,21 @@ public abstract class DataBase {
         }
     }
 
+    @SuppressWarnings("unchecked") // I dont know how to check for it.
+    private static <T extends Model> List<T> fetchDataBase(T object) {// capable of fetching any class to list.
+        Class<T> objectClass = (Class<T>) object.getClass();
+        File desiredBank = findBank(objectClass);
+        // pull object list
+        try (FileReader jsonDataSheet = new FileReader(desiredBank)) {
+            Gson gson = builder.create();
+            List<T> objectList = gson.fromJson(jsonDataSheet,
+                    TypeToken.getParameterized(List.class, objectClass).getType());
+            return (objectList == null) ? new LinkedList<T>() : objectList;
+        } catch (IOException e) {
+            System.out.println("JSON DataBank fetching failure!");
+            return new LinkedList<>();
+        }
+    }
     // @SuppressWarnings("unused")
     // WARNING: LEGACY CODE, USELESS NOW
 

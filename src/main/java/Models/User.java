@@ -29,7 +29,6 @@ public class User extends Model {
             instance.reconstuct();
         }
         return instance;
-        // return (instance == null) ? instance = new User() : instance;
     }
 
     public boolean initUser(String fullName, String dateOfBirth) {
@@ -66,15 +65,15 @@ public class User extends Model {
     }
 
     public List<Report> getReports() {
-        return reports;// TODO update list<Report> from database with ID
+        return reports;
     }
 
     public List<Request> getRequests() {
-        return requests;// TODO update list<Request> from database with ID
+        return requests;
     }
 
     public List<Vehicle> getVehicles() {
-        return vehicles;// TODO update list<Vehicles> from database with ID
+        return vehicles;
     }
 
     public void setReports(List<Report> reports) {

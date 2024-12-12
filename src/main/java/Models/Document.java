@@ -6,6 +6,7 @@ public abstract class Document extends Model {
     private Time requestedTime;
     private Time submittedTime;
     private String type;
+    // private String[] approvedType = { "Request", "Report" };
 
     public Document(String userID, String vehicleID, Time requestedTime, Time submittedTime,
             String type) {
