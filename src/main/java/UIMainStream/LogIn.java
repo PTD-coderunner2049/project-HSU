@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import Models.Account;
 import Models.DataBase;
+import UIMainStream.DashBoard.DashBoardFrame;
 import javax.swing.ImageIcon;
 
 // vdkdjiewdkjfhfhd
@@ -246,7 +247,12 @@ public class LogIn extends javax.swing.JFrame {
                         // dashBoard.pack();
                         // dashBoard.setLocationRelativeTo(null);
                         // dispose both pages
-
+                        // get instances
+                        DashBoardFrame dashboard = DashBoardFrame.getInstance();
+                        dashboard.setVisible(true);
+                        dashboard.setLocationRelativeTo(null);
+                        
+                        
                         signupFrame.dispose();
                         this.dispose();
                         JOptionPane.showMessageDialog(rootPane, "Đăng nhập thành công!");
