@@ -6,6 +6,9 @@ public class MainEntry {
         SignUp signUpFrame = new SignUp();
         logInFrame.pack();
         signUpFrame.pack();
+        
+        logInFrame.setResizable(false);
+        signUpFrame.setResizable(false);
 
         logInFrame.bond(signUpFrame);
         signUpFrame.bond(logInFrame);

@@ -271,12 +271,12 @@ public class SignUp extends javax.swing.JFrame {
     private void pass2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pass2MouseClicked
         // TODO add your handling code here:
          if (!isHide) {
-            password.setEchoChar((char) 0);
-            pass2.setIcon(hide);
+            confirmPassword.setEchoChar((char) 0);
+            pass2.setIcon(show);
             isHide = !isHide;
         } else {
-            password.setEchoChar('•');
-            pass2.setIcon(show);
+            confirmPassword.setEchoChar('•');
+            pass2.setIcon(hide);
             isHide = !isHide;
         }
     }//GEN-LAST:event_pass2MouseClicked
@@ -434,7 +434,8 @@ public class SignUp extends javax.swing.JFrame {
 
     private void initData() {
         ImageIcon icon = new ImageIcon(getClass().getResource("/icon/logo.png"));
-        this.logo.setIcon(Function.scaleImage(logo,icon));isHide = true;
+        this.logo.setIcon(Function.scaleImage(logo,icon));
+        isHide = true;
         hide = new ImageIcon(getClass().getResource("/icon/hide.jpg"));
         show = new ImageIcon(getClass().getResource("/icon/show.jpg"));
         pass1.setIcon(hide);
