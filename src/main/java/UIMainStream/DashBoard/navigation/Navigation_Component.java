@@ -58,7 +58,7 @@ public class Navigation_Component extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(nameBtn)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,9 +100,10 @@ public class Navigation_Component extends javax.swing.JPanel {
                 break;
 
             case "Logout":
+                DashBoardFrame.getInstance().dispose();
                 MainEntry.startUp();
                 
-                DashBoardFrame.getInstance().dispose();
+                
 
             default:
                 throw new AssertionError();

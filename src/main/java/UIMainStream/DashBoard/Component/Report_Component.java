@@ -35,26 +35,42 @@ public class Report_Component extends javax.swing.JPanel {
         requestedTime = new javax.swing.JLabel();
         labelreuqest = new javax.swing.JLabel();
         labelstatus = new javax.swing.JLabel();
+        idReport = new javax.swing.JLabel();
+        labelid = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        name.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         name.setText("Name");
 
+        bienso.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         bienso.setText("Type Vehicle");
 
+        status.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         status.setText("Status ");
 
+        labelName.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         labelName.setText("jLabel8");
 
+        labeltype.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         labeltype.setText("jLabel11");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
 
+        requestedTime.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         requestedTime.setText("Requested Time");
 
+        labelreuqest.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         labelreuqest.setText("jLabel2");
 
+        labelstatus.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         labelstatus.setText("jLabel3");
+
+        idReport.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idReport.setText("ID Report");
+
+        labelid.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        labelid.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -64,25 +80,22 @@ public class Report_Component extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bienso, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))
-                        .addGap(41, 41, 41)
+                        .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelName)
-                            .addComponent(labeltype))
-                        .addGap(135, 135, 135)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(requestedTime)
-                                .addGap(72, 72, 72)
-                                .addComponent(labelreuqest))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(status)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelstatus)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)))
+                            .addComponent(status)
+                            .addComponent(requestedTime)
+                            .addComponent(bienso)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idReport, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(109, 109, 109)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelreuqest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labeltype, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelstatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(146, 146, 146)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -91,16 +104,24 @@ public class Report_Component extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(name)
-                    .addComponent(labelName)
-                    .addComponent(requestedTime)
-                    .addComponent(labelreuqest))
+                    .addComponent(labelName))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bienso)
-                    .addComponent(labeltype)
-                    .addComponent(status)
-                    .addComponent(labelstatus))
-                .addGap(264, 264, 264)
+                    .addComponent(labeltype))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(requestedTime)
+                    .addComponent(labelreuqest))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelstatus)
+                    .addComponent(status))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idReport)
+                    .addComponent(labelid))
+                .addGap(100, 100, 100)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -109,8 +130,10 @@ public class Report_Component extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienso;
+    private javax.swing.JLabel idReport;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelName;
+    private javax.swing.JLabel labelid;
     private javax.swing.JLabel labelreuqest;
     private javax.swing.JLabel labelstatus;
     private javax.swing.JLabel labeltype;
