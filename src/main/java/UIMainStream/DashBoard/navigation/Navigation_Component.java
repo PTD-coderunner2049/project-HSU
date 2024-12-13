@@ -4,6 +4,9 @@ package UIMainStream.DashBoard.navigation;
 import UIMainStream.DashBoard.Component.*;
 
 import UIMainStream.DashBoard.DashBoardContent;
+import UIMainStream.DashBoard.DashBoardFrame;
+import UIMainStream.MainEntry;
+import static UIMainStream.MainEntry.main;
 import javax.swing.JScrollPane;
 //import vd.main.CreateRequest.CreateRequest_Component;
 //import vd.main.DashBoardContent;
@@ -97,6 +100,9 @@ public class Navigation_Component extends javax.swing.JPanel {
                 break;
 
             case "Logout":
+                MainEntry.startUp();
+                
+                DashBoardFrame.getInstance().dispose();
 
             default:
                 throw new AssertionError();
