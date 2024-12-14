@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package UIMainStream.DashBoard.Component;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,12 +31,12 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         textbirthday = new javax.swing.JTextField();
         vehicle = new javax.swing.JLabel();
         size = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        type = new javax.swing.JComboBox<>();
         cancel = new javax.swing.JButton();
         create = new javax.swing.JButton();
         bienso = new javax.swing.JLabel();
-        textbiéno = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        textbienso = new javax.swing.JTextField();
+        Size = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -45,13 +44,11 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         name.setText("Name");
 
         textname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textname.setText("jTextField1");
 
         birthday.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         birthday.setText("Birthday");
 
         textbirthday.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textbirthday.setText("jTextField2");
 
         vehicle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         vehicle.setText("Type Vehicle");
@@ -59,23 +56,32 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         size.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         size.setText("Size");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "water", "lane", " " }));
+        type.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "water", "lane", " " }));
 
         cancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancel.setText("Cancel");
+        cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelMouseClicked(evt);
+            }
+        });
 
         create.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         create.setText("Create ");
+        create.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createMouseClicked(evt);
+            }
+        });
 
         bienso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         bienso.setText("Plate");
 
-        textbiéno.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textbiéno.setText("jTextField5");
+        textbienso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "small", "medium", "large" }));
+        Size.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "small", "medium", "large" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -91,7 +97,7 @@ public class CreateRequest_Component extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(textbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(create)
                             .addGroup(layout.createSequentialGroup()
@@ -102,8 +108,8 @@ public class CreateRequest_Component extends javax.swing.JPanel {
                                     .addComponent(bienso, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(126, 126, 126)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textbiéno, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(Size, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textbienso, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cancel)
                         .addGap(309, 309, 309)))
@@ -122,16 +128,16 @@ public class CreateRequest_Component extends javax.swing.JPanel {
                     .addComponent(textbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(vehicle))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(size)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bienso)
-                    .addComponent(textbiéno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textbienso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancel)
@@ -140,19 +146,35 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void createMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Create Successfully");
+        textname.setText("");
+        textbirthday.setText("");
+        textbienso.setText("");
+    }//GEN-LAST:event_createMouseClicked
+
+    private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Cancel Successfully");
+        textname.setText("");
+        textbirthday.setText("");
+        textbienso.setText("");
+    }//GEN-LAST:event_cancelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Size;
     private javax.swing.JLabel bienso;
     private javax.swing.JLabel birthday;
     private javax.swing.JButton cancel;
     private javax.swing.JButton create;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel name;
     private javax.swing.JLabel size;
+    private javax.swing.JTextField textbienso;
     private javax.swing.JTextField textbirthday;
-    private javax.swing.JTextField textbiéno;
     private javax.swing.JTextField textname;
+    private javax.swing.JComboBox<String> type;
     private javax.swing.JLabel vehicle;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,8 @@
  */
 package UIMainStream.DashBoard.Component;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DELL
@@ -30,8 +32,8 @@ public class User_Component extends javax.swing.JPanel {
         birthday = new javax.swing.JLabel();
         cancel = new javax.swing.JButton();
         save = new javax.swing.JButton();
-        labelname = new javax.swing.JLabel();
-        labelbirthday = new javax.swing.JLabel();
+        textname = new javax.swing.JTextField();
+        textbirthday = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -43,15 +45,23 @@ public class User_Component extends javax.swing.JPanel {
 
         cancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancel.setText("Cancel");
+        cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelMouseClicked(evt);
+            }
+        });
 
         save.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         save.setText("Save");
+        save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveMouseClicked(evt);
+            }
+        });
 
-        labelname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelname.setText("jLabel1");
+        textname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        labelbirthday.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelbirthday.setText("jLabel2");
+        textbirthday.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -66,15 +76,15 @@ public class User_Component extends javax.swing.JPanel {
                                 .addGap(4, 4, 4)
                                 .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(birthday, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelname, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textname)
+                            .addComponent(textbirthday, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cancel)
                         .addGap(122, 122, 122)
                         .addComponent(save)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,26 +92,41 @@ public class User_Component extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(name)
-                    .addComponent(labelname))
-                .addGap(39, 39, 39)
+                    .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(birthday)
-                    .addComponent(labelbirthday))
-                .addGap(64, 64, 64)
+                    .addComponent(textbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancel)
                     .addComponent(save))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Save Successfully");
+        textname.setText("");
+        textbirthday.setText("");
+        
+    }//GEN-LAST:event_saveMouseClicked
+
+    private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Cancel Successfully");
+        textname.setText("");
+        textbirthday.setText("");
+    }//GEN-LAST:event_cancelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel birthday;
     private javax.swing.JButton cancel;
-    private javax.swing.JLabel labelbirthday;
-    private javax.swing.JLabel labelname;
     private javax.swing.JLabel name;
     private javax.swing.JButton save;
+    private javax.swing.JTextField textbirthday;
+    private javax.swing.JTextField textname;
     // End of variables declaration//GEN-END:variables
 }
