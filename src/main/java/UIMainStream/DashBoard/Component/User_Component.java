@@ -33,7 +33,9 @@ public class User_Component extends javax.swing.JPanel {
         birthday.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         birthday.setText("Birthday");
 
+        cancel.setBackground(new java.awt.Color(102, 102, 102));
         cancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancel.setForeground(new java.awt.Color(255, 255, 255));
         cancel.setText("Cancel");
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -41,7 +43,9 @@ public class User_Component extends javax.swing.JPanel {
             }
         });
 
+        save.setBackground(new java.awt.Color(102, 102, 102));
         save.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        save.setForeground(new java.awt.Color(255, 255, 255));
         save.setText("Save");
         save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

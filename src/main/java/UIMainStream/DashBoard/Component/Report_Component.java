@@ -16,6 +16,7 @@ public class Report_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelstatus2 = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         bienso = new javax.swing.JLabel();
         status = new javax.swing.JLabel();
@@ -23,12 +24,16 @@ public class Report_Component extends javax.swing.JPanel {
         labeltype = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         requestedTime = new javax.swing.JLabel();
-        labelreuqest = new javax.swing.JLabel();
+        labelreuqesttime = new javax.swing.JLabel();
         labelstatus = new javax.swing.JLabel();
         idReport = new javax.swing.JLabel();
         labelid = new javax.swing.JLabel();
+        confirmButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+
+        labelstatus2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        labelstatus2.setText("Drive in");
 
         name.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         name.setText("Name");
@@ -40,27 +45,31 @@ public class Report_Component extends javax.swing.JPanel {
         status.setText("Status ");
 
         labelName.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        labelName.setText("jLabel8");
+        labelName.setText("userfull name");
 
         labeltype.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        labeltype.setText("jLabel11");
+        labeltype.setText("type");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
 
         requestedTime.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         requestedTime.setText("Requested Time");
 
-        labelreuqest.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        labelreuqest.setText("jLabel2");
+        labelreuqesttime.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        labelreuqesttime.setText("hh/dd/mm/yy");
 
         labelstatus.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        labelstatus.setText("jLabel3");
+        labelstatus.setText("on going");
 
         idReport.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        idReport.setText("ID Report");
+        idReport.setText("Report ID");
 
         labelid.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        labelid.setText("jLabel2");
+        labelid.setText("0");
+
+        confirmButton.setBackground(new java.awt.Color(102, 102, 102));
+        confirmButton.setForeground(new java.awt.Color(255, 255, 255));
+        confirmButton.setText("Confirm this Request is Finished");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -68,63 +77,78 @@ public class Report_Component extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(idReport, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(requestedTime, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bienso, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(status)
-                            .addComponent(requestedTime)
-                            .addComponent(bienso)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idReport, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(109, 109, 109)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelreuqest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labeltype, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(labelstatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(146, 146, 146)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(labelName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                    .addComponent(labeltype, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(status)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(labelstatus2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(labelreuqesttime, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(name)
-                    .addComponent(labelName))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelName, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(status)
+                    .addComponent(labelstatus)
+                    .addComponent(labelstatus2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bienso)
-                    .addComponent(labeltype))
-                .addGap(39, 39, 39)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labeltype, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(1, 1, 1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(requestedTime)
-                    .addComponent(labelreuqest))
-                .addGap(38, 38, 38)
+                    .addComponent(labelreuqesttime, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(confirmButton)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelstatus)
-                    .addComponent(status))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idReport)
                     .addComponent(labelid))
-                .addGap(100, 100, 100)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienso;
+    private javax.swing.JButton confirmButton;
     private javax.swing.JLabel idReport;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel labelid;
-    private javax.swing.JLabel labelreuqest;
+    private javax.swing.JLabel labelreuqesttime;
     private javax.swing.JLabel labelstatus;
+    private javax.swing.JLabel labelstatus2;
     private javax.swing.JLabel labeltype;
     private javax.swing.JLabel name;
     private javax.swing.JLabel requestedTime;
