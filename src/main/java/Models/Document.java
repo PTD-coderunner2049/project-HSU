@@ -23,8 +23,8 @@ public abstract class Document extends Model {
         } else if (this.getClass() == Report.class) {
             user.getReports().add((Report) this);
         }
-        save();
         user.save();
+        save();
     }
 
     public Time getRequestedTime() {

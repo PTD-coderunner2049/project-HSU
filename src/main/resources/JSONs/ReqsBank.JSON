@@ -2,20 +2,20 @@
   {
     "isAccepted": false,
     "userID": "0",
-    "vehicleID": "AWdAWS",
+    "vehicleID": "0",
     "requestedTime": {
-      "day": 7,
-      "month": 12,
-      "year": 1024,
-      "hour": 17
+      "day": 27,
+      "month": 15,
+      "year": 12,
+      "hour": 2024
     },
     "submittedTime": {
-      "day": 7,
+      "day": 15,
       "month": 12,
-      "year": 1024,
-      "hour": 17
+      "year": 2024,
+      "hour": 22
     },
-    "type": "IN",
+    "type": "Drive In",
     "id": "0"
   }
 ]

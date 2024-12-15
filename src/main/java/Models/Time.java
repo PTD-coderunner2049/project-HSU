@@ -1,5 +1,7 @@
 package Models;
 
+import java.time.LocalDateTime;
+
 public class Time {
     private static Time instance;
     public int day;
@@ -7,11 +9,22 @@ public class Time {
     public int year;
     public int hour;
 
-    private Time() {
+    public Time() {
+        LocalDateTime now = LocalDateTime.now();
+        this.day = now.getDayOfMonth();
+        this.month = now.getMonthValue();
+        this.year = now.getYear();
+        this.hour = now.getHour();
+    }
+
+    public Time(String day, String month, String year, String hour) {
+        this.day = Integer.parseInt(day);
+        this.month = Integer.parseInt(month);
+        this.year = Integer.parseInt(year);
+        this.hour = Integer.parseInt(hour);
     }
 
     public Time(int day, int month, int year, int hour) {
-        // TODO get current time from Window OS
         this.day = day;
         this.month = month;
         this.year = year;
@@ -23,7 +36,7 @@ public class Time {
     }
 
     public String toString() {
-        return day + ":" + month + ":" + year + " - at " + hour + ":00 <24>";
+        return day + ":" + month + ":" + year + " - at: " + hour + ":00 [24]";
     }
 
     public int getDay() {

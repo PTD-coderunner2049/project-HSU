@@ -218,12 +218,14 @@ public abstract class DataBase {
         else if (i == 5) {
             Vehicle vehicle = (Vehicle) object;
             for (Vehicle v : (List<Vehicle>) objectsList) {
-                if (v.getId() == vehicle.getId()) {
+                if (v.getId().equals(vehicle.getId())) {
                     vehicle.setOccupiedPosition(v.getOccupiedPosition());
                     vehicle.setVehicleLicensedPlate(v.getVehicleLicensedPlate());
                     vehicle.setSize(v.getSize());
                     vehicle.setType(v.getType());
                     vehicle.setUserID(v.getUserID());
+                    // object = (T) v;// you bend object to point to the one v point, left the veh
+                    // outside unchange
                     return true;
                 }
             }
