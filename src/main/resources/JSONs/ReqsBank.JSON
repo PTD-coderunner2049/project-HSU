@@ -6,35 +6,16 @@
     "requestedTime": {
       "day": 7,
       "month": 12,
-      "year": 2024,
+      "year": 1024,
       "hour": 17
     },
     "submittedTime": {
       "day": 7,
       "month": 12,
-      "year": 2024,
+      "year": 1024,
       "hour": 17
     },
     "type": "IN",
     "id": "0"
-  },
-  {
-    "isAccepted": false,
-    "userID": "0",
-    "vehicleID": "AWdAWS",
-    "requestedTime": {
-      "day": 7,
-      "month": 12,
-      "year": 2024,
-      "hour": 17
-    },
-    "submittedTime": {
-      "day": 7,
-      "month": 12,
-      "year": 2024,
-      "hour": 17
-    },
-    "type": "IN",
-    "id": "1"
   }
 ]

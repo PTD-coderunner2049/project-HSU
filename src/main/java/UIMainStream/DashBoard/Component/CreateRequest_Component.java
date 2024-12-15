@@ -193,6 +193,7 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         textbirthday.setText("");
         textbienso.setText("");
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Size;
     private javax.swing.JLabel bienso;
