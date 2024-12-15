@@ -255,7 +255,7 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         }// GEN-LAST:event_createMouseClicked
 
         private void cancelMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cancelMouseClicked
-                JOptionPane.showMessageDialog(this, "Canceled all choices!");
+                JOptionPane.showMessageDialog(this, "All choices cancled!");
                 resetAllTextes();
         }// GEN-LAST:event_cancelMouseClicked
 
