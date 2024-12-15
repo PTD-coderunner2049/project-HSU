@@ -3,12 +3,10 @@ package UIMainStream.DashBoard;
 
 import UIMainStream.DashBoard.navigation.Navigation_Container;
 import java.awt.BorderLayout;
-//import vd.Navigation.Navigation_Container;
-//import vd.main.DashBoardContent;
 
 /**
- *
- * @author DELL
+ * @author Pham Trung Duc - Acer
+ * @author Huynh Kim AI - Dell
  */
 public class DashBoardFrame extends javax.swing.JFrame {
     private static DashBoardFrame instance;
