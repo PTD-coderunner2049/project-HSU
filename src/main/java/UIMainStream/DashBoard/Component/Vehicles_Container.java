@@ -1,6 +1,12 @@
 package UIMainStream.DashBoard.Component;
 
 import java.awt.GridLayout;
+import java.util.LinkedList;
+
+import Models.Request;
+import Models.User;
+import Models.Vehicle;
+
 /**
  * @author DELL
  */
@@ -8,8 +14,7 @@ public class Vehicles_Container extends javax.swing.JPanel {
 
     public Vehicles_Container() {
         initComponents();
-        setLayout();
-        addComponents();
+        secondStageinitComponents();
     }
 
     /**
@@ -35,12 +40,18 @@ public class Vehicles_Container extends javax.swing.JPanel {
      // Variables declaration - do not modify//GEN-BEGIN:variables
      // End of variables declaration//GEN-END:variables
 
-    private void setLayout() {
+    private void secondStageinitComponents() {
         this.setLayout(new GridLayout(0, 1, 0, 0));
+        addComponents();
     }
 
     private void addComponents() {
-        // TODO
+        User user = User.getInstance();
+
+        // LinkedList<Vehicle> veh = user.getVehicles();
+        // for (Vehicle v : veh) {
+        // this.add(new Vehicles_Component(v));
+        // }
         for (int i = 0; i <= 3; i++) {
             this.add(new Vehicles_Component());
         }
