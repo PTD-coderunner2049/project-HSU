@@ -1,6 +1,10 @@
 package UIMainStream.DashBoard.Component;
 
 import java.awt.GridLayout;
+import java.util.LinkedList;
+
+import Models.Request;
+import Models.User;
 
 /**
  * @author DELL
@@ -40,9 +44,11 @@ public class Request_Container extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void addComponents() {
-        // TODO
-        for (int i = 0; i <= 10; i++) {
-            // this.add(new Request_Component());
+        User user = User.getInstance();
+
+        LinkedList<Request> req = user.getRequests();
+        for (Request r : req) {
+            this.add(new Request_Component(r));
         }
     }
 }

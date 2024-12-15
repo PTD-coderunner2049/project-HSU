@@ -22,6 +22,10 @@ public class Time {
         return (instance == null) ? instance = new Time() : instance;
     }
 
+    public String toString() {
+        return day + ":" + month + ":" + year + " - at " + hour + ":00 <24>";
+    }
+
     public int getDay() {
         return day;
     }

@@ -6,9 +6,16 @@ public class Vehicle extends Model {
     private String occupiedPosition;
     private String vehicleLicensedPlate;
     private String type; // "Land, Water"
-    private String size; // "S L M"
+    private char size; // "S L M"
 
-    
+    public Vehicle() {
+
+    }
+
+    public Vehicle(String id) {
+        setId(id);// veh id is plate number
+    }
+
     public void setOccupiedPosition(String occupiedPosition) {
         this.occupiedPosition = occupiedPosition;
     }
@@ -29,11 +36,11 @@ public class Vehicle extends Model {
         return occupiedPosition;
     }
 
-    public void setSize(String size) {
+    public void setSize(char size) {
         this.size = size;
     }
 
-    public String getSize() {
+    public char getSize() {
         return size;
     }
 

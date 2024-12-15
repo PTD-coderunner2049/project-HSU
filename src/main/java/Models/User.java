@@ -9,9 +9,9 @@ public class User extends Model {
     private boolean isAdmin = false;
     private String fullName;
     private String dateOfBirth;
-    private List<Request> requests = new LinkedList<>();
-    private List<Report> reports = new LinkedList<>();
-    private List<Vehicle> vehicles = new LinkedList<>();
+    private LinkedList<Request> requests = new LinkedList<>();
+    private LinkedList<Report> reports = new LinkedList<>();
+    private LinkedList<Vehicle> vehicles = new LinkedList<>();
 
     private User() {
         Account account = Account.getInstance();
@@ -64,15 +64,15 @@ public class User extends Model {
         return dateOfBirth;
     }
 
-    public List<Report> getReports() {
+    public LinkedList<Report> getReports() {
         return reports;
     }
 
-    public List<Request> getRequests() {
+    public LinkedList<Request> getRequests() {
         return requests;
     }
 
-    public List<Vehicle> getVehicles() {
+    public LinkedList<Vehicle> getVehicles() {
         return vehicles;
     }
 

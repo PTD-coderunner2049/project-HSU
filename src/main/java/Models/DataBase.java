@@ -180,11 +180,14 @@ public abstract class DataBase {
         List<T> objectsList = fetchDataBase(object);
 
         if (objectsList == null)
-            return false;// none to vormit]
+            return false;// none to vormit
         int i = DataStream.getBankId();
 
         if (i == 1) {
-            User user = User.getInstance(); // When know it was user, call the static instance of user
+            User user = (User) object;
+            // OPTIONALY :)
+            // User user = User.getInstance(); (OPTIONAL)
+            // When know it was user, call the static instance of user
             // that should have an ID during login stage(from account's ID)
             for (User u : (List<User>) objectsList) {// pull user info
                 if (u.getId().equals(user.getId())) {
@@ -199,7 +202,9 @@ public abstract class DataBase {
                 }
             }
         } else if (i == 2) {// pull user include the document.
-            Account account = Account.getInstance();
+            Account account = (Account) object;
+            // OPTIONALY :)
+            // Account account = Account.getInstance();
             for (Account a : (List<Account>) objectsList) {
                 if (a.getUsername().equals(account.getUsername()) &&
                         a.getPassword().equals(account.getPassword())) {
@@ -210,7 +215,19 @@ public abstract class DataBase {
         } // other class is saved as object with its user, while also save on an isolated
           // databank, make method that pull entire list of them for admin task later, if!
           // created fetchDataBase().
-        else {
+        else if (i == 5) {
+            Vehicle vehicle = (Vehicle) object;
+            for (Vehicle v : (List<Vehicle>) objectsList) {
+                if (v.getId() == vehicle.getId()) {
+                    vehicle.setOccupiedPosition(v.getOccupiedPosition());
+                    vehicle.setVehicleLicensedPlate(v.getVehicleLicensedPlate());
+                    vehicle.setSize(v.getSize());
+                    vehicle.setType(v.getType());
+                    vehicle.setUserID(v.getUserID());
+                    return true;
+                }
+            }
+        } else {
             System.out.println("Unsupported object type: " + object.getClass());
         }
         return false;// unknow Object

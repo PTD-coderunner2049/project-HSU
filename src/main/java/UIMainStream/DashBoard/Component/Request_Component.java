@@ -1,7 +1,10 @@
 package UIMainStream.DashBoard.Component;
 
+import Models.DataBase;
+import Models.Request;
 import Models.Time;
 import Models.User;
+import Models.Vehicle;
 
 /**
  * @author DELL
@@ -9,10 +12,9 @@ import Models.User;
  */
 public class Request_Component extends javax.swing.JPanel {
 
-    public Request_Component(String userId, String id, String vehicleID,
-            boolean isAccepted, Time requestedTime, Time submittedTime, String type, char size) {
+    public Request_Component(Request request) {
         initComponents();
-        secondStageinitComponents(userId, id, vehicleID, isAccepted, requestedTime, submittedTime, type, size);
+        secondStageinitComponents(request);
     }
 
     /**
@@ -187,6 +189,7 @@ public class Request_Component extends javax.swing.JPanel {
                                         javax.swing.GroupLayout.PREFERRED_SIZE)));
     }// </editor-fold>//GEN-END:initComponents
 
+    @SuppressWarnings("unused")
     private void secondStageinitComponents(String userId, String id, String vehicleID,
             boolean isAccepted, Time requestedTime, Time submittedTime, String type, char size) {
         // I am thinking about sending in id and pull everything up, found the right doc
@@ -202,7 +205,29 @@ public class Request_Component extends javax.swing.JPanel {
         labelBienso.setText(vehicleID);
         labelSize.setText(Character.toString(size));
         labelType.setText(type);
-        // TODO set Time
+        labelreqeusted.setText(requestedTime.toString());
+        labelsubmit.setText(submittedTime.toString());
+    }
+
+    private void secondStageinitComponents(Request request) {
+        // create veh and add id
+        Vehicle vehicle = new Vehicle(request.getVehicleID());
+        DataBase.vormit(vehicle);// pull it from database
+
+        labelName.setText(User.getInstance().getFullName());
+        labelID.setText(request.getId());
+        labelBienso.setText(request.getVehicleID());
+
+        labelSize.setText(Character.toString(vehicle.getSize()));
+        labelType.setText(vehicle.getType());
+
+        labelreqeusted.setText(request.getRequestedTime().toString());
+        labelsubmit.setText(request.getSubmittedTime().toString());
+
+        if (request.getStatus())
+            labelstatus.setText("Accepted");
+        else
+            labelstatus.setText("Pending");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
