@@ -22,47 +22,46 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="idReport" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labelrequestedTime" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labelbienso" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelname" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                  <Component id="labelplate" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jSeparator1" min="-2" pref="641" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="idReport" alignment="0" max="32767" attributes="0"/>
-                          <Component id="requestedTime" alignment="0" max="32767" attributes="0"/>
-                          <Component id="bienso" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="name" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                          <Component id="labelName" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="labeltype" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelid" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="labelName" alignment="0" pref="186" max="32767" attributes="0"/>
-                                  <Component id="labeltype" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labelid" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="status" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="labelstatus" min="-2" pref="84" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="status" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="labelstatus" min="-2" pref="84" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="labelstatus2" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="confirmButton" min="-2" pref="220" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="labelstatus2" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="labelreuqesttime" min="-2" pref="186" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="confirmButton" min="-2" pref="220" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
+                  <Component id="labelreuqesttime" min="-2" pref="186" max="-2" attributes="0"/>
+                  <Component id="labelreuqesttime1" min="-2" pref="186" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSeparator1" min="-2" pref="641" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,7 +70,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelname" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelName" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="status" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelstatus" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -79,26 +78,33 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="bienso" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelbienso" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="labeltype" max="32767" attributes="0"/>
                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="requestedTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelreuqesttime" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-              <Component id="confirmButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="idReport" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelid" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelrequestedTime" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelreuqesttime" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelplate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelreuqesttime1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="confirmButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="idReport" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelid" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,7 +118,7 @@
         <Property name="text" type="java.lang.String" value="Drive in"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="name">
+    <Component class="javax.swing.JLabel" name="labelname">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -120,7 +126,7 @@
         <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="bienso">
+    <Component class="javax.swing.JLabel" name="labelbienso">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -159,7 +165,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="requestedTime">
+    <Component class="javax.swing.JLabel" name="labelrequestedTime">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -208,6 +214,22 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Confirm this Request is Finished"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelplate">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Plate"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelreuqesttime1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="hh/dd/mm/yy"/>
       </Properties>
     </Component>
   </SubComponents>
