@@ -46,14 +46,13 @@ public class Vehicles_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        User user = User.getInstance();
 
-        // LinkedList<Vehicle> veh = user.getVehicles();
-        // for (Vehicle v : veh) {
-        // this.add(new Vehicles_Component(v));
-        // }
-        for (int i = 0; i <= 3; i++) {
-            this.add(new Vehicles_Component());
+        LinkedList<Vehicle> veh = User.getInstance().getVehicles();
+        for (Vehicle v : veh) {
+            this.add(new Vehicles_Component(v));
         }
+        // for (int i = 0; i <= 3; i++) {
+        // this.add(new Vehicles_Component());
+        // }
     }
 }

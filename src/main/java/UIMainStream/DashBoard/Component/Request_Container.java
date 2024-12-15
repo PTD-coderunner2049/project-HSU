@@ -44,9 +44,8 @@ public class Request_Container extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void addComponents() {
-        User user = User.getInstance();
 
-        LinkedList<Request> req = user.getRequests();
+        LinkedList<Request> req = User.getInstance().getRequests();
         for (Request r : req) {
             this.add(new Request_Component(r));
         }
