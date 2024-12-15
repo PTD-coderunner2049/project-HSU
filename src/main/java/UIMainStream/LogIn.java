@@ -234,7 +234,6 @@ public class LogIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void passMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_passMouseClicked
-        // TODO add your handling code here:
         if (!isHide) {
             password.setEchoChar((char) 0);
             pass.setIcon(show);
@@ -258,20 +257,14 @@ public class LogIn extends javax.swing.JFrame {
 
     // Button's behaviorous
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
+        
         // Read info from textfield as String and passwordfield as a Stringified char[]
-
         account.setUsername(this.userName.getText());
         account.setPassword(new String(this.password.getPassword()));
 
         if (DataBase.accountValidate(Account.getInstance())) {// IF account exist, go to dashboard
             account.reconstuct();// pull id only :)) other already there after user type in right
-            // TODO connect point for Dashboard
-            // DashBoard dashBoard = new DashBoard();
-            // dashBoard.setVisible(true);
-            // dashBoard.pack();
-            // dashBoard.setLocationRelativeTo(null);
-            // dispose both pages
-            // get instances
+            
             DashBoardFrame dashboard = DashBoardFrame.getInstance();
             dashboard.setVisible(true);
             dashboard.setLocationRelativeTo(null);

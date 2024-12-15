@@ -1,18 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package UIMainStream.DashBoard.Component;
 
 /**
- *
  * @author DELL
  */
 public class Vehicles_Component extends javax.swing.JPanel {
-
-    /**
-     * Creates new form Vehicle1
-     */
     public Vehicles_Component() {
         initComponents();
     }
@@ -116,7 +107,6 @@ public class Vehicles_Component extends javax.swing.JPanel {
                 .addGap(23, 23, 23))
         );
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Vitridau;

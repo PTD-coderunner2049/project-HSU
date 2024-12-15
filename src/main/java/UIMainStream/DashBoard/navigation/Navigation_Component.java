@@ -7,13 +7,6 @@ import UIMainStream.DashBoard.DashBoardContent;
 import UIMainStream.DashBoard.DashBoardFrame;
 import UIMainStream.MainEntry;
 import javax.swing.JScrollPane;
-//import vd.main.CreateRequest.CreateRequest_Component;
-//import vd.main.DashBoardContent;
-//import vd.main.Report.Report_Container;
-//import vd.main.Request.Request_Container;
-//import vd.main.User.User_Component;
-//import vd.main.Vehicle.Vehicles_Container;
-
 /**
  *
  * @author DELL
@@ -107,7 +100,6 @@ public class Navigation_Component extends javax.swing.JPanel {
                 throw new AssertionError();
         }
     }//GEN-LAST:event_formMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel nameBtn;

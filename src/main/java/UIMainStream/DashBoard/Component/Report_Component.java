@@ -1,18 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package UIMainStream.DashBoard.Component;
-
 /**
- *
  * @author DELL
  */
 public class Report_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Report
-     */
     public Report_Component() {
         initComponents();
     }
@@ -125,7 +116,6 @@ public class Report_Component extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienso;

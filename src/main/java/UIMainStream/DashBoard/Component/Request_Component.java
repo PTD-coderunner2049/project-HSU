@@ -1,18 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package UIMainStream.DashBoard.Component;
 
 /**
- *
  * @author DELL
+ * @author ACER
  */
 public class Request_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Request
-     */
     public Request_Component() {
         initComponents();
     }
@@ -168,7 +161,6 @@ public class Request_Component extends javax.swing.JPanel {
                 .addGap(33, 33, 33))
         );
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel date;

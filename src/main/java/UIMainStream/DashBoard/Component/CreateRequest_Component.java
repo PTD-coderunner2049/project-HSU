@@ -1,17 +1,12 @@
-
 package UIMainStream.DashBoard.Component;
 
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author DELL
  */
 public class CreateRequest_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Create_Component
-     */
     public CreateRequest_Component() {
         initComponents();
     }

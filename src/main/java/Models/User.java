@@ -87,14 +87,4 @@ public class User extends Model {
     public void setVehicles(List<Vehicle> vehicles) {
         this.vehicles.addAll(vehicles);
     }
-
-    /**
-     * TODO feature choices. to have User exist within Dashboard, and these funtions
-     * run as button command.
-     * + toUserProfile(User) : boolean
-     * + toVehicleList(List<Vehiclde>) : boolean
-     * + toRequestFromt(String, String, &list<Vehicle>)
-     * + toDisplayRequest(list<Request>) : void
-     * + toDisplayReport(list<Report>) : void
-     */
 }

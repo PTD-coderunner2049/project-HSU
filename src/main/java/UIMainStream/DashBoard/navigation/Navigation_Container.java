@@ -1,14 +1,9 @@
-
 package UIMainStream.DashBoard.navigation;
 
 import java.awt.GridLayout;
 
-
 public class Navigation_Container extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Navigation_Container
-     */
     public Navigation_Container() {
         initComponents();
         String[] names = {"User","Create Request","Request","Report","Vehicles","Logout"};
@@ -39,7 +34,6 @@ public class Navigation_Container extends javax.swing.JPanel {
             .addGap(0, 336, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -1,20 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package UIMainStream.DashBoard.Component;
 
 import javax.swing.JOptionPane;
-
 /**
- *
  * @author DELL
  */
 public class User_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form User_Component
-     */
     public User_Component() {
         initComponents();
     }
@@ -105,7 +96,6 @@ public class User_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseClicked
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(this,"Save Successfully");
         textname.setText("");
         textbirthday.setText("");
@@ -113,12 +103,10 @@ public class User_Component extends javax.swing.JPanel {
     }//GEN-LAST:event_saveMouseClicked
 
     private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(this,"Cancel Successfully");
         textname.setText("");
         textbirthday.setText("");
     }//GEN-LAST:event_cancelMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel birthday;
