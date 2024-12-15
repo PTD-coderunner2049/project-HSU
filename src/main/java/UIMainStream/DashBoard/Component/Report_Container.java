@@ -2,15 +2,11 @@ package UIMainStream.DashBoard.Component;
 
 import java.awt.GridLayout;
 
-/**
- * @author DELL
- */
 public class Report_Container extends javax.swing.JPanel {
 
     public Report_Container() {
         initComponents();
-        setLayout();
-        addComponents();
+        secondStageinitComponents();
     }
 
     /**
@@ -36,8 +32,9 @@ public class Report_Container extends javax.swing.JPanel {
      // Variables declaration - do not modify//GEN-BEGIN:variables
      // End of variables declaration//GEN-END:variables
 
-    private void setLayout() {
+    private void secondStageinitComponents() {
         this.setLayout(new GridLayout(0, 1, 0, 0));
+        addComponents();
     }
 
     private void addComponents() {
