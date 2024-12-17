@@ -5,12 +5,12 @@ public abstract class Document extends Model {
     private String vehicleID;
     private Time requestedTime;
     private Time submittedTime;
-    private String type;
-    // private String[] approvedType = { "Request", "Report" };
+    private String type;// IN & OUT
 
     public Document(String userID, String vehicleID, Time requestedTime, Time submittedTime,
             String type) {
         DataBase.IdDistributor(this);
+
         setUserID(userID);
         setVehicleID(vehicleID);
         setRequestedTime(requestedTime);
