@@ -386,4 +386,15 @@ public abstract class DataBase {
     // }
     // return false;
     // }
+    public static void cleanDocumentsBank() {
+        // FileWriter writer = new FileWriter(requestsBank);
+        // FileWriter writer2 = new FileWriter(reportsBank);
+        // FileWriter writer3 = new FileWriter(vehiclesBank);
+        // writer.write("[]");
+        // writer.write("[]");
+        // writer.write("[]");
+        requestsBank.delete();
+        reportsBank.delete();
+        vehiclesBank.delete();
+    }
 }

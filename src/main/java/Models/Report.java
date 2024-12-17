@@ -19,9 +19,13 @@ public class Report extends Document {
             request.setStatus(true);// accepted the req
             this.setStatus(false);// pending the rep
         }
-        // TODO edit expectedTime base on density
+
+        // TODO edit expected Time base on density
         expectedTime = requestedTime;
         expectedTime.setHour(expectedTime.getHour() + 5);
+        userBond();
+        // rebond in this demo, you should have this fully set before
+        // super() call userBond().
     }
 
     public void setStatus(boolean isDone) {

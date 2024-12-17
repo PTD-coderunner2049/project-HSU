@@ -11,7 +11,7 @@ public abstract class Document extends Model {
 
     public Document() {
     }
-    
+
     public Document(String id) {
         this.setId(id);
     }
@@ -26,7 +26,7 @@ public abstract class Document extends Model {
         setSubmittedTime(submittedTime);
         setType(type);
 
-        userBond();
+        userBond();// included save()
         save();
     }
 
