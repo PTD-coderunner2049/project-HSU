@@ -1,10 +1,12 @@
 package Models;
 
+import java.util.LinkedList;
+
 public class Vehicle extends Model {
     private String userID;
     // id from model
     private String occupiedPosition = "Unhangared";
-    private String vehicleLicensedPlate; //XX-XXX-XXX
+    private String vehicleLicensedPlate;
     private String hangarType; // "Land, Water"
     private char size; // "S L M"
     private eVesselType type;
@@ -16,23 +18,33 @@ public class Vehicle extends Model {
         this.setId(id);// veh id is plate number
     }
 
-    public Vehicle(String id, String userID, String occupiedPosition, String vehicleLicensedPlate,
+    public Vehicle(String userID, String vehicleLicensedPlate,
             String hangarType, char size, eVesselType type) {
-        setId(id);
         this.userID = userID;
-        this.occupiedPosition = occupiedPosition;
         this.vehicleLicensedPlate = vehicleLicensedPlate;
         this.hangarType = hangarType;
         this.size = size;
         this.type = type;
+        DataBase.IdDistributor(this);
+
+        String t = (hangarType == "Water") ? "W" : "G";
+        this.occupiedPosition = "[" + t + size + "-" + getId() + "]";
+
+        userBond();
+        save();
     }
 
     @Override
-    public void save() {
-        super.save();
+    public boolean userBond() {
         User user = User.getInstance();
-        user.getVehicles().add(this);
-        user.save();
+        LinkedList<Vehicle> objectsList = user.getVehicles();
+        int i = DataBase.haveExistingID(objectsList, this.getId());
+        if (i == -1) {
+            objectsList.add((Vehicle) this);
+        } else {
+            objectsList.set(i, (Vehicle) this);
+        }
+        return user.save();
     }
 
     public void setOccupiedPosition(String occupiedPosition) {

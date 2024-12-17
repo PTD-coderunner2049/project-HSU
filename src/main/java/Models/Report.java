@@ -22,7 +22,6 @@ public class Report extends Document {
         // TODO edit expectedTime base on density
         expectedTime = requestedTime;
         expectedTime.setHour(expectedTime.getHour() + 5);
-        expectedTime.setHour(expectedTime.getHour() + 5);
     }
 
     public void setStatus(boolean isDone) {

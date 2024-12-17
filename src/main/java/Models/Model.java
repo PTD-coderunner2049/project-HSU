@@ -2,12 +2,13 @@ package Models;
 
 public abstract class Model {
     private String id = null;
-    public void save() {
-        DataBase.eat(this);
+
+    public final boolean save() {
+        return DataBase.eat(this);
     };
 
-    public void reconstuct() {
-        DataBase.vormit(this);
+    public final boolean reconstuct() {
+        return DataBase.vormit(this);
     };
 
     public void setId(String id) {
@@ -17,4 +18,7 @@ public abstract class Model {
     public String getId() {
         return id;
     }
+
+    public abstract boolean userBond();// contribute to the 'Request, report and vehicle' personal list.
+
 }

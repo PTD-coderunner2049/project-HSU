@@ -2,26 +2,26 @@
   {
     "isDone": false,
     "expectedTime": {
-      "day": 20,
-      "month": 17,
-      "year": 12,
-      "hour": 2029
+      "hour": 33,
+      "day": 15,
+      "month": 12,
+      "year": 2024
     },
     "userID": "0",
     "vehicleID": "0",
     "requestedTime": {
+      "hour": 18,
       "day": 17,
       "month": 12,
-      "year": 2024,
-      "hour": 15
+      "year": 2024
     },
     "submittedTime": {
-      "day": 20,
-      "month": 17,
-      "year": 12,
-      "hour": 2029
+      "hour": 33,
+      "day": 15,
+      "month": 12,
+      "year": 2024
     },
-    "type": "Drive Out.",
+    "type": "Drive In",
     "id": "0"
   }
 ]

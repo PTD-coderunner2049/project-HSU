@@ -52,17 +52,17 @@ public abstract class DataBase {
     // contribute to the core database.
 
     // Generic eat method.
-    public static <T extends Model> boolean eat(T object) {
+    public static <Thing extends Model> boolean eat(Thing object) {
         // Navigate object type and pull appopriate list.
         File desiredBank = findBank(object.getClass());
-        List<T> objectsList = fetchDataBase(object);
+        List<Thing> objectsList = fetchDataBase(object);
 
         // look for existing to replace before add
         int i = haveExistingID(objectsList, object.getId());
         if (i == -1) {
             objectsList.add(object);
         } else {
-            objectsList.set(0, object);
+            objectsList.set(i, object);
         }
         // save updated data
         try (FileWriter writer = new FileWriter(desiredBank)) {
@@ -74,7 +74,7 @@ public abstract class DataBase {
         }
     }
 
-    public static <T extends Model> int haveExistingID(List<T> objectsList, String id) {
+    public static <Thing extends Model> int haveExistingID(List<Thing> objectsList, String id) {
         for (int i = 0; i < objectsList.size(); i++) {
             if (objectsList.get(i).getId().equals(id)) {
                 return i;
@@ -82,7 +82,6 @@ public abstract class DataBase {
         }
         return -1;
     }
-
     // WARNING: LEGACY CODE - Overloaded eat method for difference classes.
     // public static boolean eat(Account account) {
     // List<Account> accountsList = fetchDataBase(accountsBank, Account.class);
@@ -154,7 +153,7 @@ public abstract class DataBase {
 
     // ----------------------------------------------------------------------------
     // read from the core database.
-    private static <T extends Model> File findBank(Class<T> objectClass) {
+    private static <Thing extends Model> File findBank(Class<Thing> objectClass) {
         if (objectClass == User.class) {
             DataStream.setBankId(1);
             return usersBank;
@@ -179,11 +178,10 @@ public abstract class DataBase {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T extends Model> boolean vormit(T object) {// reconstuct user from database
-        // Class<T> objectClass = (Class<T>) object.getClass();
+    public static <Thing extends Model> boolean vormit(Thing object) {// reconstuct user from database
+        // Class<Thing> objectClass = (Class<Thing>) object.getClass();
         // File desiredBank = findBank(objectClass);
-
-        List<T> objectsList = fetchDataBase(object);
+        List<Thing> objectsList = fetchDataBase(object);
 
         if (objectsList == null)
             return false;// none to vormit
@@ -284,14 +282,14 @@ public abstract class DataBase {
     // }
 
     // Power tools-----------------------------------------------------------------
-    public static <T extends Model> boolean IdDistributor(T object) {
+    public static <Thing extends Model> boolean IdDistributor(Thing object) {
         // send out available ID base on database list's size()
         // pull object list
 
-        // Class<T> objectClass = (Class<T>) object.getClass();
+        // Class<Thing> objectClass = (Class<Thing>) object.getClass();
         // File desiredBank = findBank(objectClass);
-        // List<T> objectsList = fetchDataBase(desiredBank, objectClass);
-        List<T> objectsList = fetchDataBase(object);
+        // List<Thing> objectsList = fetchDataBase(desiredBank, objectClass);
+        List<Thing> objectsList = fetchDataBase(object);
         // assigning ID
         object.setId(Integer.toString(objectsList.size()));
         return (object.getId() != null) ? true : false;
@@ -322,14 +320,15 @@ public abstract class DataBase {
     }
 
     // BEHOLE PEASANT, THIS IS MY INVENTION. Generic class
-    private static <T> List<T> fetchDataBase(File dir, Class<T> targetClass) {// capable of fetching any class to list.
+    private static <Thing> List<Thing> fetchDataBase(File dir, Class<Thing> targetClass) {// capable of fetching any
+                                                                                          // class to list.
 
         // pull object list
         try (FileReader jsonDataSheet = new FileReader(dir)) {
             Gson gson = builder.create();
-            List<T> objectList = gson.fromJson(jsonDataSheet,
+            List<Thing> objectList = gson.fromJson(jsonDataSheet,
                     TypeToken.getParameterized(List.class, targetClass).getType());
-            return (objectList == null) ? new LinkedList<T>() : objectList;
+            return (objectList == null) ? new LinkedList<Thing>() : objectList;
         } catch (IOException e) {
             System.out.println("JSON DataBank fetching failure!");
             return new LinkedList<>();
@@ -337,15 +336,16 @@ public abstract class DataBase {
     }
 
     @SuppressWarnings("unchecked") // I dont know how to check for it.
-    private static <T extends Model> List<T> fetchDataBase(T object) {// capable of fetching any class to list.
-        Class<T> objectClass = (Class<T>) object.getClass();
+    private static <Thing extends Model> List<Thing> fetchDataBase(Thing object) {// capable of fetching any class to
+                                                                                  // list.
+        Class<Thing> objectClass = (Class<Thing>) object.getClass();
         File desiredBank = findBank(objectClass);
         // pull object list
         try (FileReader jsonDataSheet = new FileReader(desiredBank)) {
             Gson gson = builder.create();
-            List<T> objectList = gson.fromJson(jsonDataSheet,
+            List<Thing> objectList = gson.fromJson(jsonDataSheet,
                     TypeToken.getParameterized(List.class, objectClass).getType());
-            return (objectList == null) ? new LinkedList<T>() : objectList;
+            return (objectList == null) ? new LinkedList<Thing>() : objectList;
         } catch (IOException e) {
             System.out.println("JSON DataBank fetching failure!");
             return new LinkedList<>();

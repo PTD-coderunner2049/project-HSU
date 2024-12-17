@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 
 public class Time {
     private static Time instance;
+    public int hour;
     public int day;
     public int month;
     public int year;
-    public int hour;
 
     public Time() {
         LocalDateTime now = LocalDateTime.now();

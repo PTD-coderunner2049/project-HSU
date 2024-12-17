@@ -1,11 +1,20 @@
 package Models;
 
+import java.util.LinkedList;
+
 public abstract class Document extends Model {
     private String userID;
     private String vehicleID;
     private Time requestedTime;
     private Time submittedTime;
     private String type;// IN & OUT
+
+    public Document() {
+    }
+    
+    public Document(String id) {
+        this.setId(id);
+    }
 
     public Document(String userID, String vehicleID, Time requestedTime, Time submittedTime,
             String type) {
@@ -17,14 +26,31 @@ public abstract class Document extends Model {
         setSubmittedTime(submittedTime);
         setType(type);
 
+        userBond();
+        save();
+    }
+
+    @Override
+    public boolean userBond() {
         User user = User.getInstance();
         if (this.getClass() == Request.class) {
-            user.getRequests().add((Request) this);
+            LinkedList<Request> objectsList = user.getRequests();
+            int i = DataBase.haveExistingID(objectsList, this.getId());
+            if (i == -1) {
+                objectsList.add((Request) this);
+            } else {
+                objectsList.set(i, (Request) this);
+            }
         } else if (this.getClass() == Report.class) {
-            user.getReports().add((Report) this);
+            LinkedList<Report> objectsList = user.getReports();
+            int i = DataBase.haveExistingID(objectsList, this.getId());
+            if (i == -1) {
+                objectsList.add((Report) this);
+            } else {
+                objectsList.set(i, (Report) this);
+            }
         }
-        user.save();
-        save();
+        return user.save();
     }
 
     public Time getRequestedTime() {

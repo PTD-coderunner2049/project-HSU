@@ -90,6 +90,7 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         plateLabel.setText("Plate");
 
         textbienso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textbienso.setText("XX-XXX-XXX");
 
         requestedDay.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         requestedDay.setText("15");
@@ -260,9 +261,9 @@ public class CreateRequest_Component extends javax.swing.JPanel {
                 String type;
 
         if (checkBoxIn.isSelected()) {
-            type = "Drive In.";
+            type = "Drive In";
         } else {
-            type = "Drive Out.";
+            type = "Drive Out";
         }
         Request request = new Request(User.getInstance().getId(), vehicle.getId(),
                 requestedTime, submittedTime, type);
@@ -270,22 +271,22 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         // TODO
         // report generating should be elsewhere
         // for demo it is instantly acceptedreq
+        requestedTime.setHour(requestedTime.getHour() + suggestedDelay);
         Report report = new Report(request, requestedTime);
         report.save();
         return request;
     }
 
     private Vehicle createVehicle() {
-        Vehicle vehicle = new Vehicle();
         eVesselType selectedType = (eVesselType) type.getSelectedItem();
 
-        vehicle.setType(selectedType);
-        vehicle.setHangarType(selectedType.getHangarType());
-        vehicle.setSize(selectedType.getSize());
+        eVesselType vType = selectedType;
+        String hType = selectedType.getHangarType();
+        char size = selectedType.getSize();
 
-        vehicle.setVehicleLicensedPlate(textbienso.getText());
-        vehicle.setUserID(User.getInstance().getId());
-        DataBase.IdDistributor(vehicle);
+        String plate = textbienso.getText();
+        String uId = User.getInstance().getId();
+        Vehicle vehicle = new Vehicle(uId, plate, hType, size, vType);
 
         vehicle.save();
         return vehicle;
