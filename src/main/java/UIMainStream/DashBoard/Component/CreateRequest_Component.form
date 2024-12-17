@@ -122,9 +122,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="23"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="requestedHourMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="requestedTimeLabel">
       <Properties>
