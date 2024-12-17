@@ -330,7 +330,7 @@ public abstract class DataBase {
                     TypeToken.getParameterized(List.class, targetClass).getType());
             return (objectList == null) ? new LinkedList<Thing>() : objectList;
         } catch (IOException e) {
-            System.out.println("JSON DataBank fetching failure!");
+            System.out.println("JSON DataBank fetching failure! Attemping to recreate nessesary dataBank");
             return new LinkedList<>();
         }
     }
@@ -347,7 +347,7 @@ public abstract class DataBase {
                     TypeToken.getParameterized(List.class, objectClass).getType());
             return (objectList == null) ? new LinkedList<Thing>() : objectList;
         } catch (IOException e) {
-            System.out.println("JSON DataBank fetching failure!");
+            System.out.println("JSON DataBank fetching failure! Attemping to recreate nessesary dataBank");
             return new LinkedList<>();
         }
     }

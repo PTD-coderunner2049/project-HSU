@@ -1,11 +1,10 @@
 [
   {
     "userID": "0",
-    "occupiedPosition": "[WL-0]",
+    "occupiedPosition": "[GL-0]",
     "vehicleLicensedPlate": "XX-XXX-XXX",
-    "hangarType": "Water",
     "size": "L",
-    "type": "CARGO_SHIP",
+    "type": "TANKER_SHIP",
     "id": "0"
   }
 ]

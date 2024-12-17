@@ -90,7 +90,6 @@ public class User extends Model {
 
     @Override
     public boolean userBond() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'userBond'");
     }
 }

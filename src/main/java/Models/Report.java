@@ -12,8 +12,8 @@ public class Report extends Document {
     }
 
     public Report(Request request, Time requestedTime) {// provided time by the system after accounting
-        super(request.getUserID(), request.getVehicleID(), request.getSubmittedTime(),
-                requestedTime, request.getType());
+        super(request.getUserID(), request.getVehicleID(),
+                requestedTime, request.getSubmittedTime(), request.getType());
         if (this.getId() != null) {
             request.setStatus(true);// accepted the req
             this.setStatus(false);// pending the rep
@@ -21,7 +21,7 @@ public class Report extends Document {
 
         // TODO edit expected Time base on density
         expectedTime = requestedTime;
-        expectedTime.setHour(expectedTime.getHour() + 5);
+        expectedTime.setHour(expectedTime.getHour() + 1);
         userBond();
         // rebond in this demo, you should have this fully set before
         // super() call userBond().

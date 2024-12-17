@@ -28,35 +28,35 @@
                       <Component id="jSeparator1" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="name" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="plate" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="date" min="-2" pref="92" max="-2" attributes="0"/>
-                          <Component id="requesttime" min="-2" max="-2" attributes="0"/>
+                          <Component id="name" alignment="1" min="-2" pref="138" max="-2" attributes="0"/>
+                          <Component id="plate" alignment="1" min="-2" pref="138" max="-2" attributes="0"/>
+                          <Component id="requesttime" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="date" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="labelreqeusted" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labelBienso" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labelName" pref="231" max="32767" attributes="0"/>
+                          <Component id="labelBienso" alignment="0" pref="154" max="32767" attributes="0"/>
+                          <Component id="labelName" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelsubmit" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="idRequest" pref="107" max="32767" attributes="0"/>
-                          <Component id="status" max="32767" attributes="0"/>
-                          <Component id="request" alignment="0" max="32767" attributes="0"/>
-                          <Component id="size" max="32767" attributes="0"/>
+                          <Component id="status" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="idRequest" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="requestTypeText" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="size" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelID" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelstatus" max="32767" attributes="0"/>
-                          <Component id="labelID" max="32767" attributes="0"/>
-                          <Component id="labelType" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labelSize" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="labelType" pref="145" max="32767" attributes="0"/>
+                          <Component id="labelSize" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -66,56 +66,44 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="size" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelSize" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="plate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelBienso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="requestTypeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelType" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="name" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="plate" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelreqeusted" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="status" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelstatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelsubmit" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="idRequest" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="requesttime" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="date" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="labelName" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="labelBienso" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="labelreqeusted" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="labelsubmit" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="size" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelType" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="request" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="status" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelstatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelID" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="idRequest" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
-              <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -124,7 +112,7 @@
     <Component class="javax.swing.JLabel" name="name">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
@@ -132,15 +120,15 @@
     <Component class="javax.swing.JLabel" name="plate">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Plate"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="request">
+    <Component class="javax.swing.JLabel" name="requestTypeText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Type"/>
       </Properties>
@@ -148,7 +136,7 @@
     <Component class="javax.swing.JLabel" name="size">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Size"/>
       </Properties>
@@ -156,7 +144,7 @@
     <Component class="javax.swing.JLabel" name="date">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Submit Time"/>
       </Properties>
@@ -211,7 +199,7 @@
     <Component class="javax.swing.JLabel" name="requesttime">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Requested Time"/>
       </Properties>
@@ -227,7 +215,7 @@
     <Component class="javax.swing.JLabel" name="status">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Status"/>
       </Properties>
@@ -243,7 +231,7 @@
     <Component class="javax.swing.JLabel" name="idRequest">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ID Request"/>
       </Properties>

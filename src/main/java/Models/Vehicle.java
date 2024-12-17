@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Vehicle extends Model {
     private String userID;
     // id from model
-    private String occupiedPosition = "Unhangared";
+    private String occupiedPosition;
     private String vehicleLicensedPlate;
     private String hangarType; // "Land, Water"
     private char size; // "S L M"
@@ -25,10 +25,8 @@ public class Vehicle extends Model {
         this.hangarType = hangarType;
         this.size = size;
         this.type = type;
+        setOccupiedPosition(false);
         DataBase.IdDistributor(this);
-
-        String t = (hangarType == "Water") ? "W" : "G";
-        this.occupiedPosition = "[" + t + size + "-" + getId() + "]";
 
         userBond();
         save();
@@ -45,6 +43,15 @@ public class Vehicle extends Model {
             objectsList.set(i, (Vehicle) this);
         }
         return user.save();
+    }
+
+    public void setOccupiedPosition(boolean isHangared) {
+        if (isHangared) {
+            String t = (hangarType == "Water") ? "W" : "G";
+            occupiedPosition = "[" + t + size + "-" + getId() + "]";
+        } else {
+            occupiedPosition = "Unhangared";
+        }
     }
 
     public void setOccupiedPosition(String occupiedPosition) {

@@ -20,14 +20,14 @@ public abstract class Document extends Model {
             String type) {
         DataBase.IdDistributor(this);
 
-        setUserID(userID);
-        setVehicleID(vehicleID);
-        setRequestedTime(requestedTime);
-        setSubmittedTime(submittedTime);
-        setType(type);
+        this.setUserID(userID);
+        this.setVehicleID(vehicleID);
+        this.setRequestedTime(requestedTime);
+        this.setSubmittedTime(submittedTime);
+        this.setType(type);
 
-        userBond();// included save()
-        save();
+        this.userBond();// included save()
+        this.save();
     }
 
     @Override

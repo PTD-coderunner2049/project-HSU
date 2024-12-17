@@ -17,7 +17,7 @@ public class Time {
         this.year = now.getYear();
         this.hour = now.getHour();
         this.minute = now.getMinute();
-        System.out.println(toString());
+        // System.out.println(toString());
     }
 
     public Time(String hour, String minute, String day, String month, String year) {
