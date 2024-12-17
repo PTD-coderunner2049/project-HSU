@@ -256,7 +256,6 @@
       </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="checkBoxOutStateChanged"/>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="checkBoxOutMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="demoHintLabel">
