@@ -6,7 +6,6 @@ public class Request extends Document {
 
     public Request(String userID, String vehicleID, Time requestedTime, Time submittedTime,
             String type) {
-
         super(userID, vehicleID, requestedTime, submittedTime, type);
         isAccepted = false;
     }

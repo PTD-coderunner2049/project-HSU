@@ -7,7 +7,15 @@ public class Report extends Document {
     public Report(String userID, String vehicleID, Time requestedTime, Time submittedTime,
             String type) {
         super(userID, vehicleID, requestedTime, submittedTime, type);
-        isDone = false;
+        this.setStatus(false);// pending the rep
+    }
+
+    public Report(Request request, Time providedTime) {// provided time by the system after accounting
+        super(request.getUserID(), request.getVehicleID(), request.getSubmittedTime(), providedTime, request.getType());
+        if (this.getId() != null) {
+            request.setStatus(true);// accepted the req
+            this.setStatus(false);// pending the rep
+        }
     }
 
     public void setStatus(boolean isDone) {
@@ -17,4 +25,5 @@ public class Report extends Document {
     public boolean getStatus() {
         return isDone;
     }
+
 }
