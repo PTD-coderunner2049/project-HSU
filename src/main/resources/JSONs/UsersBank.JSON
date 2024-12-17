@@ -7,18 +7,20 @@
         "userID": "0",
         "vehicleID": "0",
         "requestedTime": {
-          "hour": 33,
-          "day": 15,
-          "month": 12,
-          "year": 2024
-        },
-        "submittedTime": {
-          "hour": 21,
+          "hour": 20,
+          "minute": 0,
           "day": 17,
           "month": 12,
           "year": 2024
         },
-        "type": "Drive In",
+        "submittedTime": {
+          "hour": 22,
+          "minute": 7,
+          "day": 17,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive Out",
         "id": "0"
       }
     ],
@@ -26,26 +28,29 @@
       {
         "isDone": false,
         "expectedTime": {
-          "hour": 33,
-          "day": 15,
+          "hour": 20,
+          "minute": 0,
+          "day": 17,
           "month": 12,
           "year": 2024
         },
         "userID": "0",
         "vehicleID": "0",
         "requestedTime": {
-          "hour": 21,
+          "hour": 22,
+          "minute": 7,
           "day": 17,
           "month": 12,
           "year": 2024
         },
         "submittedTime": {
-          "hour": 33,
-          "day": 15,
+          "hour": 20,
+          "minute": 0,
+          "day": 17,
           "month": 12,
           "year": 2024
         },
-        "type": "Drive In",
+        "type": "Drive Out",
         "id": "0"
       }
     ],

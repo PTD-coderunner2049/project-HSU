@@ -3,7 +3,6 @@ package Models;
 public class Report extends Document {
 
     private boolean isDone;
-    @SuppressWarnings("unused")
     private Time expectedTime;
 
     public Report(String userID, String vehicleID, Time requestedTime, Time submittedTime,

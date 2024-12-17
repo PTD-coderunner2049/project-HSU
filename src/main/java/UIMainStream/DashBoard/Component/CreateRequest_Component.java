@@ -267,17 +267,16 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void checkBoxOutMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_checkBoxOutMouseClicked
-		if (checkBoxOut.isSelected()) {
-			checkBoxIn.setSelected(false);
-			checkBoxOut.setSelected(true);
-		}
+
+		checkBoxIn.setSelected(false);
+		checkBoxOut.setSelected(true);
+
 	}// GEN-LAST:event_checkBoxOutMouseClicked
 
 	private void checkBoxInMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_checkBoxInMouseClicked
-		if (checkBoxIn.isSelected()) {
-			checkBoxOut.setSelected(false);
-			checkBoxIn.setSelected(true);
-		}
+
+		checkBoxOut.setSelected(false);
+		checkBoxIn.setSelected(true);
 	}// GEN-LAST:event_checkBoxInMouseClicked
 
 	private void createMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_createMouseClicked
@@ -293,7 +292,7 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 			return;
 		}
 		JOptionPane.showMessageDialog(this, "Document successfully submited at : " + new Time() + "\n");
-		Time requestedTime = new Time(requestedHour.getText(), requestedDay.getText(), requestedMonth.getText(),
+		Time requestedTime = new Time(requestedHour.getText(), "0", requestedDay.getText(), requestedMonth.getText(),
 				requestedYear.getText());
 
 		// create req and vehcle + save them to dataBank

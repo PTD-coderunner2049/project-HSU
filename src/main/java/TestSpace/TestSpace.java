@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -14,7 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import Models.Account;
 import Models.DataBase;
 import Models.Request;
-import Models.Time;
+// import Models.Time;
 import Models.User;
 import Models.Vehicle;
 
@@ -24,6 +25,7 @@ import Models.Vehicle;
  */
 @SuppressWarnings("unused")
 public class TestSpace {
+    Time a;
     public static void main(String[] args) {
         DataBase.cleanDocumentsBank();
     }
