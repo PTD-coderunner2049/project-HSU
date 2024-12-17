@@ -244,7 +244,7 @@
         <Property name="text" type="java.lang.String" value="Drive In"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="checkBoxInMouseClicked"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="checkBoxInStateChanged"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxOut">
@@ -255,6 +255,7 @@
         <Property name="text" type="java.lang.String" value="Drive Out"/>
       </Properties>
       <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="checkBoxOutStateChanged"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="checkBoxOutMouseClicked"/>
       </Events>
     </Component>
