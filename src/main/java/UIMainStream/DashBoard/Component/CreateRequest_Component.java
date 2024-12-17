@@ -213,19 +213,25 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         checkBoxOut.setSelected(false);
     }//GEN-LAST:event_checkBoxInMouseClicked
 
-    private void requestedHourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestedHourMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_requestedHourMouseClicked
 
-        private void createMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_createMouseClicked
-                JOptionPane.showMessageDialog(this, "Document successfully submited at : \n");// TODO
+    private void createMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_createMouseClicked
+        String hour = requestedHour.getText();
+        String day = requestedDay.getText();
+        String month = requestedMonth.getText();
+
+        if (!checkValidHours(hour)) {
+            JOptionPane.showMessageDialog(null, "Invalid hours!");
+            return;
+        } else if (!checkDate(day, month)) {
+            JOptionPane.showMessageDialog(this, "Invalid date!");// TODO
+            return;
+        }
 
         Time requestedTime = new Time(requestedHour.getText(), requestedDay.getText(), requestedMonth.getText(),
                 requestedYear.getText());
 
-                // create req and vehcle + save them to dataBank
-                createRequest(createVehicle(), requestedTime);
+        // create req and vehcle + save them to dataBank
+        createReqeuest(createVehicle(), requestedTime);
 
         resetAllTextes();
     }// GEN-LAST:event_createMouseClicked
