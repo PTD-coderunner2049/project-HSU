@@ -4,7 +4,7 @@ public class Vehicle extends Model {
     private String userID;
     // id from model
     private String occupiedPosition = "Unhangared";
-    private String vehicleLicensedPlate;
+    private String vehicleLicensedPlate; //XX-XXX-XXX
     private String hangarType; // "Land, Water"
     private char size; // "S L M"
     private eVesselType type;

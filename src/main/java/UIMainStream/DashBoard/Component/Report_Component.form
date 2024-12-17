@@ -26,19 +26,19 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="idReport" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labelrequestedTime" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labelbienso" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelname" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                          <Component id="labelplate" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                          <Component id="idReportText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelExpectedTimeText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelTypeText" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelnameText" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                          <Component id="labelPlateText" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="labelName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labeltype" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labelid" min="-2" pref="186" max="-2" attributes="0"/>
+                                  <Component id="labelType" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelId" min="-2" pref="186" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -55,8 +55,8 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="labelreuqesttime" min="-2" pref="186" max="-2" attributes="0"/>
-                          <Component id="labelreuqesttime1" min="-2" pref="186" max="-2" attributes="0"/>
+                          <Component id="labelExpectedTime" min="-2" pref="186" max="-2" attributes="0"/>
+                          <Component id="labelPlate" min="-2" pref="186" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -73,7 +73,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelname" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelnameText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelName" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="status" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelstatus" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -81,28 +81,28 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="labelbienso" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTypeText" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="labeltype" max="32767" attributes="0"/>
+                      <Component id="labelType" max="32767" attributes="0"/>
                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelrequestedTime" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelreuqesttime" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="labelExpectedTimeText" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelExpectedTime" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelplate" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelreuqesttime1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="labelPlateText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelPlate" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="confirmButton" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="idReport" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="idReportText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -121,7 +121,7 @@
         <Property name="text" type="java.lang.String" value="Drive in"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelname">
+    <Component class="javax.swing.JLabel" name="labelnameText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -129,7 +129,7 @@
         <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelbienso">
+    <Component class="javax.swing.JLabel" name="labelTypeText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -153,7 +153,7 @@
         <Property name="text" type="java.lang.String" value="userfull name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labeltype">
+    <Component class="javax.swing.JLabel" name="labelType">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="2"/>
@@ -168,15 +168,15 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelrequestedTime">
+    <Component class="javax.swing.JLabel" name="labelExpectedTimeText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Requested Time"/>
+        <Property name="text" type="java.lang.String" value="Expected Time"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelreuqesttime">
+    <Component class="javax.swing.JLabel" name="labelExpectedTime">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="2"/>
@@ -192,7 +192,7 @@
         <Property name="text" type="java.lang.String" value="on going"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="idReport">
+    <Component class="javax.swing.JLabel" name="idReportText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -200,7 +200,7 @@
         <Property name="text" type="java.lang.String" value="Report ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelid">
+    <Component class="javax.swing.JLabel" name="labelId">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="2"/>
@@ -219,7 +219,7 @@
         <Property name="text" type="java.lang.String" value="Confirm this Request is Finished"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelplate">
+    <Component class="javax.swing.JLabel" name="labelPlateText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -227,7 +227,7 @@
         <Property name="text" type="java.lang.String" value="Plate"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelreuqesttime1">
+    <Component class="javax.swing.JLabel" name="labelPlate">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="2"/>

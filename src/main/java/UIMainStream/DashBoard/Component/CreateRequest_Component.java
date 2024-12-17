@@ -3,6 +3,7 @@ package UIMainStream.DashBoard.Component;
 import javax.swing.JOptionPane;
 
 import Models.DataBase;
+import Models.Report;
 import Models.Request;
 import Models.Time;
 import Models.User;
@@ -223,15 +224,15 @@ public class CreateRequest_Component extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Invalid hours!");
             return;
         } else if (!checkDate(day, month)) {
-            JOptionPane.showMessageDialog(this, "Invalid date!");// TODO
+            JOptionPane.showMessageDialog(this, "Invalid date!");
             return;
         }
-
+        JOptionPane.showMessageDialog(this, "Document successfully submited at : " + new Time() + "\n");
         Time requestedTime = new Time(requestedHour.getText(), requestedDay.getText(), requestedMonth.getText(),
                 requestedYear.getText());
 
         // create req and vehcle + save them to dataBank
-        createReqeuest(createVehicle(), requestedTime);
+        createRequest(createVehicle(), requestedTime);
 
         resetAllTextes();
     }// GEN-LAST:event_createMouseClicked
@@ -254,18 +255,23 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         requestedYear.setText(Integer.toString(now.getYear()));
     }
 
-        private Request createRequest(Vehicle vehicle, Time requestedTime) {
+       private Request createRequest(Vehicle vehicle, Time requestedTime) {
                 Time submittedTime = new Time();
                 String type;
 
         if (checkBoxIn.isSelected()) {
-            type = "Drive In";
+            type = "Drive In.";
         } else {
-            type = "Drive Out";
+            type = "Drive Out.";
         }
         Request request = new Request(User.getInstance().getId(), vehicle.getId(),
                 requestedTime, submittedTime, type);
         request.save();
+        // TODO
+        // report generating should be elsewhere
+        // for demo it is instantly acceptedreq
+        Report report = new Report(request, requestedTime);
+        report.save();
         return request;
     }
 
@@ -322,14 +328,12 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         try { // 
             monthValue = Integer.parseInt(month);
         } catch (NumberFormatException e) {
-            //JOptionPane.showMessageDialog(null, "Invalid month !");
             return false;
         }
 
         try { // 
             dayValue = Integer.parseInt(day);
         } catch (NumberFormatException e) {
-            //JOptionPane.showMessageDialog(null, "Invalid day !");
             return false;
         }
         
@@ -337,7 +341,6 @@ public class CreateRequest_Component extends javax.swing.JPanel {
         boolean checkedMonth = checkValidMonth(monthValue);
 
         if (!checkedDay || !checkedMonth) {
-            //JOptionPane.showMessageDialog(null, "Invalid input !");
             return false;
         } else {
             switch (monthValue) {

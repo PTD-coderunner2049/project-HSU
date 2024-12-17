@@ -17,14 +17,14 @@ public class Time {
         this.hour = now.getHour();
     }
 
-    public Time(String day, String month, String year, String hour) {
+    public Time(String hour, String day, String month, String year) {
         this.day = Integer.parseInt(day);
         this.month = Integer.parseInt(month);
         this.year = Integer.parseInt(year);
         this.hour = Integer.parseInt(hour);
     }
 
-    public Time(int day, int month, int year, int hour) {
+    public Time(int hour, int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
@@ -37,7 +37,8 @@ public class Time {
 
     public String toString() {
         return day + ":" + month + ":" + year + " - at: " + hour + ":00 [24]";
-    }
+    }// toString automatically called when the object of this class is call for
+     // printing content.
 
     public int getDay() {
         return day;
@@ -53,5 +54,21 @@ public class Time {
 
     public int getYear() {
         return year;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }

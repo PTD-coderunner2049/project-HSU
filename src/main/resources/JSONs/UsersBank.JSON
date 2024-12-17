@@ -4,37 +4,10 @@
     "fullName": "Lilium Frstra",
     "dateOfBirth": "04/12/1449",
     "requests": [
-      {
-        "isAccepted": false,
-        "userID": "0",
-        "vehicleID": "0",
-        "requestedTime": {
-          "day": 27,
-          "month": 15,
-          "year": 12,
-          "hour": 2024
-        },
-        "submittedTime": {
-          "day": 15,
-          "month": 12,
-          "year": 2024,
-          "hour": 22
-        },
-        "type": "Drive In",
-        "id": "0"
-      }
     ],
-    "reports": [],
+    "reports": [
+    ],
     "vehicles": [
-      {
-        "userID": "0",
-        "occupiedPosition": "Unhangared",
-        "vehicleLicensedPlate": "XX-XXX-XXX",
-        "hangarType": "Water",
-        "size": "L",
-        "type": "TANKER_SHIP",
-        "id": "0"
-      }
     ],
     "id": "0"
   }

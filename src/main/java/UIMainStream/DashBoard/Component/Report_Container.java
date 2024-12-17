@@ -1,6 +1,10 @@
 package UIMainStream.DashBoard.Component;
 
 import java.awt.GridLayout;
+import java.util.LinkedList;
+
+import Models.Report;
+import Models.User;
 
 public class Report_Container extends javax.swing.JPanel {
 
@@ -38,9 +42,10 @@ public class Report_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        // TODO
-        for (int i = 0; i <= 3; i++) {
-            this.add(new Report_Component());
+
+        LinkedList<Report> rep = User.getInstance().getReports();
+        for (Report r : rep) {
+            this.add(new Report_Component(r));
         }
     }
 
