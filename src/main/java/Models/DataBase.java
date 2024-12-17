@@ -22,6 +22,7 @@ public abstract class DataBase {
     private static File reportsBank = new File("src/main/resources/JSONs/RepsBank.JSON");
     private static File vehiclesBank = new File("src/main/resources/JSONs/VehsBank.JSON");
 
+    private static final int trafficToleranceByHour = 1; //for demo, only 1 vessel is registered for transfering per hours.
     private static GsonBuilder builder = new GsonBuilder();
 
     // ----------------------------------------------------------------------------
