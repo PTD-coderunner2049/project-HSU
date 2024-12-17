@@ -122,8 +122,6 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
-        password.setText("jPasswordField1");
-
         message.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         message.setForeground(new java.awt.Color(255, 0, 102));
         message.setText("Hello");
