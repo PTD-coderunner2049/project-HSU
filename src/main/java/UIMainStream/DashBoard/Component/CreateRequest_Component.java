@@ -14,8 +14,8 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 
 	public CreateRequest_Component() {
 		initComponents();
-		this.addCustomDateEventListener();
 		resetAllTextes();
+		this.addCustomDateEventListener();
 	}
 
 	/**
@@ -358,23 +358,9 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 
 	private void addCustomDateEventListener() {
 		TextFunction.addDateInputClamper(requestedHour, 0, 24, 2);
-		// addDateInputClamper(requestedDay, 1, 31, 2);
+		TextFunction.addDateInputClamper(requestedDay, 1, requestedMonth, requestedYear, 2);
 		TextFunction.addDateInputClamper(requestedMonth, 1, 12, 2);
 		TextFunction.addDateInputClamper(requestedYear, new Time().getYear(), 2030, 4);
 		// overkill, but meh.
 	}
-
-	public int calculateMaxDay() {
-		int iMonth = Integer.parseInt(requestedMonth.getText());
-		switch (iMonth) {
-			case 2:
-				int iYear = Integer.parseInt(requestedYear.getText());
-				return (iYear % 4 == 0 && (iYear % 100 != 0 || iYear % 400 == 0)) ? 29 : 28;
-			case 4, 6, 9, 11:
-				return 30;
-			default:
-				return 31;
-		}
-	}
-
 }
