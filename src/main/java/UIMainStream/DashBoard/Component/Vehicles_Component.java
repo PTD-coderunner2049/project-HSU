@@ -31,6 +31,7 @@ public class Vehicles_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -64,8 +65,10 @@ public class Vehicles_Component extends javax.swing.JPanel {
         Vitridau.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Vitridau.setText("Hangared Posistion");
 
-        labelvitridau.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        labelvitridau.setText("jLabel2");
+        labelvitridau.setFont(new java.awt.Font("Comic Sans MS", 3, 18)); // NOI18N
+        labelvitridau.setForeground(new java.awt.Color(153, 51, 255));
+        labelvitridau.setText("[WM-2]");
+        labelvitridau.setToolTipText("");
 
         labelsize.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         labelsize.setText("jLabel1");
@@ -106,25 +109,24 @@ public class Vehicles_Component extends javax.swing.JPanel {
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(labeltype, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(Vitridau)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGap(37, 37, 37)
                                                                 .addComponent(labelvitridau,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 101,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 105,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(
                                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                        48, Short.MAX_VALUE))
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
-                                                                .createSequentialGroup()
-                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                        37, Short.MAX_VALUE)
                                                                 .addComponent(vehIcon,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE, 142,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(Vitridau)
+                                                                .addGap(0, 0, Short.MAX_VALUE))))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addComponent(jSeparator1)))
@@ -136,22 +138,30 @@ public class Vehicles_Component extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(type)
                                         .addComponent(labeltype)
-                                        .addComponent(Vitridau)
-                                        .addComponent(labelvitridau))
+                                        .addComponent(Vitridau))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(bienso)
-                                                        .addComponent(labelbienso))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(name)
-                                                        .addComponent(labelsize)))
                                         .addComponent(vehIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 142,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout
+                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addGap(4, 4, 4)
+                                                        .addComponent(labelvitridau,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addGroup(layout
+                                                                .createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(bienso)
+                                                                .addComponent(labelbienso))
+                                                        .addGap(18, 18, 18)
+                                                        .addGroup(layout
+                                                                .createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(name)
+                                                                .addComponent(labelsize)))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16,
@@ -165,6 +175,10 @@ public class Vehicles_Component extends javax.swing.JPanel {
         labelsize.setText(Character.toString(vehicle.getSize()));
         labelbienso.setText(vehicle.getVehicleLicensedPlate());
         labelvitridau.setText(vehicle.getOccupiedPosition());
+
+        // not working
+        // JScrollPane scrollPane = new JScrollPane(this);
+        // scrollPane.getVerticalScrollBar().setUnitIncrement(100);
     }
 
     private void initIcon(Vehicle vehicle) {
