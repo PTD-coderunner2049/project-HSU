@@ -45,6 +45,48 @@
         },
         "type": "Drive In",
         "id": "1"
+      },
+      {
+        "isAccepted": true,
+        "userID": "0",
+        "vehicleID": "2",
+        "requestedTime": {
+          "hour": 17,
+          "minute": 0,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 16,
+          "minute": 23,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "id": "2"
+      },
+      {
+        "isAccepted": true,
+        "userID": "0",
+        "vehicleID": "3",
+        "requestedTime": {
+          "hour": 17,
+          "minute": 0,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 16,
+          "minute": 47,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive Out",
+        "id": "3"
       }
     ],
     "reports": [
@@ -103,6 +145,62 @@
         },
         "type": "Drive In",
         "id": "1"
+      },
+      {
+        "isDone": false,
+        "expectedTime": {
+          "hour": 17,
+          "minute": 0,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "userID": "0",
+        "vehicleID": "2",
+        "requestedTime": {
+          "hour": 17,
+          "minute": 0,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 16,
+          "minute": 23,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "id": "2"
+      },
+      {
+        "isDone": false,
+        "expectedTime": {
+          "hour": 17,
+          "minute": 0,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "userID": "0",
+        "vehicleID": "3",
+        "requestedTime": {
+          "hour": 17,
+          "minute": 0,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 16,
+          "minute": 47,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive Out",
+        "id": "3"
       }
     ],
     "vehicles": [
@@ -110,6 +208,7 @@
         "userID": "0",
         "occupiedPosition": "[GL-0]",
         "vehicleLicensedPlate": "XX-XXX-XXX",
+        "hangarType": "Water",
         "size": "L",
         "type": "TANKER_SHIP",
         "id": "0"
@@ -118,9 +217,28 @@
         "userID": "0",
         "occupiedPosition": "[GL-1]",
         "vehicleLicensedPlate": "XX-XXX-XXX",
+        "hangarType": "Water",
         "size": "L",
         "type": "CARGO_SHIP",
         "id": "1"
+      },
+      {
+        "userID": "0",
+        "occupiedPosition": "Unhangared",
+        "vehicleLicensedPlate": "XX-XXX-XXX",
+        "hangarType": "Water",
+        "size": "L",
+        "type": "CARGO_SHIP",
+        "id": "2"
+      },
+      {
+        "userID": "0",
+        "occupiedPosition": "[LL-3]",
+        "vehicleLicensedPlate": "XX-XXX-XXX",
+        "hangarType": "Land",
+        "size": "L",
+        "type": "BOX_TRUCK",
+        "id": "3"
       }
     ],
     "id": "0"

@@ -40,5 +40,47 @@
     },
     "type": "Drive In",
     "id": "1"
+  },
+  {
+    "isAccepted": true,
+    "userID": "0",
+    "vehicleID": "2",
+    "requestedTime": {
+      "hour": 17,
+      "minute": 0,
+      "day": 18,
+      "month": 12,
+      "year": 2024
+    },
+    "submittedTime": {
+      "hour": 16,
+      "minute": 23,
+      "day": 18,
+      "month": 12,
+      "year": 2024
+    },
+    "type": "Drive In",
+    "id": "2"
+  },
+  {
+    "isAccepted": true,
+    "userID": "0",
+    "vehicleID": "3",
+    "requestedTime": {
+      "hour": 17,
+      "minute": 0,
+      "day": 18,
+      "month": 12,
+      "year": 2024
+    },
+    "submittedTime": {
+      "hour": 16,
+      "minute": 47,
+      "day": 18,
+      "month": 12,
+      "year": 2024
+    },
+    "type": "Drive Out",
+    "id": "3"
   }
 ]

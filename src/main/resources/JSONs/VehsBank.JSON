@@ -3,6 +3,7 @@
     "userID": "0",
     "occupiedPosition": "[GL-0]",
     "vehicleLicensedPlate": "XX-XXX-XXX",
+    "hangarType": "Water",
     "size": "L",
     "type": "TANKER_SHIP",
     "id": "0"
@@ -11,8 +12,27 @@
     "userID": "0",
     "occupiedPosition": "[GL-1]",
     "vehicleLicensedPlate": "XX-XXX-XXX",
+    "hangarType": "Water",
     "size": "L",
     "type": "CARGO_SHIP",
     "id": "1"
+  },
+  {
+    "userID": "0",
+    "occupiedPosition": "Unhangared",
+    "vehicleLicensedPlate": "XX-XXX-XXX",
+    "hangarType": "Water",
+    "size": "L",
+    "type": "CARGO_SHIP",
+    "id": "2"
+  },
+  {
+    "userID": "0",
+    "occupiedPosition": "[LL-3]",
+    "vehicleLicensedPlate": "XX-XXX-XXX",
+    "hangarType": "Land",
+    "size": "L",
+    "type": "BOX_TRUCK",
+    "id": "3"
   }
 ]

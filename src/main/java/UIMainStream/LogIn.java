@@ -1,6 +1,6 @@
 package UIMainStream;
 
-import Functions.Function;
+import Functions.ImageFunction;
 import javax.swing.JOptionPane;
 
 import Models.Account;
@@ -261,7 +261,7 @@ public class LogIn extends javax.swing.JFrame {
 
     private void initIcon() {
             ImageIcon icon = new ImageIcon(getClass().getResource("/icon/logo.png"));
-            this.logo.setIcon(Function.scaleImage(logo, icon));
+            this.logo.setIcon(ImageFunction.scaleImage(logo, icon));
             isHide = true;
             hide = new ImageIcon(getClass().getResource("/icon/hide.jpg"));
             show = new ImageIcon(getClass().getResource("/icon/show.jpg"));

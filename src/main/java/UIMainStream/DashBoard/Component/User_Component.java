@@ -5,7 +5,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import Functions.Function;
+import Functions.ImageFunction;
 import Models.User;
 
 /**
@@ -181,7 +181,7 @@ public class User_Component extends javax.swing.JPanel {
     private void initIcon() {
         ImageIcon icon = new ImageIcon(getClass().getResource("/icon/userIcon.jpg"));
         userIcon.setSize(200, 200);
-        this.userIcon.setIcon(Function.scaleImage(userIcon, icon));
+        this.userIcon.setIcon(ImageFunction.scaleImage(userIcon, icon));
     }
 
     private void editButtonMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_saveMouseClicked
