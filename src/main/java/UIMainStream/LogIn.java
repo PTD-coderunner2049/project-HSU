@@ -21,10 +21,7 @@ public class LogIn extends javax.swing.JFrame {
     // Login Frame's Constructor
     public LogIn() {
         initComponents();
-        initData();
-        setResizable(false);
-        this.setVisible(false);
-        account = Account.getInstance();
+        secondStageinitComponents();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated
@@ -236,6 +233,12 @@ public class LogIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void secondStageinitComponents() {
+        initIcon();
+        setResizable(false);
+        this.setVisible(false);
+        account = Account.getInstance();
+    }
     private void passMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_passMouseClicked
         if (!isHide) {
             password.setEchoChar((char) 0);
@@ -247,9 +250,7 @@ public class LogIn extends javax.swing.JFrame {
             isHide = !isHide;
         }
     }// GEN-LAST:event_passMouseClicked
-
     // ---------------------------------------------------------------
-    // Bonding
     public boolean bond(SignUp signupFrame) {
         if (signupFrame != null) {
             this.signupFrame = signupFrame;
@@ -258,6 +259,14 @@ public class LogIn extends javax.swing.JFrame {
         return false;
     }
 
+    private void initIcon() {
+            ImageIcon icon = new ImageIcon(getClass().getResource("/icon/logo.png"));
+            this.logo.setIcon(Function.scaleImage(logo, icon));
+            isHide = true;
+            hide = new ImageIcon(getClass().getResource("/icon/hide.jpg"));
+            show = new ImageIcon(getClass().getResource("/icon/show.jpg"));
+            pass.setIcon(hide);
+    }
     // Button's behaviorous
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
 
@@ -354,14 +363,4 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JButton toSignUp;
     private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
-
-    private void initData() {
-        ImageIcon icon = new ImageIcon(getClass().getResource("/icon/logo.png"));
-        this.logo.setIcon(Function.scaleImage(logo, icon));
-        isHide = true;
-        hide = new ImageIcon(getClass().getResource("/icon/hide.jpg"));
-        show = new ImageIcon(getClass().getResource("/icon/show.jpg"));
-        pass.setIcon(hide);
-    }
-
 }

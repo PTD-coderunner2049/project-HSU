@@ -1,6 +1,6 @@
 [
   {
-    "isAccepted": false,
+    "isAccepted": true,
     "userID": "0",
     "vehicleID": "0",
     "requestedTime": {
@@ -19,5 +19,26 @@
     },
     "type": "Drive In",
     "id": "0"
+  },
+  {
+    "isAccepted": true,
+    "userID": "0",
+    "vehicleID": "1",
+    "requestedTime": {
+      "hour": 15,
+      "minute": 0,
+      "day": 18,
+      "month": 12,
+      "year": 2024
+    },
+    "submittedTime": {
+      "hour": 15,
+      "minute": 5,
+      "day": 18,
+      "month": 12,
+      "year": 2024
+    },
+    "type": "Drive In",
+    "id": "1"
   }
 ]

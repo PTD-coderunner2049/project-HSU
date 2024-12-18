@@ -309,12 +309,13 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 		}
 		Request request = new Request(User.getInstance().getId(), vehicle.getId(),
 				requestedTime, submittedTime, type);
-		request.save();
 		// TODO
 		// report generating should be elsewhere
 		// for demo it is instantly acceptedreq
 		requestedTime.setHour(requestedTime.getHour());
 		Report report = new Report(request, requestedTime);
+		request.userBond();
+		request.save();
 		report.save();
 		return request;
 	}
@@ -356,7 +357,7 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 
 	private void addCustomDateEventListener() {
 		addDateInputClamper(requestedHour, 0, 24, 2, false);
-		addDateInputClamper(requestedDay, 1, 31, 2, true);
+		// addDateInputClamper(requestedDay, 1, 31, 2, true);
 		addDateInputClamper(requestedMonth, 1, 12, 2, false);
 		addDateInputClamper(requestedYear, new Time().getYear(), 2030, 4, false);//
 		// overkill, but meh.
@@ -385,20 +386,7 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 							textField.getText().substring(0, digitSize)));
 				}
 				if (isDay) {
-					int maxDay;
-					String iDay = requestedMonth.getText();
-					switch (iDay) {
-						case "1", "3", "5", "7", "8", "10", "12":
-							maxDay = 31;
-							break;
-						case "2":
-							int iYear = Integer.parseInt(requestedYear.getText());
-							maxDay = (iYear % 4 == 0 && (iYear % 100 != 0 || iYear % 400 == 0)) ? 29 : 28;
-							break;
-						default:
-							maxDay = 30;
-							break;
-					}
+					int maxDay = calculateMaxDay();
 					try {
 						if (!textField.getText().isEmpty()) {
 							int i = Integer.parseInt(textField.getText());
@@ -430,4 +418,16 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 		});
 	}
 
+	private int calculateMaxDay() {
+		int iMonth = Integer.parseInt(requestedMonth.getText());
+		switch (iMonth) {
+			case 2:
+				int iYear = Integer.parseInt(requestedYear.getText());
+				return (iYear % 4 == 0 && (iYear % 100 != 0 || iYear % 400 == 0)) ? 29 : 28;
+			case 4, 6, 9, 11:
+				return 30;
+			default:
+				return 31;
+		}
+	}
 }

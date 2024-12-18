@@ -24,11 +24,32 @@
         },
         "type": "Drive In",
         "id": "0"
+      },
+      {
+        "isAccepted": false,
+        "userID": "0",
+        "vehicleID": "1",
+        "requestedTime": {
+          "hour": 16,
+          "minute": 0,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 15,
+          "minute": 5,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "id": "1"
       }
     ],
     "reports": [
       {
-        "isDone": true,
+        "isDone": false,
         "expectedTime": {
           "hour": 15,
           "minute": 0,
@@ -54,6 +75,34 @@
         },
         "type": "Drive In",
         "id": "0"
+      },
+      {
+        "isDone": false,
+        "expectedTime": {
+          "hour": 16,
+          "minute": 0,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "userID": "0",
+        "vehicleID": "1",
+        "requestedTime": {
+          "hour": 16,
+          "minute": 0,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 15,
+          "minute": 5,
+          "day": 18,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "id": "1"
       }
     ],
     "vehicles": [
@@ -64,6 +113,14 @@
         "size": "L",
         "type": "TANKER_SHIP",
         "id": "0"
+      },
+      {
+        "userID": "0",
+        "occupiedPosition": "[GL-1]",
+        "vehicleLicensedPlate": "XX-XXX-XXX",
+        "size": "L",
+        "type": "CARGO_SHIP",
+        "id": "1"
       }
     ],
     "id": "0"

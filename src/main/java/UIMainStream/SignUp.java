@@ -21,13 +21,7 @@ public class SignUp extends javax.swing.JFrame {
     // SignUp frame's Constructor
     public SignUp() {
         initComponents();
-        initData();
-
-        account = Account.getInstance();
-        confirm.setEnabled(false);
-        setResizable(false);
-        this.setVisible(false);
-        this.addEventListener();
+        secondStageinitComponents();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated
@@ -350,6 +344,15 @@ public class SignUp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+private void secondStageinitComponents() {
+        initIcon();
+
+        account = Account.getInstance();
+        confirm.setEnabled(false);
+        setResizable(false);
+        this.setVisible(false);
+        this.addEventListener();
+}
     private void pass1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_pass1MouseClicked
 
         if (!isHide) {
@@ -375,9 +378,7 @@ public class SignUp extends javax.swing.JFrame {
             isHide = !isHide;
         }
     }// GEN-LAST:event_pass2MouseClicked
-
     // ---------------------------------------------------------------
-    // Bonding
     public boolean bond(LogIn loginFrame) {
         if (loginFrame != null) {
             this.loginFrame = loginFrame;
@@ -386,6 +387,16 @@ public class SignUp extends javax.swing.JFrame {
         return false;
     }
 
+    private void initIcon() {
+            ImageIcon icon = new ImageIcon(getClass().getResource("/icon/logo.png"));
+            this.logo.setIcon(Function.scaleImage(logo, icon));
+            isHide = true;
+            hide = new ImageIcon(getClass().getResource("/icon/hide.jpg"));
+            show = new ImageIcon(getClass().getResource("/icon/show.jpg"));
+            pass1.setIcon(hide);
+            pass2.setIcon(hide);
+
+    }
     // Button's behaviorous
     private void toLogInActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_toLogInActionPerformed
         this.setVisible(false);
@@ -527,14 +538,5 @@ public class SignUp extends javax.swing.JFrame {
         });
     }
 
-    private void initData() {
-        ImageIcon icon = new ImageIcon(getClass().getResource("/icon/logo.png"));
-        this.logo.setIcon(Function.scaleImage(logo, icon));
-        isHide = true;
-        hide = new ImageIcon(getClass().getResource("/icon/hide.jpg"));
-        show = new ImageIcon(getClass().getResource("/icon/show.jpg"));
-        pass1.setIcon(hide);
-        pass2.setIcon(hide);
 
-    }
 }

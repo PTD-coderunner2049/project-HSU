@@ -31,6 +31,8 @@ public class Report_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -51,6 +53,7 @@ public class Report_Component extends javax.swing.JPanel {
         labelPlate = new javax.swing.JLabel();
         hangarPosText = new javax.swing.JLabel();
         hangarPos = new javax.swing.JLabel();
+        trashButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -110,6 +113,16 @@ public class Report_Component extends javax.swing.JPanel {
         hangarPos.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         hangarPos.setText("---");
 
+        trashButton.setBackground(new java.awt.Color(102, 102, 102));
+        trashButton.setForeground(new java.awt.Color(255, 255, 255));
+        trashButton.setText("Abort this!");
+        trashButton.setActionCommand("");
+        trashButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trashButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,10 +134,6 @@ public class Report_Component extends javax.swing.JPanel {
                                                 .addGroup(layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
                                                                 false)
-                                                        .addComponent(idReportText,
-                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(labelExpectedTimeText,
                                                                 javax.swing.GroupLayout.Alignment.LEADING,
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -144,34 +153,50 @@ public class Report_Component extends javax.swing.JPanel {
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addGroup(layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                        false)
-                                                                        .addComponent(labelName,
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                186, Short.MAX_VALUE)
-                                                                        .addComponent(labelType,
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                Short.MAX_VALUE))
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING,
-                                                                        false)
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addGroup(layout.createSequentialGroup()
-                                                                                .addComponent(status)
+                                                                                .addGroup(layout.createParallelGroup(
+                                                                                        javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                        false)
+                                                                                        .addComponent(labelName,
+                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                186, Short.MAX_VALUE)
+                                                                                        .addComponent(labelType,
+                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                Short.MAX_VALUE))
                                                                                 .addPreferredGap(
-                                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                .addComponent(labelstatus,
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addGroup(layout.createParallelGroup(
+                                                                                        javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                        false)
+                                                                                        .addGroup(layout
+                                                                                                .createSequentialGroup()
+                                                                                                .addComponent(status)
+                                                                                                .addPreferredGap(
+                                                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                .addComponent(
+                                                                                                        labelstatus,
+                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                        84,
+                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                        .addComponent(hangarPosText,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                Short.MAX_VALUE)))
+                                                                        .addGroup(layout.createSequentialGroup()
+                                                                                .addComponent(labelExpectedTime,
                                                                                         javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                        84,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addComponent(hangarPosText,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                Short.MAX_VALUE))
+                                                                                        186,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addPreferredGap(
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(idReportText,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        137,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                 .addPreferredGap(
                                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addGroup(layout.createParallelGroup(
@@ -182,30 +207,28 @@ public class Report_Component extends javax.swing.JPanel {
                                                                         .addComponent(hangarPos,
                                                                                 javax.swing.GroupLayout.Alignment.TRAILING,
                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                93, Short.MAX_VALUE)))
+                                                                                93, Short.MAX_VALUE)
+                                                                        .addComponent(labelId,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                Short.MAX_VALUE)))
                                                         .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(labelPlate,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 186,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addGroup(layout.createParallelGroup(
                                                                         javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(labelExpectedTime,
+                                                                        .addComponent(trashButton,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                186,
+                                                                                220,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(labelPlate,
+                                                                        .addComponent(confirmButton,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                186,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addComponent(labelId,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                        186,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addPreferredGap(
-                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(confirmButton,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                        220,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                                                                220,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGap(0, 33, Short.MAX_VALUE))))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addComponent(jSeparator1)))
@@ -232,26 +255,30 @@ public class Report_Component extends javax.swing.JPanel {
                                                         .addComponent(hangarPosText)
                                                         .addComponent(hangarPos))
                                                 .addGap(1, 1, 1)))
+                                .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(labelExpectedTimeText)
                                         .addComponent(labelExpectedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 25,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelExpectedTimeText)
+                                        .addComponent(idReportText)
+                                        .addComponent(labelId))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(labelPlateText)
                                         .addComponent(labelPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 25,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(idReportText)
-                                        .addComponent(labelId)
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(confirmButton))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11,
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(trashButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22,
                                         Short.MAX_VALUE)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap()));
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void trashButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_trashButtonActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_trashButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmButtonActionPerformed
         report.setStatus(true);
@@ -290,9 +317,14 @@ public class Report_Component extends javax.swing.JPanel {
         if (report.getStatus()) {
             labelstatus.setText("Completed.");
             confirmButton.setVisible(false);
+            trashButton.setText("Clear this.");
+            trashButton.setBackground(new java.awt.Color(102, 102, 102));
         } else {
             labelstatus.setText("On progress.");
             confirmButton.setVisible(true);
+            trashButton.setText("Abort this!");
+            trashButton.setBackground(new java.awt.Color(255, 0, 50));
+
         }
         labelstatus2.setText(report.getType());
         hangarPos.setText(vehicle.getOccupiedPosition());
@@ -316,5 +348,6 @@ public class Report_Component extends javax.swing.JPanel {
     private javax.swing.JLabel labelstatus;
     private javax.swing.JLabel labelstatus2;
     private javax.swing.JLabel status;
+    private javax.swing.JButton trashButton;
     // End of variables declaration//GEN-END:variables
 }
