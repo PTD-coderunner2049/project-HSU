@@ -28,7 +28,7 @@ public abstract class Document extends Model {
             this.userBond();// included save()
             this.save();
         } else
-            System.out.println("ERROR: ID distributing failure!");
+            return;
     }
 
     @Override

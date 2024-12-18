@@ -283,16 +283,14 @@ public abstract class DataBase {
 
     // Power tools-----------------------------------------------------------------
     public static <Thing extends Model> boolean IdDistributor(Thing object) {
-        // send out available ID base on database list's size()
-        // pull object list
-
-        // Class<Thing> objectClass = (Class<Thing>) object.getClass();
-        // File desiredBank = findBank(objectClass);
-        // List<Thing> objectsList = fetchDataBase(desiredBank, objectClass);
         List<Thing> objectsList = fetchDataBase(object);
         // assigning ID
         object.setId(Integer.toString(objectsList.size()));
-        return (object.getId() != null) ? true : false;
+        if (object.getId() != null)
+            return true;
+
+        System.out.println("ERROR: ID distributing failure!");
+        return false;
     }
 
     public static boolean parkingPlotDistributor(Vehicle vehicle) {

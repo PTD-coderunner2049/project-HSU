@@ -20,16 +20,18 @@ public class Vehicle extends Model {
 
     public Vehicle(String userID, String vehicleLicensedPlate,
             String hangarType, char size, eVesselType type) {
-        this.userID = userID;
-        this.vehicleLicensedPlate = vehicleLicensedPlate;
-        this.hangarType = hangarType;
-        this.size = size;
-        this.type = type;
-        setOccupiedPosition(false);
-        DataBase.IdDistributor(this);
+        if (DataBase.IdDistributor(this)) {
+            this.userID = userID;
+            this.vehicleLicensedPlate = vehicleLicensedPlate;
+            this.hangarType = hangarType;
+            this.size = size;
+            this.type = type;
+            setOccupiedPosition(false);
+            userBond();
+            save();
+        } else{
+            return;}
 
-        userBond();
-        save();
     }
 
     @Override
