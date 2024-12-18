@@ -30,10 +30,12 @@ public class Navigation_Component extends javax.swing.JPanel {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         nameBtn = new javax.swing.JLabel();
+        iconBtn = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -54,20 +56,27 @@ public class Navigation_Component extends javax.swing.JPanel {
         nameBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nameBtn.setText("aaaaaaaaa");
 
+        iconBtn.setText("        ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(nameBtn)
-                                .addContainerGap(112, Short.MAX_VALUE)));
+                                .addComponent(iconBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 28,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(nameBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                .addContainerGap()));
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(nameBtn)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                                .addContainerGap())
+                        .addComponent(iconBtn, javax.swing.GroupLayout.Alignment.TRAILING,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                Short.MAX_VALUE));
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMouseEntered
@@ -97,6 +106,7 @@ public class Navigation_Component extends javax.swing.JPanel {
                 break;
             case "Request":
                 JScrollPane jScrollPane = new JScrollPane(new Request_Container());
+                jScrollPane.getVerticalScrollBar().setUnitIncrement(110);
                 DashBoardContent.getInstance().add(jScrollPane);
                 DashBoardContent.getInstance().repainting();
                 System.out.println("directing to request display page");
@@ -104,6 +114,7 @@ public class Navigation_Component extends javax.swing.JPanel {
                 break;
             case "Report":
                 JScrollPane jScrollPane1 = new JScrollPane(new Report_Container());
+                jScrollPane1.getVerticalScrollBar().setUnitIncrement(10);
                 DashBoardContent.getInstance().add(jScrollPane1);
                 DashBoardContent.getInstance().repainting();
                 System.out.println("directing to report display page");
@@ -111,6 +122,7 @@ public class Navigation_Component extends javax.swing.JPanel {
                 break;
             case "Vehicles":
                 JScrollPane jScrollPane2 = new JScrollPane(new Vehicles_Container());
+                jScrollPane2.getVerticalScrollBar().setUnitIncrement(10);
                 DashBoardContent.getInstance().add(jScrollPane2);
                 DashBoardContent.getInstance().repainting();
                 System.out.println("directing to vehicle display page");
@@ -128,6 +140,7 @@ public class Navigation_Component extends javax.swing.JPanel {
     }// GEN-LAST:event_formMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel iconBtn;
     private javax.swing.JLabel nameBtn;
     // End of variables declaration//GEN-END:variables
 }
