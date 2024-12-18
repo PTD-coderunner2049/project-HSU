@@ -388,4 +388,29 @@ public abstract class DataBase {
             eat(u);
         }
     }
+
+    public static <Thing extends Model> boolean export(Thing object) {
+        // remove the object, object only need to have id. use carefully
+
+        // Navigate object type and pull appopriate list.
+        File desiredBank = findBank(object.getClass());
+        List<Thing> objectsList = fetchDataBase(object);
+        // look for existing to replace before add
+        int i = haveExistingID(objectsList, object.getId());
+        if (i == -1) {
+            System.out.println("Object not found, exporting from Data Bank failed!");
+            return false;
+        }
+        objectsList.set(i, object);
+        object = objectsList.get(i);// pull the object
+        objectsList.remove(i);// remove from list
+        // save updated data
+        try (FileWriter writer = new FileWriter(desiredBank)) {
+            writer.write(builder.setPrettyPrinting().create().toJson(objectsList));
+        } catch (IOException e) {
+            System.err.println("Data directory void, attempted to recreate directory. Retry? " + e.getMessage());
+            return false;// redundant, i dont care. had to catch this anyway.
+        }
+        return true;
+    }
 }
