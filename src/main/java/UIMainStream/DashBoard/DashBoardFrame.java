@@ -1,6 +1,7 @@
 
 package UIMainStream.DashBoard;
 
+import UIMainStream.DashBoard.Component.User_Component;
 import UIMainStream.DashBoard.navigation.Navigation_Container;
 import java.awt.BorderLayout;
 
@@ -14,9 +15,14 @@ public class DashBoardFrame extends javax.swing.JFrame {
     private DashBoardFrame() {
         initComponents();
         setLayout(new BorderLayout(20, 0));
+
         add(new Navigation_Container(), BorderLayout.WEST);
         add(DashBoardContent.getInstance(), BorderLayout.CENTER);
         setResizable(false);
+
+        DashBoardContent.getInstance().add(new User_Component());
+        DashBoardContent.getInstance().repainting();
+        System.out.println("directing to user page");
     }
 
     public static DashBoardFrame getInstance() {

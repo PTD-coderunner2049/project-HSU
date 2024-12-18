@@ -40,7 +40,7 @@ public class Vehicles_Container extends javax.swing.JPanel {
      // End of variables declaration//GEN-END:variables
 
     private void secondStageinitComponents() {
-        this.setLayout(new GridLayout(0, 1, 0, 0));
+        setLayout(new GridLayout(0, 1, 0, 0));
         addComponents();
     }
 
@@ -48,7 +48,7 @@ public class Vehicles_Container extends javax.swing.JPanel {
 
         LinkedList<Vehicle> veh = User.getInstance().getVehicles();
         for (Vehicle v : veh) {
-            this.add(new Vehicles_Component(v));
+            add(new Vehicles_Component(v));
         }
         // for (int i = 0; i <= 3; i++) {
         // this.add(new Vehicles_Component());

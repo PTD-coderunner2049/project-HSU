@@ -183,14 +183,14 @@ public class Vehicles_Component extends javax.swing.JPanel {
 
     private void initIcon(Vehicle vehicle) {
         String type;
-        String state = "Icon";
+        String state = "_Icon";
         type = vehicle.getHangarType();
         if (vehicle.getOccupiedPosition().equals("Unhangared")) {
-            state += "Colorless";
+            state += "_Colorless";
         }
         ImageIcon vehicleIcon = new ImageIcon(getClass().getResource("/icon/" + type + state + ".png"));
         vehIcon.setSize(142, 142);
-        this.vehIcon.setIcon(ImageFunction.scaleImage(vehIcon, vehicleIcon));
+        vehIcon.setIcon(ImageFunction.scaleImage(vehIcon, vehicleIcon));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
