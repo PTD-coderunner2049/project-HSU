@@ -3,7 +3,7 @@ package Functions;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-public class ImageFunction {
+public abstract class ImageFunction {
 
     public static ImageIcon scaleImage(JLabel label, ImageIcon icon) {
         int labelWidth = label.getWidth();

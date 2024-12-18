@@ -263,7 +263,8 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="10" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="for demo, only 1 vessel is registered for transfering per hours."/>
+        <Property name="text" type="java.lang.String" value="for demo, can only be 1 vessel to registered for transfering every hours."/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
   </SubComponents>
