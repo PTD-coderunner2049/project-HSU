@@ -224,7 +224,7 @@ public class User_Component extends javax.swing.JPanel {
     }
 
     private void initIcon() {
-        ImageIcon icon = new ImageIcon(getClass().getResource("/icon/user_Icon.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/icon/user_Icon.png"));
         userIcon.setSize(200, 200);
         userIcon.setIcon(ImageFunction.scaleImage(userIcon, icon));
     }
