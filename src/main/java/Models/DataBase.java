@@ -293,20 +293,6 @@ public abstract class DataBase {
         return false;
     }
 
-    public static boolean parkingPlotDistributor(Vehicle vehicle) {
-        // plot is devided to 2 part sea and land
-        // car and similar is M size from 1-100
-        // bike and similar is S size from 1-200
-        // truck and hauler of similar type is L from 1 - 50
-
-        // ship like boat and similar personal vessle is S size from 1-300
-        // ship like transporter are M size from 1-200
-        // large ship for industrial purposes is L size from 1-50
-        // notice that our app aim to provide logistic and industrial vessel parking
-        // service only and not tourism.
-        return false;
-    }
-
     public static boolean accountValidate(Account account) {
         List<Account> accountsList = fetchDataBase(accountsBank, Account.class);
         for (Account a : accountsList) {
@@ -394,5 +380,12 @@ public abstract class DataBase {
         requestsBank.delete();
         reportsBank.delete();
         vehiclesBank.delete();
+        List<User> user = fetchDataBase(User.getInstance());
+        for (User u : user) {
+            u.getReports().clear();
+            u.getRequests().clear();
+            u.getVehicles().clear();
+            eat(u);
+        }
     }
 }
