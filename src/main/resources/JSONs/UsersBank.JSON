@@ -1,6 +1,6 @@
 [
   {
-    "isAdmin": false,
+    "isAdmin": true,
     "fullName": "Lilium Frstra",
     "dateOfBirth": "14/11/1449",
     "requests": [

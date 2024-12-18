@@ -414,19 +414,19 @@ private void secondStageinitComponents() {
         if (DataBase.accountValidate(account)) {// on signUp unexisting account is good to go.
             JOptionPane.showMessageDialog(rootPane,
                     "ID earning failure! The problem can be of following reasons: \n  > Account existed.\n  > Data Fetching failure.");
-        } else {
-            DataBase.IdDistributor(account);
-            User user = User.getInstance();
-            user.initUser(this.fullName.getText(), this.dateOfBirth.getText());// include
-                                                                               // saved()
-
-            account.save();
-
-            JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
-            this.setVisible(false);
-            loginFrame.setVisible(true);
+            return;
         }
+        if (!DataBase.IdDistributor(account)) {
+            JOptionPane.showMessageDialog(rootPane, "ID distributing failure!");
+            return;
+        }
+        account.save();
+        User.getInstance().initUser(this.fullName.getText(), this.dateOfBirth.getText());
+        // include saved()
 
+        JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
+        this.setVisible(false);
+        loginFrame.setVisible(true);
     }
 
     public static void main(String args[]) {

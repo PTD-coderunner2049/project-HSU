@@ -3,7 +3,7 @@ package Models;
 public class Report extends Document {
 
     private boolean isDone;
-    private Time expectedTime;
+    private Time expectedTime;// Time that this should be done!
 
     public Report(String userID, String vehicleID, Time requestedTime, Time submittedTime,
             String type) {
@@ -12,16 +12,16 @@ public class Report extends Document {
     }
 
     public Report(Request request, Time requestedTime) {// provided time by the system after accounting
+
         super(request.getUserID(), request.getVehicleID(),
                 requestedTime, request.getSubmittedTime(), request.getType());
-        if (this.getId() != null) {
-            request.setStatus(true);// accepted the req
-            this.setStatus(false);// pending the rep
-        }
 
-        // TODO edit expected Time base on density
-        expectedTime = requestedTime;
-        expectedTime.setHour(expectedTime.getHour() + 1);
+        request.setStatus(true);// accepted the req
+        this.setStatus(false);// pending the rep
+
+        // TODO edit expected Time base on density from database.
+        expectedTime = requestedTime; // get everything
+        expectedTime.setHour(expectedTime.getHour() + 1); // for now automatically increate it by 1.
         userBond();
         // rebond in this demo, you should have this fully set before
         // super() call userBond().

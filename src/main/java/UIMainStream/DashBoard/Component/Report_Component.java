@@ -282,6 +282,8 @@ public class Report_Component extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmButtonActionPerformed
         report.setStatus(true);
+        report.userBond();
+        report.save();
 
         Vehicle veh = new Vehicle(report.getVehicleID());
         veh.reconstuct();
@@ -291,18 +293,15 @@ public class Report_Component extends javax.swing.JPanel {
         } else {
             veh.setOccupiedPosition(false);
         }
-        System.out.println("detected vessels move!");
-
-        report.userBond();
-        report.save();
+        veh.save();
         veh.userBond();
-        veh.save();// TODO commented for testing, uncomment this on demo
+        
+        System.out.println("detected vessels move!");
         secondStageinitComponents(report);
     }// GEN-LAST:event_confirmButtonActionPerformed
 
     private void secondStageinitComponents(Report report) {
         this.report = report;
-
         Vehicle vehicle = new Vehicle(report.getVehicleID());
         vehicle.reconstuct();// pull it from database
 
@@ -324,7 +323,6 @@ public class Report_Component extends javax.swing.JPanel {
             confirmButton.setVisible(true);
             trashButton.setText("Abort this!");
             trashButton.setBackground(new java.awt.Color(255, 0, 50));
-
         }
         labelstatus2.setText(report.getType());
         hangarPos.setText(vehicle.getOccupiedPosition());

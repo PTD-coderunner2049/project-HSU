@@ -18,16 +18,17 @@ public abstract class Document extends Model {
 
     public Document(String userID, String vehicleID, Time requestedTime, Time submittedTime,
             String type) {
-        DataBase.IdDistributor(this);
+        if (DataBase.IdDistributor(this)) {
+            this.setUserID(userID);
+            this.setVehicleID(vehicleID);
+            this.setRequestedTime(requestedTime);
+            this.setSubmittedTime(submittedTime);
+            this.setType(type);
 
-        this.setUserID(userID);
-        this.setVehicleID(vehicleID);
-        this.setRequestedTime(requestedTime);
-        this.setSubmittedTime(submittedTime);
-        this.setType(type);
-
-        this.userBond();// included save()
-        this.save();
+            this.userBond();// included save()
+            this.save();
+        } else
+            System.out.println("ERROR: ID distributing failure!");
     }
 
     @Override

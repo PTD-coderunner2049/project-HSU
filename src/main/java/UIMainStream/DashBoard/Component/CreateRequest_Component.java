@@ -309,14 +309,15 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 		}
 		Request request = new Request(User.getInstance().getId(), vehicle.getId(),
 				requestedTime, submittedTime, type);
-		// TODO
+		// TODO---
 		// report generating should be elsewhere
 		// for demo it is instantly acceptedreq
 		requestedTime.setHour(requestedTime.getHour());
-		Report report = new Report(request, requestedTime);
+		new Report(request, requestedTime).save();
+		// --------
+
 		request.userBond();
 		request.save();
-		report.save();
 		return request;
 	}
 
