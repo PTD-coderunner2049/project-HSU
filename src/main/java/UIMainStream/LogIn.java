@@ -92,7 +92,7 @@ public class LogIn extends javax.swing.JFrame {
         LogInSection.setPreferredSize(new java.awt.Dimension(400, 500));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setForeground(new java.awt.Color(204, 51, 255));
         jLabel1.setText("LOGING IN");
 
         jLabel2.setText("Username");

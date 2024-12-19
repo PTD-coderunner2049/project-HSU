@@ -219,8 +219,8 @@ public class User_Component extends javax.swing.JPanel {
                 if (!r.getStatus())
                         ongoingList.add(r);
         }
-        satisticLabelPendingOutput.setText(Integer.toString(pendingList.size()));
-        satisticLabelOngoingOutput.setText(Integer.toString(ongoingList.size()));
+        satisticLabelPendingOutput.setText(Integer.toString(pendingList.size())+" ");
+        satisticLabelOngoingOutput.setText(Integer.toString(ongoingList.size())+" ");
     }
 
     private void initIcon() {

@@ -106,7 +106,7 @@ public class Navigation_Component extends javax.swing.JPanel {
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMouseClicked
         DashBoardContent.getInstance().removeAll();
-        switch (name) {
+        switch (name) {// add the component accordingly to the button name to the dashboard
             case "My Profile":
                 DashBoardContent.getInstance().add(new User_Component());
                 DashBoardContent.getInstance().repainting();

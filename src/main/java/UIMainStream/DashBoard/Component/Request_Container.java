@@ -46,6 +46,8 @@ public class Request_Container extends javax.swing.JPanel {
     private void addComponents() {
 
         LinkedList<Request> req = User.getInstance().getRequests();
+        if (req.isEmpty())
+            this.add(new Empty_Screen());
         for (Request r : req) {
             this.add(new Request_Component(r));
         }

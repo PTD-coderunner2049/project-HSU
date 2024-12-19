@@ -44,6 +44,8 @@ public class Report_Container extends javax.swing.JPanel {
     private void addComponents() {
 
         LinkedList<Report> rep = User.getInstance().getReports();
+        if (rep.isEmpty())
+            this.add(new Empty_Screen());
         for (Report r : rep) {
             this.add(new Report_Component(r));
         }
