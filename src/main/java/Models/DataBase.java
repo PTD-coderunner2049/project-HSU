@@ -460,11 +460,40 @@ public abstract class DataBase {
             objectsList = (LinkedList<Thing>) user.getVehicles();
         }
         int i = DataBase.haveExistingID(objectsList, thisObject.getId());
-        
-        if (i == -1)
+
+        if (i == -1) {
             objectsList.add(thisObject);
-        else
+            System.out.println("Current user successfully bonded with new item.");
+        } else {
+            System.out.println("Current user successfully re-bonded with new item.");
             objectsList.set(i, thisObject);
+        }
+        System.out.println("Bonding succeeded. saving change on user...");
+        return user.save();
+    }
+
+    @SuppressWarnings("unchecked")
+    // remove from user list, but remain on main DataBanks.
+    public static <Thing extends Model> boolean userDeBond(Thing thisObject) {
+        User user = User.getInstance();
+        LinkedList<Thing> objectsList = null;
+
+        if (thisObject.getClass() == Request.class) {
+            objectsList = (LinkedList<Thing>) user.getRequests();
+        } else if (thisObject.getClass() == Report.class) {
+            objectsList = (LinkedList<Thing>) user.getReports();
+        } else if (thisObject.getClass() == Vehicle.class) {
+            objectsList = (LinkedList<Thing>) user.getVehicles();
+        }
+        int i = DataBase.haveExistingID(objectsList, thisObject.getId());
+        if (i == -1) {
+            System.out.println("Debonding unsucceeded, object never been bonded with current user...");
+            return false;
+        } else {
+            objectsList.remove(i);
+            System.out.println("An item is de-bonded with current user.");
+        }
+        System.out.println("Bonding succeeded. saving change on user...");
         return user.save();
     }
 }
