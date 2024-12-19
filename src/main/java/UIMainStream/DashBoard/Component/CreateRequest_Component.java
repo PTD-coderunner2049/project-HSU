@@ -3,6 +3,7 @@ package UIMainStream.DashBoard.Component;
 import javax.swing.JOptionPane;
 
 import Functions.TextFunction;
+import Models.DataBase;
 import Models.Report;
 import Models.Request;
 import Models.Time;
@@ -316,7 +317,7 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 		new Report(request, requestedTime).save();
 		// --------
 
-		request.userBond();
+		DataBase.userBond(request);
 		request.save();
 		return request;
 	}

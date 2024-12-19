@@ -36,10 +36,6 @@ public class Account extends Model {
         return super.getId();
     }
 
-    @Override
-    public boolean userBond() {
-        throw new UnsupportedOperationException("Unimplemented method 'userBond'");
-    }
 
     // public boolean isExist() {
     // return DataBase.accountValidate(this);

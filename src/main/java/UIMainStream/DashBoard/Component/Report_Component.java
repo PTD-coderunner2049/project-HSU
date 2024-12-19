@@ -283,15 +283,17 @@ public class Report_Component extends javax.swing.JPanel {
         // mark this rep and corresponding request as aborted true, when they get clear
         // they did remain on databank and only gone from user's list. each req is bond
         // with the same id rep
+        if (report.aborted()) // then the actual intended input is for clear button
+            return;
         Request request = new Request();
         request.setId(report.getId());
         DataBase.vormit(request);
         report.abort(true);
         request.abort(true);
-        // request.userBond();
-        // report.userBond();
-        // request.save();
-        // report.save();
+        DataBase.userBond(request);
+        DataBase.userBond(report);
+        request.save();
+        report.save();
 
         System.out.println("A tranfering contract was aborted!");
         secondStageinitComponents(report);
@@ -299,7 +301,7 @@ public class Report_Component extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmButtonActionPerformed
         report.setStatus(true);
-        report.userBond();
+        DataBase.userBond(report);
         report.save();
 
         Vehicle veh = new Vehicle(report.getVehicleID());
@@ -311,7 +313,7 @@ public class Report_Component extends javax.swing.JPanel {
             veh.setOccupiedPosition(false);
         }
         veh.save();
-        veh.userBond();
+        DataBase.userBond(veh);
 
         System.out.println("detected vessels move!");
         secondStageinitComponents(report);

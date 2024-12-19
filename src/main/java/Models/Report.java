@@ -25,7 +25,7 @@ public class Report extends Document {
         // TODO edit expected Time base on density from database.
         expectedTime = requestedTime; // get everything
         expectedTime.setHour(expectedTime.getHour() + 1); // for now automatically increate it by 1.
-        userBond();
+        DataBase.userBond(this);
         // rebond in this demo, you should have this fully set before
         // super() call userBond().
     }

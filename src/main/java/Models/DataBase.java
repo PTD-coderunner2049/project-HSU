@@ -216,7 +216,39 @@ public abstract class DataBase {
                     return true;
                 }
             }
-        } // other class is saved as object with its user, while also save on an isolated
+        } else if (i == 3) {
+            Request request = (Request) object;
+            // OPTIONALY :)
+            // Account account = Account.getInstance();
+            for (Request r : (List<Request>) objectsList) {
+                if (r.getId().equals(request.getId())) {
+                    request.setUserID(r.getUserID());
+                    request.setVehicleID(r.getVehicleID());
+                    request.setRequestedTime(r.getRequestedTime());
+                    request.setSubmittedTime(r.getSubmittedTime());
+                    request.setType(r.getType());
+                    request.setStatus(r.getStatus());
+                    request.abort(r.aborted());
+                    return true;
+                }
+            }
+        } else if (i == 4) {
+            Report report = (Report) object;
+            // OPTIONALY :)
+            // Account account = Account.getInstance();
+            for (Report r : (List<Report>) objectsList) {
+                if (r.getId().equals(report.getId())) {
+                    report.setUserID(r.getUserID());
+                    report.setVehicleID(r.getVehicleID());
+                    report.setRequestedTime(r.getRequestedTime());
+                    report.setSubmittedTime(r.getSubmittedTime());
+                    report.setType(r.getType());
+                    report.setStatus(r.getStatus());
+                    report.abort(r.aborted());
+                    return true;
+                }
+            }
+        }// other class is saved as object with its user, while also save on an isolated
           // databank, make method that pull entire list of them for admin task later, if!
           // created fetchDataBase().
         else if (i == 5) {
@@ -412,5 +444,41 @@ public abstract class DataBase {
             return false;// redundant, i dont care. had to catch this anyway.
         }
         return true;
+    }
+
+    public static <Thing> boolean userBond(Thing thisObject) {
+
+        User user = User.getInstance();
+
+        if (thisObject.getClass() == Request.class) {
+            LinkedList<Request> objectsList = user.getRequests();
+            Request thisActualObject = (Request) thisObject;
+            int i = DataBase.haveExistingID(objectsList, thisActualObject.getId());
+            if (i == -1) {
+                objectsList.add(thisActualObject);
+            } else {
+                objectsList.set(i, thisActualObject);
+            }
+        } else if (thisObject.getClass() == Report.class) {
+            LinkedList<Report> objectsList = user.getReports();
+            Report thisActualObject = (Report) thisObject;
+            int i = DataBase.haveExistingID(objectsList, thisActualObject.getId());
+            if (i == -1) {
+                objectsList.add(thisActualObject);
+            } else {
+                objectsList.set(i, thisActualObject);
+            }
+        } else if (thisObject.getClass() == Vehicle.class) {
+            LinkedList<Vehicle> objectsList = user.getVehicles();
+            Vehicle thisActualObject = (Vehicle) thisObject;
+            int i = DataBase.haveExistingID(objectsList, thisActualObject.getId());
+            if (i == -1) {
+                objectsList.add(thisActualObject);
+            } else {
+                objectsList.set(i, thisActualObject);
+            }
+        }
+
+        return user.save();
     }
 }

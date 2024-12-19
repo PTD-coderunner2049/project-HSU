@@ -87,9 +87,4 @@ public class User extends Model {
     public void setVehicles(List<Vehicle> vehicles) {
         this.vehicles.addAll(vehicles);
     }
-
-    @Override
-    public boolean userBond() {
-        throw new UnsupportedOperationException("Unimplemented method 'userBond'");
-    }
 }

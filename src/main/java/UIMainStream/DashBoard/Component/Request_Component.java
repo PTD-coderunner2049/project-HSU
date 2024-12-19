@@ -275,7 +275,7 @@ public class Request_Component extends javax.swing.JPanel {
 
         private void trashButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_trashButtonActionPerformed
                 request.abort(true);
-                request.userBond();
+                DataBase.userBond(request);
                 request.save();
 
                 System.out.println("A tranfering request was aborted!");

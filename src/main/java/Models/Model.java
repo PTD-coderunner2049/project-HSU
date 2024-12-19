@@ -19,6 +19,5 @@ public abstract class Model {
         return id;
     }
 
-    public abstract boolean userBond();// contribute to the 'Request, report and vehicle' personal list.
 
 }

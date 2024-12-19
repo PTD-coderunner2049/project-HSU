@@ -27,24 +27,12 @@ public class Vehicle extends Model {
             this.size = size;
             this.type = type;
             setOccupiedPosition(false);
-            userBond();
+            DataBase.userBond(this);
             save();
-        } else{
-            return;}
-
-    }
-
-    @Override
-    public boolean userBond() {
-        User user = User.getInstance();
-        LinkedList<Vehicle> objectsList = user.getVehicles();
-        int i = DataBase.haveExistingID(objectsList, this.getId());
-        if (i == -1) {
-            objectsList.add((Vehicle) this);
         } else {
-            objectsList.set(i, (Vehicle) this);
+            return;
         }
-        return user.save();
+
     }
 
     public void setOccupiedPosition(boolean isHangared) {

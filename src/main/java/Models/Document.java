@@ -1,7 +1,5 @@
 package Models;
 
-import java.util.LinkedList;
-
 public abstract class Document extends Model {
     private String userID;
     private String vehicleID;
@@ -27,33 +25,10 @@ public abstract class Document extends Model {
             this.setType(type);
             this.aborted = false;
 
-            this.userBond();// included save()
+            DataBase.userBond(this);// included save()
             this.save();
         } else
             return;
-    }
-
-    @Override
-    public boolean userBond() {
-        User user = User.getInstance();
-        if (this.getClass() == Request.class) {
-            LinkedList<Request> objectsList = user.getRequests();
-            int i = DataBase.haveExistingID(objectsList, this.getId());
-            if (i == -1) {
-                objectsList.add((Request) this);
-            } else {
-                objectsList.set(i, (Request) this);
-            }
-        } else if (this.getClass() == Report.class) {
-            LinkedList<Report> objectsList = user.getReports();
-            int i = DataBase.haveExistingID(objectsList, this.getId());
-            if (i == -1) {
-                objectsList.add((Report) this);
-            } else {
-                objectsList.set(i, (Report) this);
-            }
-        }
-        return user.save();
     }
 
     public Time getRequestedTime() {
