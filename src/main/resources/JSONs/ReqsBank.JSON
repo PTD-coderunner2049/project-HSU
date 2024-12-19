@@ -20,5 +20,27 @@
     "type": "Drive In",
     "aborted": true,
     "id": "0"
+  },
+  {
+    "isAccepted": true,
+    "userID": "0",
+    "vehicleID": "1",
+    "requestedTime": {
+      "hour": 17,
+      "minute": 0,
+      "day": 19,
+      "month": 12,
+      "year": 2024
+    },
+    "submittedTime": {
+      "hour": 16,
+      "minute": 3,
+      "day": 19,
+      "month": 12,
+      "year": 2024
+    },
+    "type": "Drive In",
+    "aborted": false,
+    "id": "1"
   }
 ]

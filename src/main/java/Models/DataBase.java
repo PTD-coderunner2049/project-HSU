@@ -248,7 +248,7 @@ public abstract class DataBase {
                     return true;
                 }
             }
-        }// other class is saved as object with its user, while also save on an isolated
+        } // other class is saved as object with its user, while also save on an isolated
           // databank, make method that pull entire list of them for admin task later, if!
           // created fetchDataBase().
         else if (i == 5) {
@@ -446,39 +446,25 @@ public abstract class DataBase {
         return true;
     }
 
-    public static <Thing> boolean userBond(Thing thisObject) {
+    @SuppressWarnings("unchecked") // I dont know how to check for it.
+    public static <Thing extends Model> boolean userBond(Thing thisObject) {
 
         User user = User.getInstance();
+        LinkedList<Thing> objectsList = null;
 
         if (thisObject.getClass() == Request.class) {
-            LinkedList<Request> objectsList = user.getRequests();
-            Request thisActualObject = (Request) thisObject;
-            int i = DataBase.haveExistingID(objectsList, thisActualObject.getId());
-            if (i == -1) {
-                objectsList.add(thisActualObject);
-            } else {
-                objectsList.set(i, thisActualObject);
-            }
+            objectsList = (LinkedList<Thing>) user.getRequests();
         } else if (thisObject.getClass() == Report.class) {
-            LinkedList<Report> objectsList = user.getReports();
-            Report thisActualObject = (Report) thisObject;
-            int i = DataBase.haveExistingID(objectsList, thisActualObject.getId());
-            if (i == -1) {
-                objectsList.add(thisActualObject);
-            } else {
-                objectsList.set(i, thisActualObject);
-            }
+            objectsList = (LinkedList<Thing>) user.getReports();
         } else if (thisObject.getClass() == Vehicle.class) {
-            LinkedList<Vehicle> objectsList = user.getVehicles();
-            Vehicle thisActualObject = (Vehicle) thisObject;
-            int i = DataBase.haveExistingID(objectsList, thisActualObject.getId());
-            if (i == -1) {
-                objectsList.add(thisActualObject);
-            } else {
-                objectsList.set(i, thisActualObject);
-            }
+            objectsList = (LinkedList<Thing>) user.getVehicles();
         }
-
+        int i = DataBase.haveExistingID(objectsList, thisObject.getId());
+        
+        if (i == -1)
+            objectsList.add(thisObject);
+        else
+            objectsList.set(i, thisObject);
         return user.save();
     }
 }

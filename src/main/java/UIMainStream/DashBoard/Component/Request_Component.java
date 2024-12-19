@@ -274,6 +274,8 @@ public class Request_Component extends javax.swing.JPanel {
         }// </editor-fold>//GEN-END:initComponents
 
         private void trashButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_trashButtonActionPerformed
+                if (request.aborted()) // then the actual intended input is for clear button
+                        return;
                 request.abort(true);
                 DataBase.userBond(request);
                 request.save();
