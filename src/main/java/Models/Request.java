@@ -4,6 +4,9 @@ public class Request extends Document {
 
     private boolean isAccepted;
 
+    public Request() {
+    }
+
     public Request(String userID, String vehicleID, Time requestedTime, Time submittedTime,
             String type) {
         super(userID, vehicleID, requestedTime, submittedTime, type);

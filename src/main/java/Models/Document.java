@@ -8,6 +8,7 @@ public abstract class Document extends Model {
     private Time requestedTime;
     private Time submittedTime;
     private String type;// IN & OUT
+    private boolean aborted;
 
     public Document() {
     }
@@ -24,6 +25,7 @@ public abstract class Document extends Model {
             this.setRequestedTime(requestedTime);
             this.setSubmittedTime(submittedTime);
             this.setType(type);
+            this.aborted = false;
 
             this.userBond();// included save()
             this.save();
@@ -72,6 +74,14 @@ public abstract class Document extends Model {
 
     public String getType() {
         return type;
+    }
+
+    public boolean aborted() {
+        return aborted;
+    }
+
+    public void abort(boolean aborted) {
+        this.aborted = aborted;
     }
 
     public void setRequestedTime(Time requestedTime) {

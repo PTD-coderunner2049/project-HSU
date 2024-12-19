@@ -5,6 +5,9 @@ public class Report extends Document {
     private boolean isDone;
     private Time expectedTime;// Time that this should be done!
 
+    public Report() {
+    }
+
     public Report(String userID, String vehicleID, Time requestedTime, Time submittedTime,
             String type) {
         super(userID, vehicleID, requestedTime, submittedTime, type);
