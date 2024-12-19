@@ -5,6 +5,7 @@ import Models.Request;
 import Models.Time;
 import Models.User;
 import Models.Vehicle;
+import UIMainStream.DashBoard.DashBoardContent;
 
 /**
  * @author DELL
@@ -274,15 +275,28 @@ public class Request_Component extends javax.swing.JPanel {
         }// </editor-fold>//GEN-END:initComponents
 
         private void trashButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_trashButtonActionPerformed
-                if (request.aborted()) // then the actual intended input is for clear button
+                if (request.getStatus()) // then the actual intended input is for clear button
+                {// request only enter abort state AFTER it is accepted so I can ignore that here
+                        DataBase.userDeBond(request);
+                        java.awt.Container g = getParent();
+                        g.remove(this);
+                        if (g.getComponentCount() == 0)
+                                g.add(new Empty_Screen());
+                        g.revalidate();
+                        g.repaint();
                         return;
+                }
                 request.abort(true);
                 DataBase.userBond(request);
                 request.save();
 
                 System.out.println("A tranfering request was aborted!");
-                secondStageinitComponents(request);
+                reload();
         }// GEN-LAST:event_trashButtonActionPerformed
+
+        public void reload() {
+                secondStageinitComponents(request);
+        }
 
         @SuppressWarnings("unused")
         private void secondStageinitComponents(String userId, String id, String vehicleID,

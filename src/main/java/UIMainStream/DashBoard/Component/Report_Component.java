@@ -284,7 +284,20 @@ public class Report_Component extends javax.swing.JPanel {
         // they did remain on databank and only gone from user's list. each req is bond
         // with the same id rep
         if (report.aborted()) // then the actual intended input is for clear button
+        {
+            DataBase.userDeBond(report);
+            java.awt.Container g = getParent();
+            g.remove(this);
+            if (g.getComponentCount() == 0)
+                g.add(new Empty_Screen());
+            g.revalidate();
+            g.repaint();
+            // thing can cast to container but it is not always possible the other way,
+            // safetying force me to call container's own method and not using my custom
+            // method in DashboardContent, including a list for component and a compact
+            // revalidate+repaint method, so I am throwing that unessessary stuff away.
             return;
+        }
         Request request = new Request();
         request.setId(report.getId());
         DataBase.vormit(request);
@@ -296,8 +309,12 @@ public class Report_Component extends javax.swing.JPanel {
         report.save();
 
         System.out.println("A tranfering contract was aborted!");
-        secondStageinitComponents(report);
+        reload();
     }// GEN-LAST:event_trashButtonActionPerformed
+
+    public void reload() {
+        secondStageinitComponents(report);
+    }
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmButtonActionPerformed
         report.setStatus(true);
