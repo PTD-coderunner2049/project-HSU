@@ -7,6 +7,7 @@ import javax.swing.event.DocumentListener;
 
 import Models.Account;
 import Models.DataBase;
+import Models.Time;
 import Models.User;
 import javax.swing.ImageIcon;
 
@@ -335,6 +336,7 @@ private void secondStageinitComponents() {
             JOptionPane.showMessageDialog(rootPane, "ID distributing failure!");
             return;
         }
+        account.setCreatedTime(new Time());
         account.save();
         User.getInstance().initUser(this.fullName.getText(), this.dateOfBirth.getText());
         // include saved()

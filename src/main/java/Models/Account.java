@@ -6,6 +6,7 @@ public class Account extends Model {
 
     private String username;
     private String password;
+    private Time createdTime;
 
     private Account() {
     }
@@ -23,6 +24,14 @@ public class Account extends Model {
         this.password = password;
     }
 
+    public void setCreatedTime(Time createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public Time getCreatedTime() {
+        return createdTime;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -35,7 +44,6 @@ public class Account extends Model {
     public String getId() {
         return super.getId();
     }
-
 
     // public boolean isExist() {
     // return DataBase.accountValidate(this);
