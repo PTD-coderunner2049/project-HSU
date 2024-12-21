@@ -6,9 +6,6 @@ public class Navigation_Container extends javax.swing.JPanel {
 
     public Navigation_Container() {
         initComponents();
-        // TODO should make a data table for these
-        // String[] adminModeNames = { "User", "Create Requests", "Requests", "Reports",
-        // "Vehicles", "Logout" };
         String[] names = { "My Profile", "Create Request", "Requests", "Reports", "My Vehicles", "Logout" };
         setLayout(new GridLayout(0, 1, 0, 20));
         for (int i = 0; i < names.length; i++) {

@@ -1,7 +1,5 @@
 package Models;
 
-import java.util.LinkedList;
-
 public class Vehicle extends Model {
     private String userID;
     // id from model
