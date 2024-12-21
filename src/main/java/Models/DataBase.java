@@ -317,8 +317,30 @@ public abstract class DataBase {
     public static <Thing extends Model> boolean IdDistributor(Thing object) {
         List<Thing> objectsList = fetchDataBase(object);
         // assigning ID
-        object.setId(Integer.toString(objectsList.size()));
-        if (object.getId() != null)
+        String prefix = "unkown@:0";
+        int i = DataStream.getBankId();
+        switch (i) {
+            case 1:
+                prefix = "u@:0";
+                break;
+            case 2:
+                prefix = "ac@:0";
+                break;
+            case 3:
+                prefix = "req@:0";
+                break;
+            case 4:
+                prefix = "rep@:0";
+                break;
+            case 5:
+                prefix = "veh@:0";
+                break;
+            default:
+                break;
+        }
+
+        object.setId(prefix + Integer.toString(objectsList.size()));
+        if (object.getId() == null)
             return true;
 
         System.out.println("ERROR: ID distributing failure!");
