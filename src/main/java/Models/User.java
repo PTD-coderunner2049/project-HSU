@@ -1,7 +1,6 @@
 package Models;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class User extends Model {
     private static User instance;
@@ -99,17 +98,17 @@ public class User extends Model {
         return vehicles;
     }
 
-    public void setReports(List<Report> reports) {
+    public void setReports(LinkedList<Report> reports) {
         this.reports.clear();
         this.reports.addAll(reports);
     }
 
-    public void setRequests(List<Request> requests) {
+    public void setRequests(LinkedList<Request> requests) {
         this.requests.clear();
         this.requests.addAll(requests);
     }
 
-    public void setVehicles(List<Vehicle> vehicles) {
+    public void setVehicles(LinkedList<Vehicle> vehicles) {
         this.vehicles.clear();
         this.vehicles.addAll(vehicles);
     }

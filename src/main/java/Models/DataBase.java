@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -315,7 +314,7 @@ public abstract class DataBase {
 
     // Power tools-----------------------------------------------------------------
     public static <Thing extends Model> boolean IdDistributor(Thing object) {
-        List<Thing> objectsList = fetchDataBase(object);
+        LinkedList<Thing> objectsList = fetchDataBase(object);
         // assigning ID
         String prefix = "unkown@:0";
         int i = DataStream.getBankId();
@@ -363,7 +362,7 @@ public abstract class DataBase {
         try (FileReader jsonSheet = new FileReader(dir)) {
             Gson read = builder.create();
             LinkedList<Thing> objectList = read.fromJson(jsonSheet,
-                    TypeToken.getParameterized(List.class, targetClass).getType());
+                    TypeToken.getParameterized(LinkedList.class, targetClass).getType());
 
             return objectList;
 
@@ -472,7 +471,7 @@ public abstract class DataBase {
 
         User owner = new User(thisObject.getUserID());
 
-        List<User> usersList = blindlyFetchDataBase(usersBank, User.class);
+        LinkedList<User> usersList = blindlyFetchDataBase(usersBank, User.class);
         LinkedList<Thing> objectsList = null;
         // check list data
         if (usersList == null) {
