@@ -32,20 +32,20 @@ public abstract class DataBase {
 
     // ----------------------------------------------------------------------------
     // Directories getters
-    public static String getAccountsbankPth() {
-        return accountsBank.getAbsolutePath();
+    public static File getAccountsbankPth() {
+        return accountsBank;
     }
 
-    public static String getReportsbankPth() {
-        return reportsBank.getAbsolutePath();
+    public static File getReportsbankPth() {
+        return reportsBank;
     }
 
-    public static String getRequestsbankPth() {
-        return requestsBank.getAbsolutePath();
+    public static File getRequestsbankPth() {
+        return requestsBank;
     }
 
-    public static String getUsersbankPth() {
-        return usersBank.getAbsolutePath();
+    public static File getUsersbankPth() {
+        return usersBank;
     }
 
     // ----------------------------------------------------------------------------
@@ -55,7 +55,7 @@ public abstract class DataBase {
     public static <Thing extends Model> boolean eat(Thing object) {
         // Navigate object type and pull appopriate list.
         File desiredBank = findBank(object.getClass());
-        List<Thing> objectsList = fetchDataBase(object);
+        LinkedList<Thing> objectsList = fetchDataBase(object);
 
         // look for existing to replace before add
         int i = haveExistingID(objectsList, object.getId());
@@ -74,7 +74,7 @@ public abstract class DataBase {
         }
     }
 
-    public static <Thing extends Model> int haveExistingID(List<Thing> objectsList, String id) {
+    public static <Thing extends Model> int haveExistingID(LinkedList<Thing> objectsList, String id) {
         for (int i = 0; i < objectsList.size(); i++) {
             if (objectsList.get(i).getId().equals(id)) {
                 return i;
@@ -180,7 +180,7 @@ public abstract class DataBase {
     @SuppressWarnings("unchecked")
     public static <Thing extends Model> boolean vormit(Thing object) {// reconstuct user from database
 
-        List<Thing> objectsList = fetchDataBase(object);
+        LinkedList<Thing> objectsList = fetchDataBase(object);
 
         if (objectsList == null)
             return false;// none to vormit
@@ -192,7 +192,7 @@ public abstract class DataBase {
             // User user = User.getInstance(); (OPTIONAL)
             // When know it was user, call the static instance of user
             // that should have an ID during login stage(from account's ID)
-            for (User u : (List<User>) objectsList) {// pull user info
+            for (User u : (LinkedList<User>) objectsList) {// pull user info
                 if (u.getId().equals(user.getId())) {
                     // object.setAdminRight(u.getAdminRight());
                     user.setDateOfBirth(u.getDateOfBirth());
@@ -208,7 +208,7 @@ public abstract class DataBase {
             Account account = (Account) object;
             // OPTIONALY :)
             // Account account = Account.getInstance();
-            for (Account a : (List<Account>) objectsList) {
+            for (Account a : (LinkedList<Account>) objectsList) {
                 if (a.getUsername().equals(account.getUsername()) &&
                         a.getPassword().equals(account.getPassword())) {
                     account.setId(a.getId());
@@ -219,7 +219,7 @@ public abstract class DataBase {
             Request request = (Request) object;
             // OPTIONALY :)
             // Account account = Account.getInstance();
-            for (Request r : (List<Request>) objectsList) {
+            for (Request r : (LinkedList<Request>) objectsList) {
                 if (r.getId().equals(request.getId())) {
                     request.setUserID(r.getUserID());
                     request.setVehicleID(r.getVehicleID());
@@ -235,7 +235,7 @@ public abstract class DataBase {
             Report report = (Report) object;
             // OPTIONALY :)
             // Account account = Account.getInstance();
-            for (Report r : (List<Report>) objectsList) {
+            for (Report r : (LinkedList<Report>) objectsList) {
                 if (r.getId().equals(report.getId())) {
                     report.setUserID(r.getUserID());
                     report.setVehicleID(r.getVehicleID());
@@ -252,7 +252,7 @@ public abstract class DataBase {
           // created fetchDataBase().
         else if (i == 5) {
             Vehicle vehicle = (Vehicle) object;
-            for (Vehicle v : (List<Vehicle>) objectsList) {
+            for (Vehicle v : (LinkedList<Vehicle>) objectsList) {
                 if (v.getId().equals(vehicle.getId())) {
                     vehicle.setOccupiedPosition(v.getOccupiedPosition());
                     vehicle.setVehicleLicensedPlate(v.getVehicleLicensedPlate());
@@ -347,7 +347,7 @@ public abstract class DataBase {
     }
 
     public static boolean accountValidate(Account account) {
-        List<Account> accountsList = fetchDataBase(account);
+        LinkedList<Account> accountsList = fetchDataBase(account);
         for (Account a : accountsList) {
             if (a.getUsername().equals(account.getUsername()) && a.getPassword().equals(account.getPassword())) {
                 return true;
@@ -357,12 +357,12 @@ public abstract class DataBase {
     }
 
     // blindly fetching a JSON file, need to specified a class for processing
-    public static <Thing> List<Thing> blindFetchDataBase(File dir, Class<Thing> targetClass) {
+    public static <Thing> LinkedList<Thing> blindlyFetchDataBase(File dir, Class<Thing> targetClass) {
         // class to list.
         // pull object list
         try (FileReader jsonSheet = new FileReader(dir)) {
             Gson read = builder.create();
-            List<Thing> objectList = read.fromJson(jsonSheet,
+            LinkedList<Thing> objectList = read.fromJson(jsonSheet,
                     TypeToken.getParameterized(List.class, targetClass).getType());
 
             return objectList;
@@ -375,14 +375,14 @@ public abstract class DataBase {
 
     // capable of fetching any class to list.
     @SuppressWarnings("unchecked") // I dont know how to check for it.
-    public static <Thing extends Model> List<Thing> fetchDataBase(Thing object) {
+    public static <Thing extends Model> LinkedList<Thing> fetchDataBase(Thing object) {
         Class<Thing> objectClass = (Class<Thing>) object.getClass();
         File desiredBank = findBank(objectClass);
-        // pull object list
+        // pull object list 
         try (FileReader jsonSheet = new FileReader(desiredBank)) {
             Gson read = builder.create();
-            List<Thing> objectList = read.fromJson(jsonSheet,
-                    TypeToken.getParameterized(List.class, objectClass).getType());
+            LinkedList<Thing> objectList = read.fromJson(jsonSheet,
+                    TypeToken.getParameterized(LinkedList.class, objectClass).getType());
 
             return (objectList == null) ? new LinkedList<Thing>() : objectList;// for firt run when there are no data,
                                                                                // return non null list
@@ -433,7 +433,7 @@ public abstract class DataBase {
         reportsBank.delete();
         vehiclesBank.delete();
 
-        List<User> user = blindFetchDataBase(usersBank, User.class);
+        LinkedList<User> user = blindlyFetchDataBase(usersBank, User.class);
         for (User u : user) {
             u.getReports().clear();
             u.getRequests().clear();
@@ -447,7 +447,7 @@ public abstract class DataBase {
 
         // Navigate object type and pull appopriate list.
         File desiredBank = findBank(object.getClass());
-        List<Thing> objectsList = fetchDataBase(object);
+        LinkedList<Thing> objectsList = fetchDataBase(object);
         // look for existing to replace before add
         int i = haveExistingID(objectsList, object.getId());
         if (i == -1) {
@@ -472,7 +472,7 @@ public abstract class DataBase {
 
         User owner = new User(thisObject.getUserID());
 
-        List<User> usersList = blindFetchDataBase(usersBank, User.class);
+        List<User> usersList = blindlyFetchDataBase(usersBank, User.class);
         LinkedList<Thing> objectsList = null;
         // check list data
         if (usersList == null) {

@@ -47,13 +47,12 @@ public class Request_Container extends javax.swing.JPanel {
     private void addComponents() {
 
         User user = User.getInstance();
+        LinkedList<Request> req;
         if (user.getAdminRight()) {
-
-            LinkedList<Request> req = user.getRequests();
+            req = user.getRequests();
         } else {
-            LinkedList<Request> req = DataBase.fetchDataBase(new Request());
+            req = DataBase.blindlyFetchDataBase(DataBase.getRequestsbankPth(), Request.class);
         }
-
         if (req.isEmpty()) {
             this.add(new Empty_Screen());
             return;
