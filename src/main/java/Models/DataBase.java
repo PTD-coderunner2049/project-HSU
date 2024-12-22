@@ -47,6 +47,10 @@ public abstract class DataBase {
         return usersBank;
     }
 
+    public static File getVehiclesBank() {
+        return vehiclesBank;
+    }
+
     // ----------------------------------------------------------------------------
     // contribute to the core database.
 
@@ -200,6 +204,7 @@ public abstract class DataBase {
                     user.setReports(u.getReports());
                     user.setRequests(u.getRequests());
                     user.setVehicles(u.getVehicles());
+                    user.setAdminRight(u.getAdminRight());
                     return true;
                 }
             }

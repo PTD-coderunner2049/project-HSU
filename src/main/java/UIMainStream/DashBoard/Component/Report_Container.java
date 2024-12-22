@@ -3,7 +3,9 @@ package UIMainStream.DashBoard.Component;
 import java.awt.GridLayout;
 import java.util.LinkedList;
 
+import Models.DataBase;
 import Models.Report;
+import Models.Request;
 import Models.User;
 
 public class Report_Container extends javax.swing.JPanel {
@@ -42,8 +44,14 @@ public class Report_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
+        User user = User.getInstance();
+        LinkedList<Report> rep;
 
-        LinkedList<Report> rep = User.getInstance().getReports();
+        if (user.getAdminRight()) {// fetch all database
+            rep = DataBase.blindlyFetchDataBase(DataBase.getReportsbankPth(), Report.class);
+        } else {// fetch personal database
+            rep = user.getReports();
+        }
         if (rep.isEmpty()) {
             this.add(new Empty_Screen());
             return;

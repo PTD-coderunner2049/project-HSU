@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 
 import Functions.ImageFunction;
+import Models.Account;
 import Models.User;
 
 /**
@@ -148,6 +149,7 @@ public class Navigation_Component extends javax.swing.JPanel {
                 DashBoardFrame.getInstance().dispose();
                 DashBoardFrame.clearInstance();
                 User.clearInstance();
+                Account.clearInstance();
                 System.out.println("system logged out...");
                 MainEntry.startUp();
 

@@ -110,4 +110,8 @@ public class User extends Model {
         this.vehicles.clear();
         this.vehicles.addAll(vehicles);
     }
+
+    public void setAdminRight(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
 }

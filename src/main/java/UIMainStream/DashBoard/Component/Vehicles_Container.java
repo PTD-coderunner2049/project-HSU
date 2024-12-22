@@ -3,6 +3,8 @@ package UIMainStream.DashBoard.Component;
 import java.awt.GridLayout;
 import java.util.LinkedList;
 
+import Models.DataBase;
+import Models.Request;
 import Models.User;
 import Models.Vehicle;
 
@@ -46,7 +48,13 @@ public class Vehicles_Container extends javax.swing.JPanel {
 
     private void addComponents() {
 
-        LinkedList<Vehicle> veh = User.getInstance().getVehicles();
+        LinkedList<Vehicle> veh;
+        User user = User.getInstance();
+        if (user.getAdminRight()) {// fetch all database
+            veh = DataBase.blindlyFetchDataBase(DataBase.getVehiclesBank(), Vehicle.class);
+        } else {// fetch personal database
+            veh = user.getVehicles();
+        }
         if (veh.isEmpty()) {
             this.add(new Empty_Screen());
             return;

@@ -3,6 +3,8 @@ package UIMainStream.DashBoard.Component;
 import javax.swing.ImageIcon;
 
 import Functions.ImageFunction;
+import Models.Account;
+import Models.User;
 
 /**
  * @author Pham Trung Duc
@@ -31,7 +33,8 @@ public class Empty_Screen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         satisticLabelPending = new javax.swing.JLabel();
@@ -40,28 +43,31 @@ public class Empty_Screen extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         satisticLabelPending.setFont(new java.awt.Font("Comic Sans MS", 2, 12)); // NOI18N
-        satisticLabelPending.setText("This list of yours is empty for now.");
+        if (User.getInstance().getAdminRight())
+            satisticLabelPending.setText("Entire codebase is empty for now.");
+        else
+            satisticLabelPending.setText("This list of yours is empty for now.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(243, 243, 243)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(satisticLabelPending)
-                    .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(243, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(243, 243, 243)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(satisticLabelPending)
+                                        .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 200,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(243, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(satisticLabelPending)
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 200,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(satisticLabelPending)
+                                .addContainerGap(50, Short.MAX_VALUE)));
     }// </editor-fold>//GEN-END:initComponents
 
     private void secondStageinitComponents() {
