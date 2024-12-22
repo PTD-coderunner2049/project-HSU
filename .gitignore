@@ -29,4 +29,4 @@ replay_pid*
 I_wanted_Git_To_Ignore_Inside_This/
 target/
 .vscode/
-JSONs/
+# JSONs/

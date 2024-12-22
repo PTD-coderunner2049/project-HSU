@@ -1,0 +1,74 @@
+[
+  {
+    "isAdmin": false,
+    "fullName": "Lilium Frstra",
+    "dateOfBirth": "14/11/1449",
+    "requests": [
+      {
+        "isAccepted": true,
+        "userID": "0",
+        "vehicleID": "veh@:02",
+        "requestedTime": {
+          "hour": 14,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 13,
+          "minute": 29,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "aborted": false,
+        "id": "req@:00"
+      }
+    ],
+    "reports": [
+      {
+        "isDone": false,
+        "expectedTime": {
+          "hour": 14,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "userID": "0",
+        "vehicleID": "veh@:02",
+        "requestedTime": {
+          "hour": 14,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 13,
+          "minute": 29,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "aborted": false,
+        "id": "rep@:00"
+      }
+    ],
+    "vehicles": [
+      {
+        "userID": "0",
+        "occupiedPosition": "Unhangared",
+        "vehicleLicensedPlate": "XX-XXX-XXX",
+        "hangarType": "Water",
+        "size": "L",
+        "type": "CARGO_SHIP",
+        "id": "veh@:02"
+      }
+    ],
+    "id": "0"
+  }
+]

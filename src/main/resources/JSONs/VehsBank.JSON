@@ -1,0 +1,24 @@
+[
+  {
+    "size": "\u0000",
+    "id": "veh@:00"
+  },
+  {
+    "userID": "0",
+    "occupiedPosition": "Unhangared",
+    "vehicleLicensedPlate": "XX-XXX-XXX",
+    "hangarType": "Water",
+    "size": "L",
+    "type": "CARGO_SHIP",
+    "id": "veh@:01"
+  },
+  {
+    "userID": "0",
+    "occupiedPosition": "Unhangared",
+    "vehicleLicensedPlate": "XX-XXX-XXX",
+    "hangarType": "Water",
+    "size": "L",
+    "type": "CARGO_SHIP",
+    "id": "veh@:02"
+  }
+]
