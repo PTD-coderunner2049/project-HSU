@@ -1,17 +1,27 @@
 [
   {
-    "isAdmin": true,
-    "fullName": "123",
+    "isAdmin": false,
+    "fullName": "admin",
     "dateOfBirth": {
       "hour": 0,
       "minute": 0,
       "day": 14,
       "month": 11,
-      "year": 1449
+      "year": 2024
     },
     "requests": [],
     "reports": [],
-    "vehicles": [],
+    "vehicles": [
+      {
+        "occupiedPosition": "[GL-veh@:00]",
+        "vehicleLicensedPlate": "XX-XXX-XXX",
+        "hangarType": "Water",
+        "size": "L",
+        "type": "CARGO_SHIP",
+        "userID": "ac@:00:admin",
+        "id": "veh@:00"
+      }
+    ],
     "id": "ac@:00:admin"
   }
 ]

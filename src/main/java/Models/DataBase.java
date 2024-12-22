@@ -211,6 +211,7 @@ public abstract class DataBase {
                 if (a.getUsername().equals(account.getUsername()) &&
                         a.getPassword().equals(account.getPassword())) {
                     account.setId(a.getId());
+                    account.setCreatedTime(a.getCreatedTime());
                     return true;
                 }
             }

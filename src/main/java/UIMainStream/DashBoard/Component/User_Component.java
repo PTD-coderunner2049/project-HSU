@@ -313,7 +313,7 @@ public class User_Component extends javax.swing.JPanel implements CustomDateEven
         private void editButtonMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_saveMouseClicked
                 if (inEditMode) {// in editmode
                         setFocusableInfo(!inEditMode);
-                        JOptionPane.showMessageDialog(this, "User Infor is Updated!");
+                        JOptionPane.showMessageDialog(this, "User Info is Updated!");
                         updateUserInfo();
                         user = User.getInstance();// pull new user
                         editButton.setText("Edit");
@@ -332,11 +332,7 @@ public class User_Component extends javax.swing.JPanel implements CustomDateEven
         }// GEN-LAST:event_cancelMouseClicked
 
         private void resetAllTextes() {
-                String name = user.getFullName();
-                if (user.getAdminRight()) {
-                        name = " [Admin]";
-                }
-                textname.setText(name);
+                textname.setText(user.getFullName());
                 textBirthDay.setText(Integer.toString(user.getDateOfBirth().getDay()));
                 textBirthMonth.setText(Integer.toString(user.getDateOfBirth().getMonth()));
                 textBirthYear.setText(Integer.toString(user.getDateOfBirth().getYear()));

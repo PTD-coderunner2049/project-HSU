@@ -1,0 +1,31 @@
+[
+  {
+    "isDone": true,
+    "expectedTime": {
+      "hour": 23,
+      "minute": 0,
+      "day": 22,
+      "month": 12,
+      "year": 2024
+    },
+    "vehicleID": "veh@:00",
+    "requestedTime": {
+      "hour": 23,
+      "minute": 0,
+      "day": 22,
+      "month": 12,
+      "year": 2024
+    },
+    "submittedTime": {
+      "hour": 22,
+      "minute": 41,
+      "day": 22,
+      "month": 12,
+      "year": 2024
+    },
+    "type": "Drive In",
+    "aborted": false,
+    "userID": "ac@:00:admin",
+    "id": "rep@:00"
+  }
+]

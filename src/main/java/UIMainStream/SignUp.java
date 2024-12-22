@@ -434,13 +434,13 @@ public class SignUp extends javax.swing.JFrame implements CustomDateEventListene
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
         // include saved()
         boolean isAdmin = false;
-        if (account.getUsername().toLowerCase().equals("admin")) 
+        if (userName.getText().toLowerCase().equals("admin")) 
             isAdmin = true;
             
         Time dateOfBirth = new Time(0, 0, Integer.parseInt(day.getText()), Integer.parseInt(month.getText()),
         Integer.parseInt(year.getText()));
         boolean createAccount = Account.getInstance().initAccount(userName.getText(), new String(this.password.getPassword()), new Time(), isAdmin);
-        boolean createUser = User.getInstance().initUser(this.fullName.getText(), dateOfBirth, isAdmin);
+        boolean createUser = User.getInstance().initUser(fullName.getText(), dateOfBirth, isAdmin);
         if(createAccount && createUser){
             // message
             JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");

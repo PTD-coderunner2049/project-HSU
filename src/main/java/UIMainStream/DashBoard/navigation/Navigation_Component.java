@@ -145,11 +145,11 @@ public class Navigation_Component extends javax.swing.JPanel {
 
                 break;
             case "Logout":
-                DashBoardFrame.clearInstance();
                 DashBoardFrame.getInstance().dispose();
-                MainEntry.startUp();
+                DashBoardFrame.clearInstance();
                 User.clearInstance();
                 System.out.println("system logged out...");
+                MainEntry.startUp();
 
                 break;
             default:

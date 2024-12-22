@@ -58,8 +58,6 @@ public class User extends Model {
         this.dateOfBirth.setMonth(dateOfBirth.getMonth());
         this.dateOfBirth.setYear(dateOfBirth.getYear());
         this.isAdmin = isAdmin;
-        if (isAdmin)
-            setId(getId() + ":admin");
         save();
         return getId() != null;
     }
