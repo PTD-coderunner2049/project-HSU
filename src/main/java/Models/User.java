@@ -8,13 +8,14 @@ public class User extends Model {
 
     private boolean isAdmin = false;
     private String fullName;
-    private String dateOfBirth;
+    private Time dateOfBirth;
     private LinkedList<Request> requests = new LinkedList<>();
     private LinkedList<Report> reports = new LinkedList<>();
     private LinkedList<Vehicle> vehicles = new LinkedList<>();
 
     private User() {
         Account account = Account.getInstance();
+        dateOfBirth = new Time();
         setId(account.getId());// prebuilt user base on account
         // if we reconstruct right away here, at first time this is reaches, the
         // instance need to wait for user to reconstuct so it never updated, and during
@@ -31,9 +32,13 @@ public class User extends Model {
         return instance;
     }
 
-    public boolean initUser(String fullName, String dateOfBirth) {
+    public boolean initUser(String fullName, Time dateOfBirth) {
         this.fullName = fullName;
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth.setHour(0);
+        this.dateOfBirth.setMinute(0);
+        this.dateOfBirth.setDay(dateOfBirth.getDay());
+        this.dateOfBirth.setMonth(dateOfBirth.getMonth());
+        this.dateOfBirth.setYear(dateOfBirth.getYear());
         save();
         return false;
     }
@@ -56,11 +61,11 @@ public class User extends Model {
         this.fullName = fullName;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Time dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getDateOfBirth() {
+    public Time getDateOfBirth() {
         return dateOfBirth;
     }
 

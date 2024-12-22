@@ -143,12 +143,12 @@ public class Navigation_Component extends javax.swing.JPanel {
                 System.out.println("directing to vehicle display page");
 
                 break;
-
             case "Logout":
                 DashBoardFrame.getInstance().dispose();
                 MainEntry.startUp();
-                System.out.println("system log out:");
+                System.out.println("system logged out...");
 
+                break;
             default:
                 throw new AssertionError();
         }

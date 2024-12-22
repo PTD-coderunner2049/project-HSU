@@ -3,6 +3,7 @@ package UIMainStream.DashBoard.Component;
 import javax.swing.JOptionPane;
 
 import Functions.TextFunction;
+import Models.CustomDateEventListener;
 import Models.DataBase;
 import Models.Report;
 import Models.Request;
@@ -11,7 +12,7 @@ import Models.User;
 import Models.Vehicle;
 import Models.eVesselType;
 
-public class CreateRequest_Component extends javax.swing.JPanel {
+public class CreateRequest_Component extends javax.swing.JPanel implements CustomDateEventListener {
 
 	public CreateRequest_Component() {
 		initComponents();
@@ -355,9 +356,10 @@ public class CreateRequest_Component extends javax.swing.JPanel {
 	private javax.swing.JTextField textbienso;
 	private javax.swing.JComboBox<eVesselType> type;
 	private javax.swing.JLabel typeLabel;
-	// End of variables declaration//GEN-END:variables
 
-	private void addCustomDateEventListener() {
+	// End of variables declaration//GEN-END:variables
+	@Override
+	public void addCustomDateEventListener() {
 		TextFunction.addDateInputClamper(requestedHour, 0, 24, 2);
 		TextFunction.addDateInputClamper(requestedDay, 1, requestedMonth, requestedYear, 2);
 		TextFunction.addDateInputClamper(requestedMonth, 1, 12, 2);

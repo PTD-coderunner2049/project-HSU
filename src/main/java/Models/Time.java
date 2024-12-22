@@ -78,4 +78,12 @@ public class Time {
     public void setYear(int year) {
         this.year = year;
     }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
 }

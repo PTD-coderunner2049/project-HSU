@@ -342,7 +342,6 @@ public abstract class DataBase {
         object.setId(prefix + Integer.toString(objectsList.size()));
         if (object.getId() != null)
             return true;
-
         System.out.println("ERROR: ID distributing failure!");
         return false;
     }

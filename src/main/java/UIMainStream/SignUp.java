@@ -1,17 +1,20 @@
 package UIMainStream;
 
 import Functions.ImageFunction;
+import Functions.TextFunction;
+
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import Models.Account;
+import Models.CustomDateEventListener;
 import Models.DataBase;
 import Models.Time;
 import Models.User;
 import javax.swing.ImageIcon;
 
-public class SignUp extends javax.swing.JFrame {
+public class SignUp extends javax.swing.JFrame implements CustomDateEventListener {
 
     LogIn loginFrame;
     Account account;
@@ -31,7 +34,9 @@ public class SignUp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -43,7 +48,7 @@ public class SignUp extends javax.swing.JFrame {
         username = new javax.swing.JLabel();
         userName = new javax.swing.JTextField();
         dateofbirth = new javax.swing.JLabel();
-        dateOfBirth = new javax.swing.JTextField();
+        day = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         confirm = new javax.swing.JButton();
@@ -57,6 +62,10 @@ public class SignUp extends javax.swing.JFrame {
         pass2 = new javax.swing.JLabel();
         toLogIn = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        month = new javax.swing.JTextField();
+        year = new javax.swing.JTextField();
+        dateSeparator = new javax.swing.JLabel();
+        dateSeparator1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("signup");
@@ -74,26 +83,27 @@ public class SignUp extends javax.swing.JFrame {
         javax.swing.GroupLayout LogoSectionLayout = new javax.swing.GroupLayout(LogoSection);
         LogoSection.setLayout(LogoSectionLayout);
         LogoSectionLayout.setHorizontalGroup(
-            LogoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogoSectionLayout.createSequentialGroup()
-                .addGroup(LogoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogoSectionLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(LogoSectionLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                LogoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(LogoSectionLayout.createSequentialGroup()
+                                .addGroup(
+                                        LogoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(LogoSectionLayout.createSequentialGroup()
+                                                        .addContainerGap()
+                                                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 400,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(LogoSectionLayout.createSequentialGroup()
+                                                        .addGap(50, 50, 50)
+                                                        .addComponent(jLabel1)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         LogoSectionLayout.setVerticalGroup(
-            LogoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogoSectionLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
+                LogoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(LogoSectionLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 400,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addContainerGap(51, Short.MAX_VALUE)));
 
         jPanel1.add(LogoSection);
         LogoSection.setBounds(0, 0, 420, 500);
@@ -107,7 +117,9 @@ public class SignUp extends javax.swing.JFrame {
 
         username.setText("Username");
 
-        dateofbirth.setText("Date of birth");
+        dateofbirth.setText("Date of birth DD/MM/YYYY");
+
+        day.setText("14");
 
         jLabel5.setText("Password");
 
@@ -155,91 +167,186 @@ public class SignUp extends javax.swing.JFrame {
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
 
+        month.setText("11");
+
+        year.setText("1449");
+
+        dateSeparator.setText("/");
+
+        dateSeparator1.setText("/");
+
         javax.swing.GroupLayout signUpSectionLayout = new javax.swing.GroupLayout(signUpSection);
         signUpSection.setLayout(signUpSectionLayout);
         signUpSectionLayout.setHorizontalGroup(
-            signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(signUpSectionLayout.createSequentialGroup()
-                .addGroup(signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(signUpSectionLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(confirm))
-                    .addGroup(signUpSectionLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(dateofbirth, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(dateOfBirth, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(fullName, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(userName, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(message, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(username, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(signUpSectionLayout.createSequentialGroup()
-                                .addGroup(signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                                    .addComponent(confirmPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pass1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(signUpSectionLayout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signUpSectionLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(toLogIn)))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
+                signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(signUpSectionLayout.createSequentialGroup()
+                                .addGroup(signUpSectionLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(signUpSectionLayout.createSequentialGroup()
+                                                .addGap(162, 162, 162)
+                                                .addComponent(confirm))
+                                        .addGroup(signUpSectionLayout.createSequentialGroup()
+                                                .addGap(40, 40, 40)
+                                                .addGroup(signUpSectionLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel8)
+                                                        .addComponent(dateofbirth,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 71,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(signUpSectionLayout
+                                                                .createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                        false)
+                                                                .addComponent(fullName,
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(userName,
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(message,
+                                                                        javax.swing.GroupLayout.Alignment.LEADING,
+                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                        Short.MAX_VALUE)
+                                                                .addComponent(username,
+                                                                        javax.swing.GroupLayout.Alignment.LEADING,
+                                                                        javax.swing.GroupLayout.DEFAULT_SIZE, 280,
+                                                                        Short.MAX_VALUE)
+                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                        signUpSectionLayout.createSequentialGroup()
+                                                                                .addComponent(day,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        40,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addPreferredGap(
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(dateSeparator)
+                                                                                .addPreferredGap(
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(month,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        40,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addPreferredGap(
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(dateSeparator1)
+                                                                                .addPreferredGap(
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(year,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        40,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(jSeparator1,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 280,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(signUpSectionLayout.createSequentialGroup()
+                                                                .addGroup(signUpSectionLayout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                        false)
+                                                                        .addComponent(jLabel6,
+                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                280, Short.MAX_VALUE)
+                                                                        .addComponent(confirmPassword,
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(password,
+                                                                                javax.swing.GroupLayout.Alignment.LEADING))
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(signUpSectionLayout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(pass2,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                37,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(pass1,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                37,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(signUpSectionLayout.createSequentialGroup()
+                                                .addGap(140, 140, 140)
+                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signUpSectionLayout
+                                                .createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 226,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(toLogIn)))
+                                .addContainerGap(17, Short.MAX_VALUE)));
         signUpSectionLayout.setVerticalGroup(
-            signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(signUpSectionLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(message)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(username)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateofbirth)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(signUpSectionLayout.createSequentialGroup()
-                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(confirm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                        .addGroup(signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(toLogIn))
-                        .addGap(52, 52, 52))
-                    .addGroup(signUpSectionLayout.createSequentialGroup()
-                        .addComponent(pass1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+                signUpSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(signUpSectionLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(message)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(username)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fullName, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dateofbirth)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(signUpSectionLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(day, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(dateSeparator)
+                                        .addComponent(dateSeparator1))
+                                .addGap(18, 18, 18)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(signUpSectionLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(signUpSectionLayout.createSequentialGroup()
+                                                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel6)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(signUpSectionLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(confirmPassword,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(confirm)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14,
+                                                        Short.MAX_VALUE)
+                                                .addGroup(signUpSectionLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel7)
+                                                        .addComponent(toLogIn))
+                                                .addGap(52, 52, 52))
+                                        .addGroup(signUpSectionLayout.createSequentialGroup()
+                                                .addComponent(pass1, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        Short.MAX_VALUE)))));
 
         jPanel1.add(signUpSection);
         signUpSection.setBounds(420, 0, 380, 500);
@@ -247,20 +354,20 @@ public class SignUp extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void secondStageinitComponents() {
+    private void secondStageinitComponents() {
         initIcon();
 
         account = Account.getInstance();
@@ -268,7 +375,9 @@ private void secondStageinitComponents() {
         setResizable(false);
         this.setVisible(false);
         this.addEventListener();
-}
+        this.addCustomDateEventListener();
+    }
+
     private void pass1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_pass1MouseClicked
 
         if (!isHide) {
@@ -294,7 +403,8 @@ private void secondStageinitComponents() {
             isHide = !isHide;
         }
     }// GEN-LAST:event_pass2MouseClicked
-    // ---------------------------------------------------------------
+     // ---------------------------------------------------------------
+
     public boolean bond(LogIn loginFrame) {
         if (loginFrame != null) {
             this.loginFrame = loginFrame;
@@ -304,15 +414,16 @@ private void secondStageinitComponents() {
     }
 
     private void initIcon() {
-            ImageIcon icon = new ImageIcon(getClass().getResource("/icon/logo.png"));
-            this.logo.setIcon(ImageFunction.scaleImage(logo, icon));
-            isHide = true;
-            hide = new ImageIcon(getClass().getResource("/icon/hide.jpg"));
-            show = new ImageIcon(getClass().getResource("/icon/show.jpg"));
-            pass1.setIcon(hide);
-            pass2.setIcon(hide);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/icon/logo.png"));
+        this.logo.setIcon(ImageFunction.scaleImage(logo, icon));
+        isHide = true;
+        hide = new ImageIcon(getClass().getResource("/icon/hide.jpg"));
+        show = new ImageIcon(getClass().getResource("/icon/show.jpg"));
+        pass1.setIcon(hide);
+        pass2.setIcon(hide);
 
     }
+
     // Button's behaviorous
     private void toLogInActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_toLogInActionPerformed
         this.setVisible(false);
@@ -338,7 +449,10 @@ private void secondStageinitComponents() {
         }
         account.setCreatedTime(new Time());
         account.save();
-        User.getInstance().initUser(this.fullName.getText(), this.dateOfBirth.getText());
+
+        Time dateOfBirth = new Time(0, 0, Integer.parseInt(day.getText()), Integer.parseInt(month.getText()),
+                Integer.parseInt(year.getText()));
+        User.getInstance().initUser(this.fullName.getText(), dateOfBirth);
         // include saved()
 
         JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
@@ -390,8 +504,10 @@ private void secondStageinitComponents() {
     private javax.swing.JPanel LogoSection;
     private javax.swing.JButton confirm;
     private javax.swing.JPasswordField confirmPassword;
-    private javax.swing.JTextField dateOfBirth;
+    private javax.swing.JLabel dateSeparator;
+    private javax.swing.JLabel dateSeparator1;
     private javax.swing.JLabel dateofbirth;
+    private javax.swing.JTextField day;
     private javax.swing.JTextField fullName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -403,6 +519,7 @@ private void secondStageinitComponents() {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel message;
+    private javax.swing.JTextField month;
     private javax.swing.JLabel pass1;
     private javax.swing.JLabel pass2;
     private javax.swing.JPasswordField password;
@@ -410,6 +527,7 @@ private void secondStageinitComponents() {
     private javax.swing.JButton toLogIn;
     private javax.swing.JTextField userName;
     private javax.swing.JLabel username;
+    private javax.swing.JTextField year;
     // End of variables declaration//GEN-END:variables
 
     // private boolean createAccount(String userName, String dateOfBirth, String
@@ -456,5 +574,11 @@ private void secondStageinitComponents() {
         });
     }
 
-
+    @Override
+    public void addCustomDateEventListener() {
+        TextFunction.addDateInputClamper(day, 1, month, year, 2);
+        TextFunction.addDateInputClamper(month, 1, 12, 2);
+        TextFunction.addDateInputClamper(year, new Time().getYear(), 2030, 4);
+        // overkill, but meh.
+    }
 }
