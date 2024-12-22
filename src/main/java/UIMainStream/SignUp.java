@@ -433,11 +433,10 @@ public class SignUp extends javax.swing.JFrame implements CustomDateEventListene
     }// GEN-LAST:event_toLogInActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
-
         // Read info from textfield as String and passwordfield as a Stringified char[]
         account.setUsername(this.userName.getText());
         account.setPassword(new String(this.password.getPassword()));
-
+        // validate
         if (DataBase.accountValidate(account)) {// on signUp unexisting account is good to go.
             JOptionPane.showMessageDialog(rootPane,
                     "ID earning failure! The problem can be of following reasons: \n  > Account existed.\n  > Data Fetching failure.");
@@ -447,15 +446,18 @@ public class SignUp extends javax.swing.JFrame implements CustomDateEventListene
             JOptionPane.showMessageDialog(rootPane, "ID distributing failure!");
             return;
         }
+        // create
         account.setCreatedTime(new Time());
         account.save();
 
         Time dateOfBirth = new Time(0, 0, Integer.parseInt(day.getText()), Integer.parseInt(month.getText()),
                 Integer.parseInt(year.getText()));
+
+                
         User.getInstance().initUser(this.fullName.getText(), dateOfBirth,
                 account.getUsername().toLowerCase().equals("admin"));
         // include saved()
-
+        // message
         JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
         this.setVisible(false);
         loginFrame.setVisible(true);

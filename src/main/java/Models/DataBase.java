@@ -179,8 +179,7 @@ public abstract class DataBase {
 
     @SuppressWarnings("unchecked")
     public static <Thing extends Model> boolean vormit(Thing object) {// reconstuct user from database
-        // Class<Thing> objectClass = (Class<Thing>) object.getClass();
-        // File desiredBank = findBank(objectClass);
+
         List<Thing> objectsList = fetchDataBase(object);
 
         if (objectsList == null)
@@ -347,7 +346,7 @@ public abstract class DataBase {
     }
 
     public static boolean accountValidate(Account account) {
-        List<Account> accountsList = fetchDataBase(accountsBank, Account.class);
+        List<Account> accountsList = fetchDataBase(account);
         for (Account a : accountsList) {
             if (a.getUsername().equals(account.getUsername()) && a.getPassword().equals(account.getPassword())) {
                 return true;
@@ -356,33 +355,38 @@ public abstract class DataBase {
         return false;
     }
 
-    // BEHOLE PEASANT, THIS IS MY INVENTION. Generic class
-    private static <Thing> List<Thing> fetchDataBase(File dir, Class<Thing> targetClass) {// capable of fetching any
-                                                                                          // class to list.
-
+    // blindly fetching a JSON file, need to specified a class for processing
+    @SuppressWarnings("unused") // I dont know how to check for it.
+    private static <Thing> List<Thing> blindFetchDataBase(File dir, Class<Thing> targetClass) {
+        // class to list.
         // pull object list
-        try (FileReader jsonDataSheet = new FileReader(dir)) {
-            Gson gson = builder.create();
-            List<Thing> objectList = gson.fromJson(jsonDataSheet,
+        try (FileReader jsonSheet = new FileReader(dir)) {
+            Gson read = builder.create();
+            List<Thing> objectList = read.fromJson(jsonSheet,
                     TypeToken.getParameterized(List.class, targetClass).getType());
-            return (objectList == null) ? new LinkedList<Thing>() : objectList;
+
+            return objectList;
+
         } catch (IOException e) {
-            System.out.println("JSON DataBank fetching failure! Attemping to recreate nessesary dataBank");
+            System.out.println("JSON DataBank Blindly fetching failure! Attemping to recreate nessesary dataBank");
             return new LinkedList<>();
         }
     }
 
+    // capable of fetching any class to list.
     @SuppressWarnings("unchecked") // I dont know how to check for it.
-    private static <Thing extends Model> List<Thing> fetchDataBase(Thing object) {// capable of fetching any class to
-                                                                                  // list.
+    private static <Thing extends Model> List<Thing> fetchDataBase(Thing object) {
         Class<Thing> objectClass = (Class<Thing>) object.getClass();
         File desiredBank = findBank(objectClass);
         // pull object list
-        try (FileReader jsonDataSheet = new FileReader(desiredBank)) {
-            Gson gson = builder.create();
-            List<Thing> objectList = gson.fromJson(jsonDataSheet,
+        try (FileReader jsonSheet = new FileReader(desiredBank)) {
+            Gson read = builder.create();
+            List<Thing> objectList = read.fromJson(jsonSheet,
                     TypeToken.getParameterized(List.class, objectClass).getType());
-            return (objectList == null) ? new LinkedList<Thing>() : objectList;
+
+            // return (objectList == null) ? new LinkedList<Thing>() : objectList;
+            return objectList;
+
         } catch (IOException e) {
             System.out.println("JSON DataBank fetching failure! Attemping to recreate nessesary dataBank");
             return new LinkedList<>();

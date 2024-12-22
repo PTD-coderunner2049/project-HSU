@@ -26,7 +26,12 @@ import Models.Vehicle;
 @SuppressWarnings("unused")
 public class TestSpace {
     Time a;
+
     public static void main(String[] args) {
-        DataBase.cleanDocumentsBank();
+        // DataBase.cleanDocumentsBank();
+        File adminList = new File("src/main/resources/JSONs/AdminList.JSON");
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.setPrettyPrinting().create();
+        gson.toJson(gson);
     }
 }
