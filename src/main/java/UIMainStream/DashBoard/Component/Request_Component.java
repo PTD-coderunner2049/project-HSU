@@ -276,7 +276,7 @@ public class Request_Component extends javax.swing.JPanel {
         private void trashButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_trashButtonActionPerformed
                 if (request.getStatus()) // then the actual intended input is for clear button
                 {// request only enter abort state AFTER it is accepted so I can ignore that here
-                        DataBase.userDeBond(request);
+                        DataBase.userBond(request, true);
                         java.awt.Container g = getParent();
                         g.remove(this);
                         if (g.getComponentCount() == 0)
@@ -286,7 +286,7 @@ public class Request_Component extends javax.swing.JPanel {
                         return;
                 }
                 request.abort(true);
-                DataBase.userBond(request);
+                DataBase.userBond(request, false);
                 request.save();
 
                 System.out.println("A tranfering request was aborted!");

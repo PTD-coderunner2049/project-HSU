@@ -468,7 +468,7 @@ public abstract class DataBase {
     }
 
     @SuppressWarnings("unchecked") // I dont know how to check for it.
-    public static <Thing extends UserData> boolean userBond(Thing thisObject) {
+    public static <Thing extends UserData> boolean userBond(Thing thisObject, boolean deBond) {
 
         User owner = new User(thisObject.getUserID());
 
@@ -503,23 +503,25 @@ public abstract class DataBase {
         }
         // make change on user own data list
         int i = DataBase.haveExistingID(objectsList, thisObject.getId());
-        if (i == -1) {
-            objectsList.add(thisObject);
-            System.out.println("Current user successfully bonded with new item.");
+        if (deBond) {
+            if (i == -1) {
+                System.out.println("Debonding unsucceeded, object never been bonded with current user...");
+                return false;
+            } else
+                objectsList.remove(i);
+            System.out.println("An item is de-bonded with current user.");
         } else {
-            System.out.println("Current user successfully re-bonded with new item.");
-            objectsList.set(i, thisObject);
+            if (i == -1)
+                objectsList.add(thisObject);
+            else
+                objectsList.set(i, thisObject);
+            System.out.println("Current user successfully bond/re-bonded with new item.");
         }
         System.out.println("Bonding succeeded. saving change on user...");
         // save and sync
         if (User.getInstance().getId().equals(owner.getId())) {
             // if the modified user was the current user, update it help the dashboard
             // content up to date without need of re launching application.
-
-            // save and reload owner, it not the owner is outdated and then overriding
-            // change on current user instance instead of updating it.
-            // or maybe just use the objectlist which is updated rightaway.
-
             switch (c) {
                 case 1:
                     User.getInstance().setRequests((LinkedList<Request>) objectsList);
@@ -531,36 +533,9 @@ public abstract class DataBase {
                     User.getInstance().setVehicles((LinkedList<Vehicle>) objectsList);
                     break;
                 default:
-                    break;// incoming object is bounded to UserData type, this case never reach
-            }// noneed to save current user in this case
-             // if they are one, owner save is enough.
+                    break;// incoming object is bounded to UserData type, this case wont be reach.
+            }
         }
         return owner.save();
-    }
-
-    @SuppressWarnings("unchecked")
-    // remove from user list, but remain on main DataBanks.
-    public static <Thing extends UserData> boolean userDeBond(Thing thisObject) {
-        User user = User.getInstance();
-        
-        LinkedList<Thing> objectsList = null;
-
-        if (thisObject.getClass() == Request.class) {
-            objectsList = (LinkedList<Thing>) user.getRequests();
-        } else if (thisObject.getClass() == Report.class) {
-            objectsList = (LinkedList<Thing>) user.getReports();
-        } else if (thisObject.getClass() == Vehicle.class) {
-            objectsList = (LinkedList<Thing>) user.getVehicles();
-        }
-        int i = DataBase.haveExistingID(objectsList, thisObject.getId());
-        if (i == -1) {
-            System.out.println("Debonding unsucceeded, object never been bonded with current user...");
-            return false;
-        } else {
-            objectsList.remove(i);
-            System.out.println("An item is de-bonded with current user.");
-        }
-        System.out.println("Bonding succeeded. saving change on user...");
-        return user.save();
     }
 }

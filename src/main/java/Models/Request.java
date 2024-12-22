@@ -12,7 +12,7 @@ public class Request extends Document {
         super(userID, vehicleID, requestedTime, submittedTime, type);
         setStatus(false);
         
-        DataBase.userBond(this);
+        DataBase.userBond(this, false);
         this.save();
     }
 

@@ -28,8 +28,8 @@ public class Report extends Document {
         expectedTime.setHour(expectedTime.getHour() + 1); // for now automatically increate it by 1.
         // rebond in this demo, you should have this fully set before
         // super() call userBond().
-        DataBase.userBond(this);
-        DataBase.userBond(request);
+        DataBase.userBond(this, false);
+        DataBase.userBond(request, false);
         request.save();
         this.save();
     }

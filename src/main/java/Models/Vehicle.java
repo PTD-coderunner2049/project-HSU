@@ -24,7 +24,7 @@ public class Vehicle extends UserData {
             setSize(size);
             setType(type);
             setOccupiedPosition(false);
-            DataBase.userBond(this);
+            DataBase.userBond(this, false);
             this.save();
         }
         return;

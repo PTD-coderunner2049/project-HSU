@@ -285,7 +285,7 @@ public class Report_Component extends javax.swing.JPanel {
         // with the same id rep
         if (report.aborted() || report.getStatus()) // then the actual intended input is for clear button
         {
-            DataBase.userDeBond(report);
+            DataBase.userBond(report, true);// De-bonding
             java.awt.Container g = getParent();
             g.remove(this);
             if (g.getComponentCount() == 0)
@@ -303,8 +303,8 @@ public class Report_Component extends javax.swing.JPanel {
         DataBase.vormit(request);
         report.abort(true);
         request.abort(true);
-        DataBase.userBond(request);
-        DataBase.userBond(report);
+        DataBase.userBond(request, false);
+        DataBase.userBond(report, false);
         request.save();
         report.save();
 
@@ -318,7 +318,7 @@ public class Report_Component extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmButtonActionPerformed
         report.setStatus(true);
-        DataBase.userBond(report);
+        DataBase.userBond(report, false);
         report.save();
 
         Vehicle veh = new Vehicle(report.getVehicleID());
@@ -330,7 +330,7 @@ public class Report_Component extends javax.swing.JPanel {
             veh.setOccupiedPosition(false);
         }
         veh.save();
-        DataBase.userBond(veh);
+        DataBase.userBond(veh, false);
 
         System.out.println("detected vessels move!");
         secondStageinitComponents(report);
