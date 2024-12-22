@@ -32,13 +32,14 @@ public class User extends Model {
         return instance;
     }
 
-    public boolean initUser(String fullName, Time dateOfBirth) {
-        this.fullName = fullName;
+    public boolean initUser(String fullName, Time dateOfBirth, boolean isAdmin) {
+        setFullName(fullName);
         this.dateOfBirth.setHour(0);
         this.dateOfBirth.setMinute(0);
         this.dateOfBirth.setDay(dateOfBirth.getDay());
         this.dateOfBirth.setMonth(dateOfBirth.getMonth());
         this.dateOfBirth.setYear(dateOfBirth.getYear());
+        setAdminRight(isAdmin);
         save();
         return false;
     }

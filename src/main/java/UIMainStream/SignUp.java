@@ -452,7 +452,8 @@ public class SignUp extends javax.swing.JFrame implements CustomDateEventListene
 
         Time dateOfBirth = new Time(0, 0, Integer.parseInt(day.getText()), Integer.parseInt(month.getText()),
                 Integer.parseInt(year.getText()));
-        User.getInstance().initUser(this.fullName.getText(), dateOfBirth);
+        User.getInstance().initUser(this.fullName.getText(), dateOfBirth,
+                account.getUsername().toLowerCase().equals("admin"));
         // include saved()
 
         JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
@@ -493,11 +494,11 @@ public class SignUp extends javax.swing.JFrame implements CustomDateEventListene
         }
 
         // /* Create and display the form */
-        // java.awt.EventQueue.invokeLater(new Runnable() {
-        // public void run() {
-        // new SignUp().setVisible(true);
-        // }
-        // });
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SignUp().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

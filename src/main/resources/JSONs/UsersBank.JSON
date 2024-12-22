@@ -13,5 +13,20 @@
     "reports": [],
     "vehicles": [],
     "id": "ac@:00"
+  },
+  {
+    "isAdmin": true,
+    "fullName": "123",
+    "dateOfBirth": {
+      "hour": 0,
+      "minute": 0,
+      "day": 14,
+      "month": 11,
+      "year": 1449
+    },
+    "requests": [],
+    "reports": [],
+    "vehicles": [],
+    "id": "ac@:01"
   }
 ]
