@@ -177,7 +177,7 @@ public abstract class DataBase {
     }
 
     @SuppressWarnings("unchecked")
-    public static <Thing extends Model> boolean vormit(Thing object) {// reconstuct user from database
+    public static <Thing extends Model> boolean vormit(Thing object) {// reconstruct user from database
 
         LinkedList<Thing> objectsList = fetchDataBase(object);
 
@@ -270,7 +270,7 @@ public abstract class DataBase {
         return false;// unknow Object
     }
 
-    // public static boolean vormit(User user) {// reconstuct user from database
+    // public static boolean vormit(User user) {// reconstruct user from database
 
     // if (user.getId() == null)
     // return false;// no user
@@ -349,10 +349,10 @@ public abstract class DataBase {
         LinkedList<Account> accountsList = fetchDataBase(account);
         for (Account a : accountsList) {
             if (a.getUsername().equals(account.getUsername()) && a.getPassword().equals(account.getPassword())) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     // blindly fetching a JSON file, need to specified a class for processing
@@ -377,7 +377,7 @@ public abstract class DataBase {
     public static <Thing extends Model> LinkedList<Thing> fetchDataBase(Thing object) {
         Class<Thing> objectClass = (Class<Thing>) object.getClass();
         File desiredBank = findBank(objectClass);
-        // pull object list 
+        // pull object list
         try (FileReader jsonSheet = new FileReader(desiredBank)) {
             Gson read = builder.create();
             LinkedList<Thing> objectList = read.fromJson(jsonSheet,

@@ -9,7 +9,6 @@ import javax.swing.event.DocumentListener;
 
 import Models.Account;
 import Models.CustomDateEventListener;
-import Models.DataBase;
 import Models.Time;
 import Models.User;
 import javax.swing.ImageIcon;
@@ -433,34 +432,24 @@ public class SignUp extends javax.swing.JFrame implements CustomDateEventListene
     }// GEN-LAST:event_toLogInActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
-        // Read info from textfield as String and passwordfield as a Stringified char[]
-        account.setUsername(this.userName.getText());
-        account.setPassword(new String(this.password.getPassword()));
-        // validate
-        if (DataBase.accountValidate(account)) {// on signUp unexisting account is good to go.
-            JOptionPane.showMessageDialog(rootPane,
-                    "ID earning failure! The problem can be of following reasons: \n  > Account existed.\n  > Data Fetching failure.");
-            return;
-        }
-        if (!DataBase.IdDistributor(account)) {
-            JOptionPane.showMessageDialog(rootPane, "ID distributing failure!");
-            return;
-        }
-        // create
-        account.setCreatedTime(new Time());
-        account.save();
-
-        Time dateOfBirth = new Time(0, 0, Integer.parseInt(day.getText()), Integer.parseInt(month.getText()),
-                Integer.parseInt(year.getText()));
-
-                
-        User.getInstance().initUser(this.fullName.getText(), dateOfBirth,
-                account.getUsername().toLowerCase().equals("admin"));
         // include saved()
-        // message
-        JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
-        this.setVisible(false);
-        loginFrame.setVisible(true);
+        boolean isAdmin = false;
+        if (account.getUsername().toLowerCase().equals("admin")) 
+            isAdmin = true;
+            
+        Time dateOfBirth = new Time(0, 0, Integer.parseInt(day.getText()), Integer.parseInt(month.getText()),
+        Integer.parseInt(year.getText()));
+        boolean createAccount = Account.getInstance().initAccount(userName.getText(), new String(this.password.getPassword()), new Time(), isAdmin);
+        boolean createUser = User.getInstance().initUser(this.fullName.getText(), dateOfBirth, isAdmin);
+        if(createAccount && createUser){
+            // message
+            JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
+            this.setVisible(false);
+            loginFrame.setVisible(true);
+        } else
+        JOptionPane.showMessageDialog(rootPane,
+                        "ID earning failure! The problem can be of following reasons: \n  > Account existed.\n  > Data Fetching failure.");
+
     }
 
     public static void main(String args[]) {

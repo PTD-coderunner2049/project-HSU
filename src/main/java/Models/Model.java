@@ -7,7 +7,7 @@ public abstract class Model {
         return DataBase.eat(this);
     };
 
-    public final boolean reconstuct() {
+    public final boolean reconstruct() {
         return DataBase.vormit(this);
     };
 
@@ -18,6 +18,5 @@ public abstract class Model {
     public String getId() {
         return id;
     }
-
 
 }

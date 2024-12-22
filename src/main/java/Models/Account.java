@@ -16,6 +16,20 @@ public class Account extends Model {
         return (instance == null) ? instance = new Account() : instance;
     }
 
+    public boolean initAccount(String username, String password, Time createdTime, boolean isAdmin) {
+        this.username = username;
+        this.password = password;
+
+        this.createdTime = createdTime;
+        if (!DataBase.accountValidate(this) || !DataBase.IdDistributor(this)) {
+            return false;
+        }
+        if (isAdmin)
+            setId(getId() + ":admin");
+        save();
+        return getId() != null;
+    }
+
     public String getPassword() {
         return password;
     }

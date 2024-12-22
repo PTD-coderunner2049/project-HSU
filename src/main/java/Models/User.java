@@ -32,7 +32,7 @@ public class User extends Model {
         dateOfBirth = new Time();
         setId(Account.getInstance().getId());// prebuilt user base on account
         // if we reconstruct right away here, at first time this is reaches, the
-        // instance need to wait for user to reconstuct so it never updated, and during
+        // instance need to wait for user to reconstruct so it never updated, and during
         // reconstruct sequence it need to call instance result in a deep nest of nest
         // of instances waiting to get a memory block asign result in stackoverflow
     };
@@ -41,7 +41,7 @@ public class User extends Model {
     public static User getInstance() {
         if (instance == null) {
             instance = new User();
-            instance.reconstuct();
+            instance.reconstruct();
         }
         return instance;
     }
@@ -61,7 +61,7 @@ public class User extends Model {
         if (isAdmin)
             setId(getId() + ":admin");
         save();
-        return false;
+        return getId() != null;
     }
 
     // getter setter-----------------------------------

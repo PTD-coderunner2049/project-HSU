@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 
 import Models.Account;
 import Models.DataBase;
+import Models.User;
 import UIMainStream.DashBoard.DashBoardFrame;
 import javax.swing.ImageIcon;
 
@@ -292,8 +293,11 @@ public class LogIn extends javax.swing.JFrame {
         account.setUsername(this.userName.getText());
         account.setPassword(new String(this.password.getPassword()));
 
-        if (DataBase.accountValidate(Account.getInstance())) {// IF account exist, go to dashboard
-            account.reconstuct();// pull id only :)) other already there after user type in right
+        if (!DataBase.accountValidate(Account.getInstance())) {// IF account exist, go to dashboard
+            account.reconstruct();// pull id only :)) other already there after user type in right
+            User user = User.getInstance();
+            user.setId(account.getId());
+            user.reconstruct();
 
             DashBoardFrame dashboard = DashBoardFrame.getInstance();
             dashboard.setVisible(true);
