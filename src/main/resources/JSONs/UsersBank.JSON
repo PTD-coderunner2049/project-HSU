@@ -3,14 +3,77 @@
     "isAdmin": false,
     "dateOfBirth": {
       "hour": 20,
-      "minute": 18,
+      "minute": 32,
       "day": 22,
       "month": 12,
       "year": 2024
     },
-    "requests": [],
-    "reports": [],
-    "vehicles": [],
+    "requests": [
+      {
+        "isAccepted": true,
+        "vehicleID": "veh@:00",
+        "requestedTime": {
+          "hour": 21,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 20,
+          "minute": 41,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "aborted": false,
+        "userID": "ac@:00",
+        "id": "req@:00"
+      }
+    ],
+    "reports": [
+      {
+        "isDone": true,
+        "expectedTime": {
+          "hour": 21,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "vehicleID": "veh@:00",
+        "requestedTime": {
+          "hour": 21,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 20,
+          "minute": 41,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "aborted": false,
+        "userID": "ac@:00",
+        "id": "rep@:00"
+      }
+    ],
+    "vehicles": [
+      {
+        "occupiedPosition": "[GL-veh@:00]",
+        "vehicleLicensedPlate": "XX-XXX-XXX",
+        "hangarType": "Water",
+        "size": "L",
+        "type": "CARGO_SHIP",
+        "userID": "ac@:00",
+        "id": "veh@:00"
+      }
+    ],
     "id": "ac@:00"
   },
   {
@@ -307,6 +370,26 @@
         "isAccepted": false,
         "aborted": true,
         "id": "rep@:07"
+      }
+    ],
+    "reports": [],
+    "vehicles": [],
+    "id": "ac@:00"
+  },
+  {
+    "isAdmin": false,
+    "dateOfBirth": {
+      "hour": 20,
+      "minute": 32,
+      "day": 22,
+      "month": 12,
+      "year": 2024
+    },
+    "requests": [
+      {
+        "isAccepted": false,
+        "aborted": true,
+        "id": "rep@:00"
       }
     ],
     "reports": [],

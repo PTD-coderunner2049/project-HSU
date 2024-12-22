@@ -329,8 +329,8 @@ public class Report_Component extends javax.swing.JPanel {
         } else {
             veh.setOccupiedPosition(false);
         }
-        veh.save();
         DataBase.userBond(veh, false);
+        veh.save();
 
         System.out.println("detected vessels move!");
         secondStageinitComponents(report);

@@ -256,6 +256,7 @@ public abstract class DataBase {
                 if (v.getId().equals(vehicle.getId())) {
                     vehicle.setOccupiedPosition(v.getOccupiedPosition());
                     vehicle.setVehicleLicensedPlate(v.getVehicleLicensedPlate());
+                    vehicle.setHangarType(v.getHangarType());
                     vehicle.setSize(v.getSize());
                     vehicle.setType(v.getType());
                     vehicle.setUserID(v.getUserID());
