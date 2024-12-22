@@ -1,7 +1,6 @@
 package Models;
 
-public class Vehicle extends Model {
-    private String userID;
+public class Vehicle extends UserData {
     // id from model
     private String occupiedPosition;
     private String vehicleLicensedPlate;
@@ -13,24 +12,22 @@ public class Vehicle extends Model {
     }
 
     public Vehicle(String id) {
-        this.setId(id);// veh id is plate number
+        setId(id);// veh id is plate number
     }
 
     public Vehicle(String userID, String vehicleLicensedPlate,
             String hangarType, char size, eVesselType type) {
         if (DataBase.IdDistributor(this)) {
-            this.userID = userID;
-            this.vehicleLicensedPlate = vehicleLicensedPlate;
-            this.hangarType = hangarType;
-            this.size = size;
-            this.type = type;
+            setUserID(userID);
+            setVehicleLicensedPlate(vehicleLicensedPlate);
+            setHangarType(hangarType);
+            setSize(size);
+            setType(type);
             setOccupiedPosition(false);
             DataBase.userBond(this);
-            save();
-        } else {
-            return;
+            this.save();
         }
-
+        return;
     }
 
     public void setOccupiedPosition(boolean isHangared) {
@@ -58,10 +55,6 @@ public class Vehicle extends Model {
         this.vehicleLicensedPlate = vehicleLicensedPlate;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
     public String getOccupiedPosition() {
         return occupiedPosition;
     }
@@ -76,10 +69,6 @@ public class Vehicle extends Model {
 
     public eVesselType getType() {
         return type;
-    }
-
-    public String getUserID() {
-        return userID;
     }
 
     public String getVehicleLicensedPlate() {

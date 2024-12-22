@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 
 import Functions.TextFunction;
 import Models.CustomDateEventListener;
-import Models.DataBase;
 import Models.Report;
 import Models.Request;
 import Models.Time;
@@ -314,12 +313,9 @@ public class CreateRequest_Component extends javax.swing.JPanel implements Custo
 		// TODO---
 		// report generating should be elsewhere
 		// for demo it is instantly acceptedreq
-		requestedTime.setHour(requestedTime.getHour());
-		new Report(request, requestedTime).save();
-		// --------
+		new Report(request, requestedTime);
 
-		DataBase.userBond(request);
-		request.save();
+		// --------
 		return request;
 	}
 
@@ -333,8 +329,6 @@ public class CreateRequest_Component extends javax.swing.JPanel implements Custo
 		String plate = textbienso.getText();
 		String uId = User.getInstance().getId();
 		Vehicle vehicle = new Vehicle(uId, plate, hType, size, vType);
-
-		vehicle.save();
 		return vehicle;
 	}
 

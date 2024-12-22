@@ -13,10 +13,25 @@ public class User extends Model {
     private LinkedList<Report> reports = new LinkedList<>();
     private LinkedList<Vehicle> vehicles = new LinkedList<>();
 
+    public User(User user) {
+        if (user.getId() != null) {
+            setId(user.getId());
+            this.isAdmin = (user.getAdminRight());
+            setDateOfBirth(user.getDateOfBirth());
+            setFullName(user.getFullName());
+            setRequests(user.getRequests());
+            setVehicles(user.getVehicles());
+            setReports(user.getReports());
+        }
+    }
+
+    public User(String id) {// create empty user obj
+        setId(id);
+    }
+
     private User() {
-        Account account = Account.getInstance();
         dateOfBirth = new Time();
-        setId(account.getId());// prebuilt user base on account
+        setId(Account.getInstance().getId());// prebuilt user base on account
         // if we reconstruct right away here, at first time this is reaches, the
         // instance need to wait for user to reconstuct so it never updated, and during
         // reconstruct sequence it need to call instance result in a deep nest of nest
@@ -39,16 +54,14 @@ public class User extends Model {
         this.dateOfBirth.setDay(dateOfBirth.getDay());
         this.dateOfBirth.setMonth(dateOfBirth.getMonth());
         this.dateOfBirth.setYear(dateOfBirth.getYear());
-        setAdminRight(isAdmin);
+        this.isAdmin = isAdmin;
+        if (isAdmin)
+            setId(getId() + ":admin");
         save();
         return false;
     }
 
     // getter setter-----------------------------------
-
-    public void setAdminRight(boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
 
     public boolean getAdminRight() {
         return isAdmin;
@@ -83,14 +96,17 @@ public class User extends Model {
     }
 
     public void setReports(List<Report> reports) {
+        this.reports.clear();
         this.reports.addAll(reports);
     }
 
     public void setRequests(List<Request> requests) {
+        this.requests.clear();
         this.requests.addAll(requests);
     }
 
     public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles.clear();
         this.vehicles.addAll(vehicles);
     }
 }

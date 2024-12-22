@@ -47,8 +47,10 @@ public class Vehicles_Container extends javax.swing.JPanel {
     private void addComponents() {
 
         LinkedList<Vehicle> veh = User.getInstance().getVehicles();
-        if (veh.isEmpty())
+        if (veh.isEmpty()) {
             this.add(new Empty_Screen());
+            return;
+        }
         for (Vehicle v : veh) {
             add(new Vehicles_Component(v));
         }

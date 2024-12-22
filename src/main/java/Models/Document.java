@@ -1,7 +1,7 @@
 package Models;
 
-public abstract class Document extends Model {
-    private String userID;
+public abstract class Document extends UserData {
+
     private String vehicleID;
     private Time requestedTime;
     private Time submittedTime;
@@ -24,11 +24,8 @@ public abstract class Document extends Model {
             this.setSubmittedTime(submittedTime);
             this.setType(type);
             this.aborted = false;
-
-            DataBase.userBond(this);// included save()
-            this.save();
-        } else
-            return;
+        }
+        return;
     }
 
     public Time getRequestedTime() {
@@ -37,10 +34,6 @@ public abstract class Document extends Model {
 
     public Time getSubmittedTime() {
         return submittedTime;
-    }
-
-    public String getUserID() {
-        return userID;
     }
 
     public String getVehicleID() {
@@ -69,10 +62,6 @@ public abstract class Document extends Model {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
     }
 
     public void setVehicleID(String vehicleID) {

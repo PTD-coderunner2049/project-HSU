@@ -428,21 +428,17 @@ public abstract class DataBase {
     // return false;
     // }
     public static void cleanDocumentsBank() {
-        // FileWriter writer = new FileWriter(requestsBank);
-        // FileWriter writer2 = new FileWriter(reportsBank);
-        // FileWriter writer3 = new FileWriter(vehiclesBank);
-        // writer.write("[]");
-        // writer.write("[]");
-        // writer.write("[]");
+
         requestsBank.delete();
         reportsBank.delete();
         vehiclesBank.delete();
-        List<User> user = fetchDataBase(User.getInstance());
+
+        List<User> user = blindFetchDataBase(usersBank, User.class);
         for (User u : user) {
             u.getReports().clear();
             u.getRequests().clear();
             u.getVehicles().clear();
-            eat(u);
+            DataBase.eat(u);
         }
     }
 
@@ -472,20 +468,41 @@ public abstract class DataBase {
     }
 
     @SuppressWarnings("unchecked") // I dont know how to check for it.
-    public static <Thing extends Model> boolean userBond(Thing thisObject) {
+    public static <Thing extends UserData> boolean userBond(Thing thisObject) {
 
-        User user = User.getInstance();
+        User owner = new User(thisObject.getUserID());
+
+        List<User> usersList = blindFetchDataBase(usersBank, User.class);
         LinkedList<Thing> objectsList = null;
-
+        // check list data
+        if (usersList == null) {
+            System.out.println("list of user not found or is empty!");
+            return false;
+        } // found list
+        for (User u : usersList) {
+            if (u.getId().equals(thisObject.getUserID())) {
+                owner = u;// owner point to u in the list, get modified and resave the list
+                break;
+            }
+        } // check user
+        if (owner.getId() == null) {
+            System.out.println(
+                    "Owner of Object for bonding task is somehow unexist. an object of type UserData must always have an owner regardless of bonding state.");
+        } // found user
+          // find appropriate type from user
+        int c = 0;
         if (thisObject.getClass() == Request.class) {
-            objectsList = (LinkedList<Thing>) user.getRequests();
+            c = 1;
+            objectsList = (LinkedList<Thing>) owner.getRequests();
         } else if (thisObject.getClass() == Report.class) {
-            objectsList = (LinkedList<Thing>) user.getReports();
+            c = 2;
+            objectsList = (LinkedList<Thing>) owner.getReports();
         } else if (thisObject.getClass() == Vehicle.class) {
-            objectsList = (LinkedList<Thing>) user.getVehicles();
+            c = 3;
+            objectsList = (LinkedList<Thing>) owner.getVehicles();
         }
+        // make change on user own data list
         int i = DataBase.haveExistingID(objectsList, thisObject.getId());
-
         if (i == -1) {
             objectsList.add(thisObject);
             System.out.println("Current user successfully bonded with new item.");
@@ -494,13 +511,38 @@ public abstract class DataBase {
             objectsList.set(i, thisObject);
         }
         System.out.println("Bonding succeeded. saving change on user...");
-        return user.save();
+        // save and sync
+        if (User.getInstance().getId().equals(owner.getId())) {
+            // if the modified user was the current user, update it help the dashboard
+            // content up to date without need of re launching application.
+
+            // save and reload owner, it not the owner is outdated and then overriding
+            // change on current user instance instead of updating it.
+            // or maybe just use the objectlist which is updated rightaway.
+
+            switch (c) {
+                case 1:
+                    User.getInstance().setRequests((LinkedList<Request>) objectsList);
+                    break;
+                case 2:
+                    User.getInstance().setReports((LinkedList<Report>) objectsList);
+                    break;
+                case 3:
+                    User.getInstance().setVehicles((LinkedList<Vehicle>) objectsList);
+                    break;
+                default:
+                    break;// incoming object is bounded to UserData type, this case never reach
+            }// noneed to save current user in this case
+             // if they are one, owner save is enough.
+        }
+        return owner.save();
     }
 
     @SuppressWarnings("unchecked")
     // remove from user list, but remain on main DataBanks.
-    public static <Thing extends Model> boolean userDeBond(Thing thisObject) {
+    public static <Thing extends UserData> boolean userDeBond(Thing thisObject) {
         User user = User.getInstance();
+        
         LinkedList<Thing> objectsList = null;
 
         if (thisObject.getClass() == Request.class) {

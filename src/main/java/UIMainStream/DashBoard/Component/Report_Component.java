@@ -283,7 +283,7 @@ public class Report_Component extends javax.swing.JPanel {
         // mark this rep and corresponding request as aborted true, when they get clear
         // they did remain on databank and only gone from user's list. each req is bond
         // with the same id rep
-        if (report.aborted()) // then the actual intended input is for clear button
+        if (report.aborted() || report.getStatus()) // then the actual intended input is for clear button
         {
             DataBase.userDeBond(report);
             java.awt.Container g = getParent();

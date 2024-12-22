@@ -19,15 +19,19 @@ public class Report extends Document {
         super(request.getUserID(), request.getVehicleID(),
                 requestedTime, request.getSubmittedTime(), request.getType());
 
+        // status change
         request.setStatus(true);// accepted the req
         this.setStatus(false);// pending the rep
 
         // TODO edit expected Time base on density from database.
         expectedTime = requestedTime; // get everything
         expectedTime.setHour(expectedTime.getHour() + 1); // for now automatically increate it by 1.
-        DataBase.userBond(this);
         // rebond in this demo, you should have this fully set before
         // super() call userBond().
+        DataBase.userBond(this);
+        DataBase.userBond(request);
+        request.save();
+        this.save();
     }
 
     public void setStatus(boolean isDone) {
