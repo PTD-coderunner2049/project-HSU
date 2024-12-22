@@ -321,8 +321,6 @@ public abstract class DataBase {
         int i = DataStream.getBankId();
         switch (i) {
             case 1:
-                prefix = "u@:0";
-                break;
             case 2:
                 prefix = "ac@:0";
                 break;

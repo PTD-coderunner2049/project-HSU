@@ -3,15 +3,15 @@
     "isAccepted": true,
     "vehicleID": "veh@:00",
     "requestedTime": {
-      "hour": 23,
+      "hour": 24,
       "minute": 0,
       "day": 22,
       "month": 12,
       "year": 2024
     },
     "submittedTime": {
-      "hour": 22,
-      "minute": 41,
+      "hour": 23,
+      "minute": 10,
       "day": 22,
       "month": 12,
       "year": 2024
@@ -20,5 +20,27 @@
     "aborted": false,
     "userID": "ac@:00:admin",
     "id": "req@:00"
+  },
+  {
+    "isAccepted": true,
+    "vehicleID": "veh@:01",
+    "requestedTime": {
+      "hour": 24,
+      "minute": 0,
+      "day": 22,
+      "month": 12,
+      "year": 2024
+    },
+    "submittedTime": {
+      "hour": 23,
+      "minute": 10,
+      "day": 22,
+      "month": 12,
+      "year": 2024
+    },
+    "type": "Drive In",
+    "aborted": false,
+    "userID": "ac@:01",
+    "id": "req@:01"
   }
 ]

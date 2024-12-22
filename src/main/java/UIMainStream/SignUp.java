@@ -16,7 +16,6 @@ import javax.swing.ImageIcon;
 public class SignUp extends javax.swing.JFrame implements CustomDateEventListener {
 
     LogIn loginFrame;
-    Account account;
     ImageIcon show;
     ImageIcon hide;
     boolean isHide;
@@ -369,7 +368,6 @@ public class SignUp extends javax.swing.JFrame implements CustomDateEventListene
     private void secondStageinitComponents() {
         initIcon();
 
-        account = Account.getInstance();
         confirm.setEnabled(false);
         setResizable(false);
         this.setVisible(false);
@@ -446,6 +444,8 @@ public class SignUp extends javax.swing.JFrame implements CustomDateEventListene
             JOptionPane.showMessageDialog(rootPane, "Bạn đã đăng ký thành công");
             this.setVisible(false);
             loginFrame.setVisible(true);
+            User.clearInstance();
+            Account.clearInstance();
         } else
         JOptionPane.showMessageDialog(rootPane,
                         "ID earning failure! The problem can be of following reasons: \n  > Account existed.\n  > Data Fetching failure.");

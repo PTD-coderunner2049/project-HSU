@@ -1,10 +1,6 @@
 package UIMainStream.DashBoard.Component;
 
-import Models.DataBase;
-import Models.Report;
-import Models.Request;
-import Models.User;
-import Models.Vehicle;
+import Models.*;
 
 /**
  * @author DELL
@@ -372,7 +368,10 @@ public class Report_Component extends javax.swing.JPanel {
                 Vehicle vehicle = new Vehicle(report.getVehicleID());
                 vehicle.reconstruct();// pull it from database
 
-                labelName.setText(User.getInstance().getFullName());
+                User user = new User(vehicle.getUserID());
+                user.reconstruct();
+
+                labelName.setText(user.getFullName());
                 labelId.setText(report.getId());
                 labelPlate.setText(vehicle.getVehicleLicensedPlate());
                 labelType.setText(vehicle.getType().name());

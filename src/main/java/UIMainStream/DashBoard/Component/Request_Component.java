@@ -1,10 +1,6 @@
 package UIMainStream.DashBoard.Component;
 
-import Models.DataBase;
-import Models.Request;
-import Models.Time;
-import Models.User;
-import Models.Vehicle;
+import Models.*;
 
 /**
  * @author DELL
@@ -297,33 +293,15 @@ public class Request_Component extends javax.swing.JPanel {
                 secondStageinitComponents(request);
         }
 
-        @SuppressWarnings("unused")
-        private void secondStageinitComponents(String userId, String id, String vehicleID,
-                        boolean isAccepted, Time requestedTime, Time submittedTime, String type, char size) {
-                // I am thinking about sending in id and pull everything up, found the right doc
-                // and update it here. but I already pull the entire thing in the mother
-                // container, so I figure this is a huge waste of performance. let just take
-                // needed data as params instead.
-                labelName.setText(User.getInstance().getFullName());
-                labelID.setText(id);
-                if (isAccepted)
-                        labelstatus.setText("Accepted");
-                else
-                        labelstatus.setText("Pending");
-                labelBienso.setText(vehicleID);
-                labelSize.setText(Character.toString(size));
-                labelType.setText(type);
-                labelreqeusted.setText(requestedTime.toString());
-                labelsubmit.setText(submittedTime.toString());
-        }
-
         private void secondStageinitComponents(Request request) {
                 this.request = request;
                 // create veh and add id
                 Vehicle vehicle = new Vehicle(request.getVehicleID());
                 DataBase.vormit(vehicle);// pull it from database
+                User user = new User(vehicle.getUserID());
+                user.reconstruct();
 
-                labelName.setText(User.getInstance().getFullName());
+                labelName.setText(user.getFullName());
                 labelID.setText(request.getId());
                 labelBienso.setText(vehicle.getVehicleLicensedPlate());
 

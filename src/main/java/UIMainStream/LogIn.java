@@ -14,7 +14,6 @@ import javax.swing.ImageIcon;
 public class LogIn extends javax.swing.JFrame {
 
     SignUp signupFrame;
-    Account account;
     ImageIcon show;
     ImageIcon hide;
     boolean isHide;
@@ -253,7 +252,6 @@ public class LogIn extends javax.swing.JFrame {
         initIcon();
         setResizable(false);
         this.setVisible(false);
-        account = Account.getInstance();
     }
 
     private void passMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_passMouseClicked
@@ -288,12 +286,12 @@ public class LogIn extends javax.swing.JFrame {
 
     // Button's behaviorous
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmActionPerformed
-
+        Account account = Account.getInstance();
         // Read info from textfield as String and passwordfield as a Stringified char[]
         account.setUsername(this.userName.getText());
         account.setPassword(new String(this.password.getPassword()));
 
-        if (!DataBase.accountValidate(Account.getInstance())) {// IF account exist, go to dashboard
+        if (!DataBase.accountValidate(account)) {// IF account exist, go to dashboard
             account.reconstruct();// pull id only :)) other already there after user type in right
             User user = User.getInstance();
             user.setId(account.getId());

@@ -1,19 +1,72 @@
 [
   {
-    "isAdmin": false,
-    "fullName": "admin",
+    "isAdmin": true,
+    "fullName": "ad",
     "dateOfBirth": {
       "hour": 0,
       "minute": 0,
       "day": 14,
       "month": 11,
-      "year": 2024
+      "year": 1449
     },
-    "requests": [],
-    "reports": [],
+    "requests": [
+      {
+        "isAccepted": true,
+        "vehicleID": "veh@:00",
+        "requestedTime": {
+          "hour": 24,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 23,
+          "minute": 10,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "aborted": false,
+        "userID": "ac@:00:admin",
+        "id": "req@:00"
+      }
+    ],
+    "reports": [
+      {
+        "isDone": false,
+        "expectedTime": {
+          "hour": 24,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "vehicleID": "veh@:00",
+        "requestedTime": {
+          "hour": 24,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 23,
+          "minute": 10,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "aborted": false,
+        "userID": "ac@:00:admin",
+        "id": "rep@:00"
+      }
+    ],
     "vehicles": [
       {
-        "occupiedPosition": "[GL-veh@:00]",
+        "occupiedPosition": "Unhangared",
         "vehicleLicensedPlate": "XX-XXX-XXX",
         "hangarType": "Water",
         "size": "L",
@@ -23,5 +76,83 @@
       }
     ],
     "id": "ac@:00:admin"
+  },
+  {
+    "isAdmin": false,
+    "fullName": "123",
+    "dateOfBirth": {
+      "hour": 0,
+      "minute": 0,
+      "day": 14,
+      "month": 11,
+      "year": 1449
+    },
+    "requests": [
+      {
+        "isAccepted": true,
+        "vehicleID": "veh@:01",
+        "requestedTime": {
+          "hour": 24,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 23,
+          "minute": 10,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "aborted": false,
+        "userID": "ac@:01",
+        "id": "req@:01"
+      }
+    ],
+    "reports": [
+      {
+        "isDone": false,
+        "expectedTime": {
+          "hour": 24,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "vehicleID": "veh@:01",
+        "requestedTime": {
+          "hour": 24,
+          "minute": 0,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "submittedTime": {
+          "hour": 23,
+          "minute": 10,
+          "day": 22,
+          "month": 12,
+          "year": 2024
+        },
+        "type": "Drive In",
+        "aborted": false,
+        "userID": "ac@:01",
+        "id": "rep@:01"
+      }
+    ],
+    "vehicles": [
+      {
+        "occupiedPosition": "Unhangared",
+        "vehicleLicensedPlate": "XX-XXX-XXX",
+        "hangarType": "Water",
+        "size": "L",
+        "type": "CARGO_SHIP",
+        "userID": "ac@:01",
+        "id": "veh@:01"
+      }
+    ],
+    "id": "ac@:01"
   }
 ]
