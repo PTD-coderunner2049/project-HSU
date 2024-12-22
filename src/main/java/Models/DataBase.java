@@ -20,12 +20,13 @@ public abstract class DataBase {
     private static File requestsBank = new File("src/main/resources/JSONs/ReqsBank.JSON");
     private static File reportsBank = new File("src/main/resources/JSONs/RepsBank.JSON");
     private static File vehiclesBank = new File("src/main/resources/JSONs/VehsBank.JSON");
+
+    private static int trafficToleranceByHour = 1;
+    // for demo, only 1 vessel is registered for transfering per hours, and maxium 5
+    // day ahead. this attribute will be change by other department such as
+    // managment.
     @SuppressWarnings("unused")
-    private static final int trafficToleranceByHour = 1;
-    // for demo, only 1 vessel is registered for transfering per hours
-    @SuppressWarnings("unused")
-    private static int[] todayTrafficDensity = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0 }; // 0 -> 24h TODO uniform updated density in realtime.
+    private static int[][] todayTrafficDensity = new int[5][24];
 
     private static GsonBuilder builder = new GsonBuilder();
 
@@ -51,6 +52,34 @@ public abstract class DataBase {
         return vehiclesBank;
     }
 
+    public static int getTraffictolerancebyhour() {
+        return trafficToleranceByHour;
+    }
+
+    public static void setTrafficToleranceByHour(int trafficToleranceByHour) {
+        DataBase.trafficToleranceByHour = trafficToleranceByHour;
+    }
+
+    public static void setTodayTrafficDensity(int day, int hour, int value) {
+        DataBase.todayTrafficDensity[day][hour] += value;
+    }
+
+    // ----------------------------------------------------------------------------
+    // Processing incomming request.
+    public static Time PassiveProcess(Request request, Time requestedTime) {
+
+        for (int i = 0; i < requestedTime.getDay() + 5; i++) {
+            for (int j = requestedTime.getHour(); j < 24; j++) {
+                if (todayTrafficDensity[i][j] < trafficToleranceByHour) {
+                    Time approvedTime = new Time(j, 0, i, requestedTime.getMonth(), requestedTime.getYear());
+                    new Report(request, approvedTime);
+                    todayTrafficDensity[i][j]++;
+                    return requestedTime;
+                }
+            }
+        }
+        return null;// next 5day's traffic is all booked.
+    }
     // ----------------------------------------------------------------------------
     // contribute to the core database.
 

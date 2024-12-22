@@ -23,6 +23,7 @@ public class DashBoardFrame extends javax.swing.JFrame {
         DashBoardContent.getInstance().add(new User_Component());
         DashBoardContent.getInstance().repainting();
         System.out.println("directing to user page");
+
     }
 
     public static DashBoardFrame getInstance() {

@@ -32,6 +32,7 @@ public class Report extends Document {
         DataBase.userBond(request, false);
         request.save();
         this.save();
+        System.out.println("Request []" + getId() + "] has been accepted by the PassiveProcessor");
     }
 
     public void setStatus(boolean isDone) {

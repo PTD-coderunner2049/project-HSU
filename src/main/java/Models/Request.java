@@ -11,9 +11,10 @@ public class Request extends Document {
             String type) {
         super(userID, vehicleID, requestedTime, submittedTime, type);
         setStatus(false);
-        
+
         DataBase.userBond(this, false);
         this.save();
+        System.out.println("Request [" + getId() + "] has been created on 'Pending'");
     }
 
     public void setStatus(boolean isAccepted) {

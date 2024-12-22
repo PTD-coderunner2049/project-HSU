@@ -359,6 +359,9 @@ public class Report_Component extends javax.swing.JPanel {
                 DataBase.userBond(veh, false);
                 veh.save();
 
+                // update density
+                DataBase.setTodayTrafficDensity(report.getExpectedTime().getDay(),report.getExpectedTime().getHour(), -1);
+
                 System.out.println("detected vessels move!");
                 secondStageinitComponents(report);
         }// GEN-LAST:event_confirmButtonActionPerformed
