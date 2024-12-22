@@ -357,8 +357,7 @@ public abstract class DataBase {
     }
 
     // blindly fetching a JSON file, need to specified a class for processing
-    @SuppressWarnings("unused") // I dont know how to check for it.
-    private static <Thing> List<Thing> blindFetchDataBase(File dir, Class<Thing> targetClass) {
+    public static <Thing> List<Thing> blindFetchDataBase(File dir, Class<Thing> targetClass) {
         // class to list.
         // pull object list
         try (FileReader jsonSheet = new FileReader(dir)) {
@@ -376,7 +375,7 @@ public abstract class DataBase {
 
     // capable of fetching any class to list.
     @SuppressWarnings("unchecked") // I dont know how to check for it.
-    private static <Thing extends Model> List<Thing> fetchDataBase(Thing object) {
+    public static <Thing extends Model> List<Thing> fetchDataBase(Thing object) {
         Class<Thing> objectClass = (Class<Thing>) object.getClass();
         File desiredBank = findBank(objectClass);
         // pull object list
@@ -385,7 +384,8 @@ public abstract class DataBase {
             List<Thing> objectList = read.fromJson(jsonSheet,
                     TypeToken.getParameterized(List.class, objectClass).getType());
 
-            return (objectList == null) ? new LinkedList<Thing>() : objectList;//for firt run when there are no data, return non null list
+            return (objectList == null) ? new LinkedList<Thing>() : objectList;// for firt run when there are no data,
+                                                                               // return non null list
 
         } catch (IOException e) {
             System.out.println("JSON DataBank fetching failure! Attemping to recreate nessesary dataBank");

@@ -3,6 +3,7 @@ package UIMainStream.DashBoard.Component;
 import java.awt.GridLayout;
 import java.util.LinkedList;
 
+import Models.DataBase;
 import Models.Request;
 import Models.User;
 
@@ -45,7 +46,14 @@ public class Request_Container extends javax.swing.JPanel {
 
     private void addComponents() {
 
-        LinkedList<Request> req = User.getInstance().getRequests();
+        User user = User.getInstance();
+        if (user.getAdminRight()) {
+
+            LinkedList<Request> req = user.getRequests();
+        } else {
+            LinkedList<Request> req = DataBase.fetchDataBase(new Request());
+        }
+
         if (req.isEmpty()) {
             this.add(new Empty_Screen());
             return;
