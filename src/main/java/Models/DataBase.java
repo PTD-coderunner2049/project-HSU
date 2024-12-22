@@ -385,8 +385,7 @@ public abstract class DataBase {
             List<Thing> objectList = read.fromJson(jsonSheet,
                     TypeToken.getParameterized(List.class, objectClass).getType());
 
-            // return (objectList == null) ? new LinkedList<Thing>() : objectList;
-            return objectList;
+            return (objectList == null) ? new LinkedList<Thing>() : objectList;//for firt run when there are no data, return non null list
 
         } catch (IOException e) {
             System.out.println("JSON DataBank fetching failure! Attemping to recreate nessesary dataBank");

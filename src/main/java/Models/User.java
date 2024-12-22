@@ -47,6 +47,10 @@ public class User extends Model {
         return instance;
     }
 
+    public static void clearInstance() {
+        instance = null;
+    }
+
     public boolean initUser(String fullName, Time dateOfBirth, boolean isAdmin) {
         setFullName(fullName);
         this.dateOfBirth.setHour(0);

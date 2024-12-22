@@ -29,6 +29,10 @@ public class DashBoardFrame extends javax.swing.JFrame {
         return (instance == null) ? instance = new DashBoardFrame() : instance;
     }
 
+    public static void clearInstance() {
+        instance = null;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 
 import Functions.ImageFunction;
+import Models.User;
 
 /**
  *
@@ -144,8 +145,9 @@ public class Navigation_Component extends javax.swing.JPanel {
 
                 break;
             case "Logout":
-                DashBoardFrame.getInstance().dispose();
+                DashBoardFrame.clearInstance();
                 MainEntry.startUp();
+                User.clearInstance();
                 System.out.println("system logged out...");
 
                 break;
