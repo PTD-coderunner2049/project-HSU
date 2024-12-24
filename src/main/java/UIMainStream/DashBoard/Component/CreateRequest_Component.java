@@ -320,40 +320,36 @@ public class CreateRequest_Component extends javax.swing.JPanel implements Custo
         Request request = createRequest(createVehicle(), requestedTime);
         JOptionPane.showMessageDialog(this, "Document successfully submited at : " + new Time() + "\n");
         resetAllTextes();
-
-        if (DataBase.PassiveProcess(request, requestedTime) != null) {
-            requestStateNotifier(request, requestedTime, true);
-        }
-    }// GEN-LAST:event_createMouseClicked
-
-    public void requestStateNotifier(Request request, Time requestedTime, boolean status) {
-        // Create a Runnable for the delay and message display
         Runnable showMessage = () -> {
             try {
                 Thread.sleep(3000); // Delay for 10 seconds
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
-
             SwingUtilities.invokeLater(() -> {
-                String message;
-                if (status) {
-                    message = "Your request [" + request.getId()
+                if (DataBase.PassiveProcess(request, requestedTime) != null) {
+                requestStateNotifier(request, requestedTime, true);
+                }
+           });
+        };
+        new Thread(showMessage).start();
+    }// GEN-LAST:event_createMouseClicked
+
+    public void requestStateNotifier(Request request, Time requestedTime, boolean status) {
+        // Create a Runnable for the delay and message display
+        String message;
+        if (status) {
+            message = "Your request [" + request.getId()
                             + "] have just been approved. Check your papers for upcoming schedule";
-                } else {
-                    message = "<html>" +
+        } else {
+            message = "<html>" +
                             "All possible gaps for transport contract within the next five days has been filled.<br>" +
                             "Your request will be put on hold for reprocessing later.<br>" +
                             "You may abort your paper [" + request.getId() + "] at anytime of like!<br>" +
                             "we are sorry for this disconvenience" +
                             "</html>";
-                }
-                JOptionPane.showMessageDialog(this, message);
-            });
-        };
-
-        // Create and start a new thread to execute the Runnable
-        new Thread(showMessage).start();
+        }
+        JOptionPane.showMessageDialog(this, message);
     }
 
     private void cancelMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cancelMouseClicked
