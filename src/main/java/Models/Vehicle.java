@@ -32,7 +32,7 @@ public class Vehicle extends UserData {
 
     public void setOccupiedPosition(boolean isHangared) {
         if (isHangared) {
-            String t = (hangarType == "Water") ? "W" : "G";
+            String t = (hangarType.equals("Water")) ? "W" : "G";
             occupiedPosition = "[" + t + size + "-" + getId() + "]";
         } else {
             occupiedPosition = "Unhangared";

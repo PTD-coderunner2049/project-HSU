@@ -330,7 +330,7 @@ public class CreateRequest_Component extends javax.swing.JPanel implements Custo
         // Create a Runnable for the delay and message display
         Runnable showMessage = () -> {
             try {
-                Thread.sleep(10000); // Delay for 10 seconds
+                Thread.sleep(3000); // Delay for 10 seconds
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
