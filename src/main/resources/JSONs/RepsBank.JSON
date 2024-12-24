@@ -1,0 +1,60 @@
+[
+  {
+    "isDone": false,
+    "expectedTime": {
+      "hour": 16,
+      "minute": 0,
+      "day": 0,
+      "month": 12,
+      "year": 2024
+    },
+    "vehicleID": "veh@:00",
+    "requestedTime": {
+      "hour": 16,
+      "minute": 0,
+      "day": 0,
+      "month": 12,
+      "year": 2024
+    },
+    "submittedTime": {
+      "hour": 15,
+      "minute": 21,
+      "day": 24,
+      "month": 12,
+      "year": 2024
+    },
+    "type": "Drive In",
+    "aborted": false,
+    "userID": "ac@:01",
+    "id": "rep@:00"
+  },
+  {
+    "isDone": false,
+    "expectedTime": {
+      "hour": 17,
+      "minute": 0,
+      "day": 0,
+      "month": 12,
+      "year": 2024
+    },
+    "vehicleID": "veh@:01",
+    "requestedTime": {
+      "hour": 17,
+      "minute": 0,
+      "day": 0,
+      "month": 12,
+      "year": 2024
+    },
+    "submittedTime": {
+      "hour": 15,
+      "minute": 22,
+      "day": 24,
+      "month": 12,
+      "year": 2024
+    },
+    "type": "Drive In",
+    "aborted": false,
+    "userID": "ac@:00:admin",
+    "id": "rep@:01"
+  }
+]

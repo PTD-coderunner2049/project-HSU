@@ -1,0 +1,20 @@
+[
+  {
+    "occupiedPosition": "Unhangared",
+    "vehicleLicensedPlate": "XX-XXX-XXX",
+    "hangarType": "Water",
+    "size": "L",
+    "type": "CARGO_SHIP",
+    "userID": "ac@:01",
+    "id": "veh@:00"
+  },
+  {
+    "occupiedPosition": "Unhangared",
+    "vehicleLicensedPlate": "XX-XXX-XXX",
+    "hangarType": "Water",
+    "size": "L",
+    "type": "CARGO_SHIP",
+    "userID": "ac@:00:admin",
+    "id": "veh@:01"
+  }
+]
