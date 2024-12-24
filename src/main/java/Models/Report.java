@@ -23,7 +23,6 @@ public class Report extends Document {
         request.setStatus(true);// accepted the req
         this.setStatus(false);// pending the rep
 
-        // TODO edit expected Time base on density from database.
         expectedTime = requestedTime; // get everything
         expectedTime.setHour(expectedTime.getHour() + 1); // for now automatically increate it by 1.
         // rebond in this demo, you should have this fully set before

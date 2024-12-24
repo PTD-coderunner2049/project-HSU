@@ -1,21 +1,6 @@
 [
   {
     "isAdmin": true,
-    "fullName": "ad",
-    "dateOfBirth": {
-      "hour": 0,
-      "minute": 0,
-      "day": 14,
-      "month": 11,
-      "year": 1449
-    },
-    "requests": [],
-    "reports": [],
-    "vehicles": [],
-    "id": "ac@:00:admin"
-  },
-  {
-    "isAdmin": false,
     "fullName": "123",
     "dateOfBirth": {
       "hour": 0,
@@ -27,6 +12,6 @@
     "requests": [],
     "reports": [],
     "vehicles": [],
-    "id": "ac@:01"
+    "id": "ac@:00:admin"
   }
 ]

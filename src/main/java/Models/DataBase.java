@@ -25,7 +25,7 @@ public abstract class DataBase {
     // for demo, only 1 vessel is registered for transfering per hours, and maxium 5
     // day ahead. this attribute will be change by other department such as
     // managment.
-    @SuppressWarnings("unused")
+    // @SuppressWarnings("unused")
     private static int[][] todayTrafficDensity = new int[5][24];
 
     private static GsonBuilder builder = new GsonBuilder();
